@@ -1,0 +1,48 @@
+.calendar-icon{
+    position: relative;
+    height: 70px;
+    width: 70px;
+    padding-top: 20px;
+    background: url("./../../images/calendarIcon.png") 0% 50% no-repeat;
+    background-size: 70px;
+    margin: 10px auto;
+    cursor: pointer;
+    box-shadow: #919191 2px 2px 2px;
+    border-radius: 15px;
+    &:before, &:after{
+        content: "";
+        height: 12px;
+        width: 4px;
+        background-color: #888888;
+        position: absolute;
+        top: -2px;
+        -webkit-box-shadow: inset 2px 2px 2px #EEEEEE;
+        -moz-box-shadow: inset 2px 2px 2px #EEEEEE;
+        box-shadow: inset 2px 2px 2px #EEEEEE;
+    }
+    &:before{
+        left: 12px;
+    }
+    &:after{
+        right: 12px;
+    }
+}
+.calendar-label{
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+}
+/*日历快捷选择面板*/
+.calendar-panel-wrap{
+    width: 300px;
+    position: absolute;
+    background: #FFFFFF;
+    z-index: 1;
+    margin-left: 50px;
+    margin-top: 0;
+    box-shadow: 5px 5px 5px rgba(102,102,102,0.3);
+}
+
+.text-center{
+    text-align: center;
+}

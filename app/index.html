@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="utf-8">
+    <title>肚皮叔</title>
+</head>
+<body>
+    <div class="root" id="root"></div>
+    <script>
+        window.$GLOBALCONFIG = {};
+        +function(global){
+
+            // 本地开发打开的路径以及端口
+            global.$ctx = "http://localhost:3000";
+
+            global.CTI_SERVER_IP = "210.14.88.129";
+
+            // 用户登出URL
+            global.LOGOUT_URL = "http://192.168.1.177:9043/logout?service=http%3A%2F%2F192.168.1.177%3A9043%3Fservice%3Dhttp%3A%2F%2F192.168.1.188%3A19480%2F";
+
+            // 用户登录信息
+            global.STAFF = {
+                code: 'admin',
+                name: '黄焖鸡',
+                "previousLoginTime":"2016-08-01 3:11:29",
+                "previousLoginIp":"192.168.1.12",
+                "previousLoginCity":"",
+                "id":"43"
+            };
+            
+            // 系统一二级菜单
+            global.NAVIGATION = [
+                
+                {
+                    "id":600110230,
+                    "name":"实有房屋",
+                    "url":"",
+                    "children":[
+                        { "id":600110231, "name":"实有房屋（查看）", "url":"houseCheck" },
+                        { "id":600110232, "name":"实有房屋（管理）", "url":"houseManage" }
+                    ]
+                },
+                {
+                    "id":600110330,
+                    "name":"实有人口",
+                    "url":"",
+                    "children":[
+                        { "id":600110331, "name":"实有人口（查看）", "url":"popCheck" },
+                        { "id":600110332, "name":"实有人口（管理）", "url":"popManage" }
+                    ]
+                },
+                
+            ];
+
+            
+            // 行政区划
+            global.ADMINISTRATIVE_DIVISION = [
+                {
+                    "code": "01",
+                    "mean": "交通街道",
+                    "num" : 100
+                },
+                {
+                    "code": "02",
+                    "mean": "公园街道",
+                    "num" : 100
+                },
+                {
+                    "code": "03",
+                    "mean": "林荫街道",
+                    "num" : 100
+                },
+                {
+                    "code": "04",
+                    "mean": "建设街道",
+                    "num" : 100
+                },
+                {
+                    "code": "05",
+                    "mean": "富兴街道",
+                    "num" : 100
+                },
+                {
+                    "code": "06",
+                    "mean": "天骄街道",
+                    "num" : 100
+                },
+                {
+                    "code": "07",
+                    "mean": "河额伦街道",
+                    "num" : 100
+                },
+                
+            ]
+
+            // 行政区划
+            global.DIVISION = [
+                {
+                  "id": "10001",
+                  "name": "上城区",
+                  "pid": "",
+                  "lv": "1",
+                  "sort": "division",
+                  "num": "1000",
+                },
+                {
+                  "id": "10002",
+                  "name": "下城区",
+                  "pid": "",
+                  "lv": "1",
+                  "sort": "division",
+                  "num": "2000",
+                },
+                {
+                  "id": "10101",
+                  "name": "清波街道",
+                  "pid": "10001",
+                  "lv": "2",
+                  "sort": "division",
+                  "num": "500",
+                },
+                {
+                  "id": "10102",
+                  "name": "湖滨街道",
+                  "pid": "10001",
+                  "lv": "2",
+                  "sort": "division",
+                  "num": "300",
+                },
+                {
+                  "id": "10103",
+                  "name": "小营街道",
+                  "pid": "10001",
+                  "lv": "2",
+                  "sort": "division",
+                  "num": "200",
+                },
+                {
+                  "id": "10108",
+                  "name": "南星街道",
+                  "pid": "10002",
+                  "lv": "2",
+                  "sort": "division",
+                  "num": "2000",
+                },
+                {
+                  "id": "11001",
+                  "name": "定安路社区",
+                  "pid": "10101",
+                  "lv": "3",
+                  "sort": "division",
+                  "num": "350",
+                },
+                {
+                  "id": "11009",
+                  "name": "劳动路社区",
+                  "pid": "10101",
+                  "lv": "3",
+                  "sort": "division",
+                  "num": "150",
+                }
+            ]
+
+            // 人口类型
+            global.POP = [
+                {
+                  "id": "20001",
+                  "name": "常住人口",
+                  "pid": "",
+                  "lv": "1",
+                  "sort": "pop",
+                  "num": "1111",
+                },
+                {
+                  "id": "20002",
+                  "name": "流动人口",
+                  "pid": "",
+                  "lv": "1",
+                  "sort": "pop",
+                  "num": "2111",
+                },
+                {
+                  "id": "20101",
+                  "name": "市区",
+                  "pid": "20001",
+                  "lv": "2",
+                  "sort": "pop",
+                  "num": "534",
+                },
+                {
+                  "id": "20102",
+                  "name": "郊区",
+                  "pid": "20001",
+                  "lv": "2",
+                  "sort": "pop",
+                  "num": "232",
+                },
+                {
+                  "id": "21101",
+                  "name": "西湖",
+                  "pid": "20101",
+                  "lv": "3",
+                  "sort": "pop",
+                  "num": "23",
+                },
+            ]
+            
+           
+
+            }(window.$GLOBALCONFIG);
+    </script>
+
+</body>
+</html>

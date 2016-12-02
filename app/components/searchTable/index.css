@@ -1,0 +1,10 @@
+.search-form-table .ant-table th,
+.search-form-table .ant-table td {
+    white-space: nowrap;
+}
+.table-button{
+	margin-bottom: 20px;
+}
+.table-button button{
+	margin-right: 10px;
+}

@@ -1,0 +1,107 @@
+.ant-tag {
+  display: inline-block;
+  line-height: 22px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 2px;
+  border: 1px solid #e9e9e9;
+  background: #f7f7f7;
+  font-size: 12px;
+  transition: all 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+  vertical-align: middle;
+  opacity: 1;
+  overflow: hidden;
+  margin: 2px 4px 2px 0;
+  cursor: pointer;
+}
+.ant-tag:hover {
+  opacity: 0.85;
+}
+.ant-tag,
+.ant-tag a,
+.ant-tag a:hover {
+  color: #666;
+}
+.ant-tag-text a:first-child:last-child {
+  display: inline-block;
+  margin: 0 -8px;
+  padding: 0 8px;
+}
+.ant-tag .anticon-cross {
+  display: inline-block;
+  font-size: 12px;
+  font-size: 10px \9;
+  transform: scale(0.83333333) rotate(0deg);
+  /* IE6-IE8 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=0, M22=1)";
+  zoom: 1;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 3px;
+  color: #666;
+  transition: all 0.3s ease;
+  opacity: 0.66;
+}
+:root .ant-tag .anticon-cross {
+  filter: none;
+}
+:root .ant-tag .anticon-cross {
+  font-size: 12px;
+}
+.ant-tag .anticon-cross:hover {
+  opacity: 1;
+}
+.ant-tag-blue,
+.ant-tag-green,
+.ant-tag-yellow,
+.ant-tag-red {
+  border: 0;
+}
+.ant-tag-blue,
+.ant-tag-green,
+.ant-tag-yellow,
+.ant-tag-red,
+.ant-tag-blue a,
+.ant-tag-green a,
+.ant-tag-yellow a,
+.ant-tag-red a,
+.ant-tag-blue a:hover,
+.ant-tag-green a:hover,
+.ant-tag-yellow a:hover,
+.ant-tag-red a:hover,
+.ant-tag-blue .anticon-cross,
+.ant-tag-green .anticon-cross,
+.ant-tag-yellow .anticon-cross,
+.ant-tag-red .anticon-cross,
+.ant-tag-blue .anticon-cross:hover,
+.ant-tag-green .anticon-cross:hover,
+.ant-tag-yellow .anticon-cross:hover,
+.ant-tag-red .anticon-cross:hover {
+  color: #fff;
+}
+.ant-tag-blue {
+  background: #2db7f5;
+}
+.ant-tag-green {
+  background: #87d068;
+}
+.ant-tag-yellow {
+  background: #fa0;
+}
+.ant-tag-red {
+  background: #f50;
+}
+.ant-tag-close {
+  width: 0 !important;
+  padding: 0;
+  margin: 0;
+}
+.ant-tag-zoom-enter,
+.ant-tag-zoom-appear {
+  animation: antFadeIn 0.2s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+  animation-fill-mode: both;
+}
+.ant-tag-zoom-leave {
+  animation: antZoomOut 0.3s cubic-bezier(0.78, 0.14, 0.15, 0.86);
+  animation-fill-mode: both;
+}

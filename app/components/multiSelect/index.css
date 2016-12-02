@@ -1,0 +1,39 @@
+.multi-select{
+ 	line-height: 30px;
+ 	position: relative;
+ 	z-index: 1000;
+}
+.multi-select-single{
+ 	outline: none;
+ 	position: relative;
+ 	box-sizing: border-box;
+ 	background-color: #fff;
+ 	border-radius: 6px;
+ 	height: 32px;
+ 	border:1px solid #d9d9d9;
+ 	-webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
+}
+.multi-select-single > a{
+ 	display: block;
+ 	padding-right: 15%;
+ 	white-space: nowrap;
+ 	overflow: hidden;
+ 	text-overflow: ellipsis;
+}
+.multi-select-drop{
+	position: absolute;
+	background-color: #fff;
+	border-radius: 6px;
+	border: 1px solid #d9d9d9;
+	min-width: 400px;
+	padding: 10px;
+	margin-top: 5px;
+}
+.multi-select-row > div{
+	max-width: 90px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

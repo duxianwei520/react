@@ -1,0 +1,36 @@
+.mr{margin-right: 10px;}
+.type-map{}
+.type-map h3{ font-size: 14px; text-align: center; border-bottom: 1px solid #ddd; padding: 10px 0;}
+.type-map li{ font-size: 12px; padding:5px;}
+.type-map li .detail{ color: blue; padding:0 0 0 10px;cursor: pointer; }
+.main .box .amap-container{ border-left: 1px solid #ddd;}
+.main .box{ border:1px solid #ddd; margin:20px 0 0 0; }
+.main .box .ant-pagination { margin:20px 0 0 0;padding: 20px 0 0 20px; border-top: 1px solid #ddd;}
+.ant-input-wrapper input[type="text"]{ height: 32px; }
+.multi-select .multi-select-single{ border-radius: 2px; }
+.detail-tab .ant-tabs-tab-inner{ font-size: 12px;  }
+.title{ font-size: 12px; padding:0 0 10px 0; }
+.text-right{ text-align: right; }
+.fl{ float: left; }
+.fr{ float: right; }
+.box-right .ant-tabs-nav{ float: right; }
+.box-right .ant-tabs-tab-active .ant-tabs-tab-inner{ background-color: #51ace1; color: #fff; border:0; }
+.box-right .ant-tabs-nav { margin-right: 10px; margin-bottom: 10px; }
+.title-wrap{ position: relative; }
+.title-wrap .title{ position:  absolute; top: 15px;}
+
+.detail-content{ }
+.detail-box { background: #fff;margin-bottom: 16px;padding: 10px;}
+.detail-wrapper {  position: relative;  background-color: #fff;}
+.detail-tab { position: absolute; top: 10px;left: 0;}
+.detail-tab .ant-tabs-tab { background-color: #fff; margin-bottom: 0px!important;}
+.detail-tab .ant-tabs-bar .ant-tabs-tab .ant-tabs-tab-inner { padding: 8px 16px;}
+.detail-info { margin-left: 100px;	}
+.box .ant-tabs-bar{ padding-top: 10px; }
+
+/*访查房间*/
+.check {min-height: 300px; padding-top: 15px;}
+.check .ant-tabs-bar{ margin-bottom: 20px; }
+.check .ant-tabs-bar .ant-tabs-tab-active{ background-color: #5383af; }
+.check .ant-tabs-bar .ant-tabs-tab-active .ant-tabs-tab-inner{ color: #fff; }
+.check .rooms{margin:0 10px 10px 0;}

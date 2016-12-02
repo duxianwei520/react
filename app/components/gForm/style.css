@@ -1,0 +1,19 @@
+
+
+.gform{ margin:0 0 20px 0;}
+.totle{ font-size: 14px; display: inline-block; min-width: 52px;}
+.gform .selected-list{display: inline-block; margin:0 0 0 27px; vertical-align: sub;}
+.gform .selected-list .selected-btn{ margin:0 10px 10px 0; }
+.gform-head{ margin:0 0 10px 0; }
+.gform-head .ant-input-wrapper .search-input{ width: auto; margin:0 10px 0 6px; height: 28px; }
+.group{ margin:0 0 10px 0; height: auto;  position: relative;}
+.smallgroup{ height: 22px; overflow: hidden; }
+.list-wrap .item{ margin:0 20px 0 0;  cursor: pointer; }
+.list-wrap .item .name{  color: #478ed0; }
+.check-wrap{ position: absolute; z-index: 10; top: 0; padding:10px;min-height: 40px; background-color: #fff; width: 100%; background-color: #f5f5f5; }
+.check-wrap .checks{ padding-left: 75px; }
+.check-wrap .checkbox{ vertical-align: middle;}
+.check-wrap .check-label{margin-right: 10px; white-space: nowrap; cursor: pointer;}
+.check-wrap .btns{ text-align: center; }
+.check-wrap button{ margin-right: 10px; }
+.rowSlide{ margin:0 0 0 20px; cursor: pointer;  font-size: 14px;}

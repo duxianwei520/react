@@ -1,0 +1,47 @@
+.detail-content{ 
+
+}
+.detail-box {
+    background: #fff;
+    margin-bottom: 16px;
+    padding: 10px;
+}
+.detail-tag-button {
+    padding: 6px 0;
+    width: 100%;
+    height: 40px;
+}
+.detail-tag-button:after {
+    clear: both;
+    visibility:hidden;
+}
+.detail-tag {
+    float: left;
+    margin-top: 1px;
+}
+.detail-button {
+    float: right;
+}
+.detail-button .ant-btn {
+    margin-left: 8px;
+}
+.detail-wrapper {
+    position: relative;
+    padding-top: 10px;
+    background-color: #fff;
+}
+.detail-tab {
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+.detail-tab .ant-tabs-tab {
+    background-color: #fff;
+    margin-bottom: 0px!important;
+}
+.detail-tab .ant-tabs-bar .ant-tabs-tab .ant-tabs-tab-inner {
+    padding: 8px 16px;
+}
+.detail-info {
+    margin-left: 104px;
+}

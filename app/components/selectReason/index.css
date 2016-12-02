@@ -1,0 +1,30 @@
+.dwd-reasons-dropdown {
+    position: absolute;
+    background-color: #FFF;
+    box-shadow: 0 2px 1px 0 rgba(0,0,0,0.15);
+    z-index: 3;
+    max-height: 500px;
+    overflow-y: scroll;
+}
+.dwd-reasons-dropdown ul {
+    padding-left: 15px;
+    padding-right: 10px;
+}
+.dwd-reasons-dropdown li {
+    list-style: none;
+    line-height: 30px;
+    text-align: left;
+}
+.dwd-reasons-dropdown > ul > li > a > span {
+    font-weight: bold;
+}
+.form-checkbox:not(.btn), .form-radio:not(.btn) {
+    display: inline-block;
+    background-color: transparent;
+    border: 0;
+    position: relative;
+    padding: 3px;
+    line-height: 1em;
+    min-width: 19px;
+    margin: 0;
+}

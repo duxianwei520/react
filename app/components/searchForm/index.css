@@ -1,0 +1,22 @@
+.ant-advanced-search-form {
+    padding: 16px 8px;
+    background: #f1f5f7;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+/* 由于输入标签长度不确定，所以需要微调使之看上去居中 */
+.ant-advanced-search-form > .ant-row {
+    position: relative;
+    left: -6px;
+}
+
+.ant-advanced-search-form .ant-btn {
+    margin-left: 8px;
+}
+.ant-form-horizontal.ant-advanced-search-form > div:first-child{
+	z-index: 10;
+}
+.search-form-button{
+	z-index: 0;
+}
