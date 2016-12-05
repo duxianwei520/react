@@ -1,19 +1,11 @@
-#tgram
+# react
+一个react+redux+webpack+ES6+antd的SPA的后台管理框架demo
 
-## Setup
+# 安装
+npm install
 
-```
-$ npm install
-```
+# 启动
+npm  start
 
-## Running
-
-```
-$ npm start
-```
-
-## Test
-
-```
-$ npm test
-```
+# 打包部署
+npm run build
