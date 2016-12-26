@@ -36,11 +36,6 @@ export default class multiSelect extends Component {
     })
   }
 
-  show() {
-    this.setState({
-      open: true,
-    })
-  }
 
   hide(event) {
     if (event.target.closest('.multi-select')) {

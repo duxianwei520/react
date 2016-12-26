@@ -12,6 +12,8 @@ import {
   roomDetail,
 } from './pages/house'
 
+import popCheck  from './pages/pop/index'
+
 
 const routes = (
   <Route>
@@ -22,6 +24,9 @@ const routes = (
       <Route path="/houseManage" component={houseManage} />
       <Route path="/houseDetail/:houseId" component={houseDetail} />
       <Route path="/roomDetail/:houseId/:roomId" component={roomDetail} />
+
+
+      <Route path="/popCheck" component={popCheck} />
 
     </Route>
     <Route path="/login" component={Login}></Route>

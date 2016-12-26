@@ -6449,3 +6449,5 @@ a.text-dark:focus {
 .vertical-center-modal .ant-modal {
   top: 0;
 }
+
+.hide{ display: none;}
