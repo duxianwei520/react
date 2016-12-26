@@ -22,17 +22,17 @@ npm run lint
 
 
 # 目录结构说明
-.config.json  里面配置的是获取后端接口的地址  接口地址不对的话   某些页面可能会自动频繁的刷新噢
-.gitignore是上传到git的配置信息
-webpack.config.js当然就是webpack的配置了  
-package.json  就是我们整个项目要依赖的npm包的列表
-app里面就是我们整个项目的源文件  
-index.html是我们依赖的页面  有一个跟id   还有其他的也要要用到的常量等等
-client.js是入口js  
-routes.js  当然就是路由系统了  里面可以做一些验证登录的事情  在路由的onEnter里面做就行  
-utils里面就是一些常用的功能的封装  比如发送的ajax请求
-actions、API、reducers这几个文件夹  是用来处理跟后端交互的文件夹 比如实有房屋打开这个页面打开控制台会看到发送了一个ajax请求  这些请求都是post形式的噢
++ .config.json  里面配置的是获取后端接口的地址  接口地址不对的话   某些页面可能会自动频繁的刷新噢
++ .gitignore是上传到git的配置信息
++ webpack.config.js当然就是webpack的配置了  
++ package.json  就是我们整个项目要依赖的npm包的列表
++ app里面就是我们整个项目的源文件  
++ index.html是我们依赖的页面  有一个跟id   还有其他的也要要用到的常量等等
++ client.js是入口js  
++ routes.js  当然就是路由系统了  里面可以做一些验证登录的事情  在路由的onEnter里面做就行  
++ utils里面就是一些常用的功能的封装  比如发送的ajax请求
++ actions、API、reducers这几个文件夹  是用来处理跟后端交互的文件夹 比如实有房屋打开这个页面打开控制台会看到发送了一个ajax请求  这些请求都是post形式的噢
 
-pags：存放的是我们的大部分业务文件
-components：当然就是我们公用的一些组件了  可以理解为jQuery框架的jQuery插件
-containers：存放的是我们基本的页面的组件  比如说头部 左侧 中间内容区的布局 
++ pages：存放的是我们的大部分业务文件
++ components：当然就是我们公用的一些组件了  可以理解为jQuery框架的jQuery插件
++ containers：存放的是我们基本的页面的组件  比如说头部 左侧 中间内容区的布局 
