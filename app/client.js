@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import { Router } from 'react-router';
 import { Provider } from 'react-redux';
 import { syncHistoryWithStore } from 'react-router-redux'
-import './style/antd.less'
 import routes from './routes';
 import configure from './store/configureStore';
 import myhistory from './history'

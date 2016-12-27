@@ -61,10 +61,9 @@ export default class LeftNav extends Component {
   render() {
     // console.log('this.props.location', this.props.location)
     return (
-      <nav id="mainnav-container" style={{ backgroundColor: '#31404e' }}>
+      <nav id="mainnav-container">
         <Menu onClick={this._handleClick}
           theme="dark"
-          style={{ width: 220 }}
           openKeys={this.state.openKeys}
           onOpenChange={this._handleToggle}
           selectedKeys={[`${this.props.location.pathname}`]}

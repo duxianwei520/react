@@ -1,0 +1,143 @@
+body{
+  font-family: 'Microsoft YaHei',Helvetica, Arial, sans-serif;
+  margin:0;padding:0;overflow-y: hidden;
+}
+input {
+line-height: normal;
+border: 1px #d6d6d6 solid;
+background: #ffffff;
+padding: 3px;
+outline:none;
+vertical-align: middle;
+}
+
+.main2 {
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+}
+.sy_top {
+  height: 60%;
+  width: 100%;
+  background: #4a99e6;
+  position: absolute;
+  top: 0;
+}
+.sy_top .gn_lj {
+  position: absolute;
+  bottom: 50px;
+  width: 530px;
+  margin: 0 auto;
+  left: 50%;
+  margin-left: -265px;
+}
+.gn_lj a {
+  display: block;
+  width: 110px;
+  height: 110px;
+}
+.gn_lj a.left {
+  margin-right: 100px;
+/*   background: url(../../common/images/sy_tb11.png) no-repeat; */
+}
+.gn_lj a.jcxx {
+/*   background: url(../../common/images/sy_tb22.png) no-repeat; */
+}
+.gn_lj a.right {
+/*   background: url(../../common/images/sy_tb33.png) no-repeat; */
+}
+.btmLogin {
+  width: 100%;
+  top: 60%;
+  position: absolute;
+}
+.sy_bottom {
+  height: 250px;
+  text-align: center;
+}
+.sy_bottom h1 {font-size: 25px;color: #333;font-weight: normal;margin-top: 50px;margin-bottom:55px;}
+.sy_bottom li{display:inline-block;margin-right:10px;}
+.sy_bottom input[type="text"] {-webkit-border-radius: 10px;border: solid 1px #CDD1D4;padding-left: 15px;height: 32px;width: 170px;
+-moz-border-radius: 10px;-ms-border-radius: 10px;-o-border-radius: 10px;}
+input[type="password"] {-webkit-border-radius: 10px;border: solid 1px #CDD1D4;padding-left: 15px;height: 32px;width: 170px;
+-moz-border-radius: 10px;-ms-border-radius: 10px;-o-border-radius: 10px;}
+input[type="submit"] {-webkit-border-radius: 10px;border: solid 1px #CDD1D4;height:30px;width: 55px;background: #BFE9FF;color: #84B0D3;
+-moz-border-radius: 10px;-ms-border-radius: 10px;-o-border-radius: 10px;cursor: pointer;}
+/**
+ * 
+ */
+#mb{position:absolute;width:100%;background:#333;z-index:1;opacity: 0.8;height:796px;}
+.nr{height:255px;width:580px;background:#fff;border-radius: 10px;font-family:"微软雅黑";z-index:1;margin:10px auto;position: absolute;
+top: 160px;left: 440px;}
+.nr ul{border-bottom:solid 1px #DFDFDF;height:26px;line-height:30px;padding: 0 20px 3px 20px;}
+.nr li{list-style:none;display:inline-block;}
+.nr li:first-child{color:#919191;font-weight:bold;font-size:16px;}
+.nr li:last-child{color:#DFE1E0;font-weight:bold;font-size:15px;float:right;cursor:pointer;}
+.nr .cont{display: block;margin:90px auto;width: 235px;font-size: 20px;font-weight: bold;color:#717171}
+.nr .cont a{margin-left:6px;text-decoration: none;color:#C4C2F5;cursor:pointer;font-size: 20px;}
+      
+/* 提示框样式 */
+.tipBg{
+position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background:rgba(0,0,0,0.2);
+  z-index:9999;
+}
+.tipContent{
+  position: absolute;
+  left:36%;
+  width: 300px;
+  height: 200px;
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow:0px 0px 10px #343232;
+  animation: moveIn 0.4s ease-in-out;
+  -webkit-animation: moveIn 0.4s ease-in-out;
+  animation-fill-mode: forwards;/*动画结束时，动画停留在最后一帧*/
+  -webkit-animation-fill-mode: forwards;
+  
+}
+.tipTitle{
+  height:40px;
+  line-height:40px;
+  padding-left:10px;
+  background:#152636;
+  color:#fff;
+}
+.tipTitle a{
+  display:inline-block;
+  float:right;
+  padding-right:10px;
+  color:#fff;
+  font-size:14px;
+}
+.tipText{
+  text-align:center;
+  margin-top:50px;
+  font-size:14px;
+}
+.tipBottom{
+  position:absolute;
+  bottom:10px;
+  width:100%;
+  text-align:center;
+}
+.tipBottom button{
+  margin: 0 15px;
+}
+@keyframes  moveIn{
+  0% { top:15%;}
+  100% { top:30%;}
+}
+@-webkit-keyframes  moveIn{
+  0% { top:15%;}
+  100% { top:30%;}
+}   
+
+.companyName{position: fixed;width: 100%; color:#ccc; bottom:10px ;text-align:center; font-size:16px;}
+.ul-wrap{ width: 500px; margin:0 auto; }
+.ul-wrap .ant-spin-spinning{ left: 0; }

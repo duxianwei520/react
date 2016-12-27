@@ -7,29 +7,28 @@ import {
 
 import tabListResult from './tabList'
 
+// house
 import {
   houseCheckSearchResult,
   houseCheckSearchQuery,
   houseDetailResult
 } from './house'
 import {
- 
+  loginResponse,
 } from './common'
-
 
 const rootReducer = combineReducers({
   routing,
   config: (state = {}) => state,
   tabListResult,
- 
 
-
+  loginResponse,
+  
   houseCheckSearchResult,
   houseCheckSearchQuery,
   houseDetailResult,
 
   
-
 });
 
 export default rootReducer;
