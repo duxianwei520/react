@@ -13,7 +13,7 @@ import React, { Component } from 'react'
 // from 'actions/common'
 import { chunk, clone } from 'lodash'
 import { Row, Col, Checkbox, Button } from 'antd';
-import 'components/multiSelect/index.css'
+import 'components/index.less'
 
 // const CheckboxGroup = Checkbox.Group;
 export default class multiSelect extends Component {

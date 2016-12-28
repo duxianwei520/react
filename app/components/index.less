@@ -1,0 +1,297 @@
+.multi-select{
+ 	line-height: 30px;
+ 	position: relative;
+ 	z-index: 1000;
+}
+.multi-select-single{
+ 	outline: none;
+ 	position: relative;
+ 	box-sizing: border-box;
+ 	background-color: #fff;
+ 	border-radius: 6px;
+ 	height: 32px;
+ 	border:1px solid #d9d9d9;
+ 	-webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
+}
+.multi-select-single > a{
+ 	display: block;
+ 	padding-right: 15%;
+ 	white-space: nowrap;
+ 	overflow: hidden;
+ 	text-overflow: ellipsis;
+}
+.multi-select-drop{
+	position: absolute;
+	background-color: #fff;
+	border-radius: 6px;
+	border: 1px solid #d9d9d9;
+	min-width: 400px;
+	padding: 10px;
+	margin-top: 5px;
+}
+.multi-select-row > div{
+	max-width: 90px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+
+.calendar-icon{
+    position: relative;
+    height: 70px;
+    width: 70px;
+    padding-top: 20px;
+    background-size: 70px;
+    margin: 10px auto;
+    cursor: pointer;
+    box-shadow: #919191 2px 2px 2px;
+    border-radius: 15px;
+    &:before, &:after{
+        content: "";
+        height: 12px;
+        width: 4px;
+        background-color: #888888;
+        position: absolute;
+        top: -2px;
+        -webkit-box-shadow: inset 2px 2px 2px #EEEEEE;
+        -moz-box-shadow: inset 2px 2px 2px #EEEEEE;
+        box-shadow: inset 2px 2px 2px #EEEEEE;
+    }
+    &:before{
+        left: 12px;
+    }
+    &:after{
+        right: 12px;
+    }
+}
+.calendar-label{
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+}
+/*日历快捷选择面板*/
+.calendar-panel-wrap{
+    width: 300px;
+    position: absolute;
+    background: #FFFFFF;
+    z-index: 1;
+    margin-left: 50px;
+    margin-top: 0;
+    box-shadow: 5px 5px 5px rgba(102,102,102,0.3);
+}
+
+.text-center{
+    text-align: center;
+}
+
+
+
+.detail-content{ 
+
+}
+.detail-box {
+    background: #fff;
+    margin-bottom: 16px;
+    padding: 10px;
+}
+.detail-tag-button {
+    padding: 6px 0;
+    width: 100%;
+    height: 40px;
+}
+.detail-tag-button:after {
+    clear: both;
+    visibility:hidden;
+}
+.detail-tag {
+    float: left;
+    margin-top: 1px;
+}
+.detail-button {
+    float: right;
+}
+.detail-button .ant-btn {
+    margin-left: 8px;
+}
+.detail-wrapper {
+    position: relative;
+    padding-top: 10px;
+    background-color: #fff;
+}
+.detail-tab {
+    position: absolute;
+    top: 10px;
+    left: 0;
+}
+.detail-tab .ant-tabs-tab {
+    background-color: #fff;
+    margin-bottom: 0px!important;
+}
+.detail-tab .ant-tabs-bar .ant-tabs-tab .ant-tabs-tab-inner {
+    padding: 8px 16px;
+}
+.detail-info {
+    margin-left: 104px;
+}
+
+
+
+
+.gform{ margin:0 0 20px 0;}
+.totle{ font-size: 14px; display: inline-block; min-width: 52px;}
+.gform .selected-list{display: inline-block; margin:0 0 0 27px; vertical-align: sub;}
+.gform .selected-list .selected-btn{ margin:0 10px 10px 0; }
+.gform-head{ margin:0 0 10px 0; }
+.gform-head .ant-input-wrapper .search-input{ width: auto; margin:0 10px 0 6px; height: 28px; }
+.group{ margin:0 0 10px 0; height: auto;  position: relative;}
+.smallgroup{ height: 22px; overflow: hidden; }
+.list-wrap .item{ margin:0 20px 0 0;  cursor: pointer; }
+.list-wrap .item .name{  color: #478ed0; }
+.check-wrap{ position: absolute; z-index: 10; top: 0; padding:10px;min-height: 40px; background-color: #fff; width: 100%; background-color: #f5f5f5; }
+.check-wrap .checks{ padding-left: 75px; }
+.check-wrap .checkbox{ vertical-align: middle;}
+.check-wrap .check-label{margin-right: 10px; white-space: nowrap; cursor: pointer;}
+.check-wrap .btns{ text-align: center; }
+.check-wrap button{ margin-right: 10px; }
+.rowSlide{ margin:0 0 0 20px; cursor: pointer;  font-size: 14px;}
+
+
+.search-chosen{
+ 	line-height: 30px;
+ 	position: relative;
+ 	z-index: 1000;
+}
+.search-chosen-single{
+ 	outline: none;
+ 	position: relative;
+ 	box-sizing: border-box;
+ 	background-color: #fff;
+ 	border-radius: 6px;
+ 	height: 32px;
+ 	border:1px solid #d9d9d9;
+ 	-webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    cursor: pointer;
+}
+.search-chosen-single > a{
+ 	display: block;
+ 	padding-right: 15%;
+ 	white-space: nowrap;
+ 	overflow: hidden;
+ 	text-overflow: ellipsis;
+}
+.search-chosen-drop{
+ 	position: absolute;
+ 	width: 100%;
+ 	top: 34px;
+ 	border-radius:6px; 
+ 	left: 0;
+ 	overflow: auto;
+ 	border: 1px solid #d9d9d9;
+ 	padding: 5px;
+ 	background-color: #fff;
+ 	z-index: 1000;
+}
+.search-chosen-search{
+	text-align: center;
+}
+.search-chosen-search .search-input{
+	border: 1px solid #d9d9d9;
+	display: inline-block;
+	border-radius: 3px;
+	width: 90%;
+	position: relative;
+	z-index: 2;
+	line-height: 28px;
+	text-indent: 4px;
+}
+.search-chosen-search i{
+ 	position: absolute;
+ 	right: 15%;
+ 	top: 15px;
+ 	z-index: 10;
+ 	cursor: pointer;
+}
+.search-chosen-search .search-input:focus {
+ 	outline: none;
+}
+.search-chosen-result{
+ 	max-height: 250px;
+ 	overflow: auto;
+}
+.search-chosen-result li{
+ 	padding-left: 10px; 
+ 	cursor: pointer;
+}
+.search-chosen-result li:hover,
+.search-chosen-result li.active {
+ 	background-color: #eaf8fe
+}
+
+.ant-advanced-search-form {
+    padding: 16px 8px;
+    background: #f1f5f7;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+/* 由于输入标签长度不确定，所以需要微调使之看上去居中 */
+.ant-advanced-search-form > .ant-row {
+    position: relative;
+    left: -6px;
+}
+
+.ant-advanced-search-form .ant-btn {
+    margin-left: 8px;
+}
+.ant-form-horizontal.ant-advanced-search-form > div:first-child{
+	z-index: 10;
+}
+.search-form-button{
+	z-index: 0;
+}
+
+.search-form-table .ant-table th,
+.search-form-table .ant-table td {
+    white-space: nowrap;
+}
+.table-button{
+	margin-bottom: 20px;
+}
+.table-button button{
+	margin-right: 10px;
+}
+
+.dwd-reasons-dropdown {
+    position: absolute;
+    background-color: #FFF;
+    box-shadow: 0 2px 1px 0 rgba(0,0,0,0.15);
+    z-index: 3;
+    max-height: 500px;
+    overflow-y: scroll;
+}
+.dwd-reasons-dropdown ul {
+    padding-left: 15px;
+    padding-right: 10px;
+}
+.dwd-reasons-dropdown li {
+    list-style: none;
+    line-height: 30px;
+    text-align: left;
+}
+.dwd-reasons-dropdown > ul > li > a > span {
+    font-weight: bold;
+}
+.form-checkbox:not(.btn), .form-radio:not(.btn) {
+    display: inline-block;
+    background-color: transparent;
+    border: 0;
+    position: relative;
+    padding: 3px;
+    line-height: 1em;
+    min-width: 19px;
+    margin: 0;
+}

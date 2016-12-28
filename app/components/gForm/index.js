@@ -22,7 +22,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { Table, Button, Tabs, Row, Col, Input, Icon, Checkbox } from 'antd'
 import { chunk, clone } from 'lodash'
-import 'components/gForm/style.css'
+import 'components/index.less'
 
 
 

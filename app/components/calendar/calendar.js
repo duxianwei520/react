@@ -8,7 +8,7 @@ import {
 import {
   getStepDate,
 } from '../../utils'
-import './index.less'
+import '../index.less'
 
 const RangePicker = DatePicker.RangePicker
 

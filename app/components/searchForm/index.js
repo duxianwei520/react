@@ -65,7 +65,7 @@
 import React, { Component } from 'react'
 import { Button, Form, Input, Row, Col, Select } from 'antd';
 import QueueAnim from 'rc-queue-anim'
-import 'components/searchForm/index.css'
+import 'components/index.less'
 import { chunk } from 'lodash'
 import SearchChosen from '../searchChosen'
 import MultiSelect from '../multiSelect'

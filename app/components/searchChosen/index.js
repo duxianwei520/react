@@ -11,7 +11,7 @@ import React, { Component } from 'react'
 // import { fetchShopList, fetchStaffList, fetchRiderList }
 // from 'actions/common'
 // import { Input, Select } from 'antd';
-import 'components/searchChosen/index.css'
+import 'components/index.less'
 import { createAjax } from '../../utils'
 
 export default class searchChosen extends Component {

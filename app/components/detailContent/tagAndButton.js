@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Tag, Button } from 'antd'
-import './style.css'
+import '../index.less'
 // 详情页统一上方tag标签和button
 // props:
 //    tag :["账号状态：在线","审核状态：已审核"]

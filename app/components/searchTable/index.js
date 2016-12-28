@@ -22,7 +22,7 @@
 
 import React, { Component } from 'react'
 // import { connect } from 'react-redux'
-import 'components/searchTable/index.css'
+import 'components/index.less'
 import { Table, Button } from 'antd'
 import SearchForm from '../searchForm'
 
