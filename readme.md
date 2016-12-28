@@ -3,7 +3,7 @@
 
 # 安装
 npm install
-如果安装失败  那么推荐使用淘宝的注册源
+如果安装失败  那么推荐使用淘宝的注册源 直接运行 npm install -g cnpm --registry=https://registry.npm.taobao.org
 
 # 启动
 npm  start
