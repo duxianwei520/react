@@ -9,11 +9,11 @@ export default class Check extends Component {
     super(props)
     this.newTabIndex = 0;
     const panes = [
-      { 
-        title: '1单元', 
+      {
+        title: '1单元',
         content: [
           {
-            floor: 1, 
+            floor: 1,
             rooms: [
               {
                 name: 101,
@@ -23,11 +23,11 @@ export default class Check extends Component {
               },
               {
                 name: 103,
-              }
-            ]
+              },
+            ],
           },
           {
-            floor: 2, 
+            floor: 2,
             rooms: [
               {
                 name: 201,
@@ -37,17 +37,17 @@ export default class Check extends Component {
               },
               {
                 name: 203,
-              }
-            ]
+              },
+            ],
           },
-        ], 
-        key: '1' 
+        ],
+        key: '1',
       },
-      { 
-        title: '2单元', 
+      {
+        title: '2单元',
         content: [
           {
-            floor: 1, 
+            floor: 1,
             rooms: [
               {
                 name: 101,
@@ -55,17 +55,17 @@ export default class Check extends Component {
               {
                 name: 102,
               },
-            ]
+            ],
           },
-        ],  
-        key: '2' 
+        ],
+        key: '2',
       },
     ]
     this.state = {
       housId: 1,
       address: '鄂尔多斯东胜区纺织街道23号4幢',
       activeKey: panes[0].key,
-      panes
+      panes,
     }
     this.onChange = this.onChange.bind(this)
     this.onEdit = this.onEdit.bind(this)
@@ -105,7 +105,7 @@ export default class Check extends Component {
   }
 
   // 点击房间的事件绑定
-  handleRoomClick(item){
+  handleRoomClick(item) {
     console.log(item)
     // <Link to={`/roomDetail/${this.state.housId}/${item.name}`}>{item.name}</Link>
   }
@@ -113,19 +113,20 @@ export default class Check extends Component {
   render() {
     const content = this.state.panes.map(pane => (
       <TabPane tab={pane.title} key={pane.key}>
-       
+
         {
           pane.content.map((floor, index) => (
             (
               <div className="floor" key={index}>
                 {
                   floor.rooms.map((rooms, index) => (
-                    <Button 
-                      key={index} 
-                      size="large" 
+                    <Button
+                      key={index}
+                      size="large"
                       className="rooms"
-                      onClick={this.handleRoomClick.bind(event, rooms)} 
-                      type="ghost">
+                      onClick={this.handleRoomClick.bind(event, rooms)}
+                      type="ghost"
+                    >
                       <Link to={`/roomDetail/${this.state.housId}/${rooms.name}`}>{rooms.name}</Link>
                     </Button>
                   ))

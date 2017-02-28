@@ -25,7 +25,7 @@ const TabPane = Tabs.TabPane
 export default class houseDetail extends Component {
   constructor(props) {
     super(props)
-    this.state = { activeSub: 'location'}
+    this.state = { activeSub: 'location' }
   }
 
   componentDidMount() {
@@ -40,10 +40,10 @@ export default class houseDetail extends Component {
         key: `/roomDetail/${houseId}/${roomId}`,
       }))
     }
-    this.props.dispatch(fetchHouseDetail({ houseId: houseId}))
+    this.props.dispatch(fetchHouseDetail({ houseId: houseId }))
   }
   componentWillReceiveProps(nextProps) {
-    /*const houseId = this.props.houseId || this.props.params.houseId
+    /* const houseId = this.props.houseId || this.props.params.houseId
     const nextShopId = nextProps.houseId || nextProps.params.houseId
 
     if (nextHouseId !== houseId) {
@@ -51,7 +51,7 @@ export default class houseDetail extends Component {
     }*/
   }
 
-  _getTabMenus(){
+  _getTabMenus() {
     const CURRENT_SUB_MENU = []
     CURRENT_SUB_MENU.push(ROOM_MENUS[0])
         /* if(allowRole.allow_shop_real_order){

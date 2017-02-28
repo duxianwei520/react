@@ -6,8 +6,8 @@ export default class Log extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      address: '鄂尔多斯东胜区纺织街道23号4幢'
-     }
+      address: '鄂尔多斯东胜区纺织街道23号4幢',
+    }
   }
   componentDidMount() {
     // debugger

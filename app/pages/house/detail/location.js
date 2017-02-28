@@ -5,15 +5,14 @@ import Index from './location/index'
 const TabPane = Tabs.TabPane;
 
 
-
 export default class Location extends Component {
   constructor(props) {
     super(props)
     this.state = {
       address: '鄂尔多斯东胜区纺织街道23号4幢',
-      activeTab: 'map'
-     }
-     this.typeChange = this.typeChange.bind(this)
+      activeTab: 'map',
+    }
+    this.typeChange = this.typeChange.bind(this)
   }
   componentDidMount() {
     // debugger
@@ -31,12 +30,12 @@ export default class Location extends Component {
     }
   }
 
-  typeChange(key){
+  typeChange(key) {
     this.setState({
-      activeTab: key
+      activeTab: key,
     })
   }
-  
+
   render() {
     return (
       <div className="content">

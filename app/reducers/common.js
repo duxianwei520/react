@@ -3,7 +3,7 @@ import { hasResponseError } from 'utils'
 import { message } from 'antd'
 
 // 登陆返回结果
-const loginState = () => ({  })
+const loginState = () => ({ })
 export const loginResponse = handleActions({
   'request login'(state, action) {
     return { ...state, loading: true }
@@ -20,7 +20,7 @@ export const loginResponse = handleActions({
 }, loginState())
 
 // 获取用户信息返回结果
-const staffResult = () => ({  })
+const staffResult = () => ({ })
 export const staffResponse = handleActions({
   'request staff'(state, action) {
     return { ...state, loading: true }
@@ -37,7 +37,7 @@ export const staffResponse = handleActions({
 }, staffResult())
 
 // 获取用户的权限列表
-const navData = () => ({  })
+const navData = () => ({ })
 export const navResult = handleActions({
   'request nav'(state, action) {
     return { ...state, loading: true }

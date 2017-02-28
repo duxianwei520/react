@@ -41,7 +41,7 @@ const residences = [{
 export default class popCheck extends Component {
   constructor(props) {
     super(props)
-    this.state = {passwordDirty: false }
+    this.state = { passwordDirty: false }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handlePasswordBlur = this.handlePasswordBlur.bind(this)
     this.checkPassowrd = this.checkPassowrd.bind(this)
@@ -84,7 +84,7 @@ export default class popCheck extends Component {
   }
 
   render() {
-  	const { getFieldDecorator } = this.props.form;
+  	                    const { getFieldDecorator } = this.props.form;
     const formItemLayout = {
       labelCol: { span: 6 },
       wrapperCol: { span: 14 },
@@ -106,53 +106,53 @@ export default class popCheck extends Component {
       <Panel>
         <Form horizontal onSubmit={this.handleSubmit}>
 	        <FormItem
-	          {...formItemLayout}
-	          label="E-mail"
-	          hasFeedback
-	       >
+  {...formItemLayout}
+  label="E-mail"
+  hasFeedback
+         >
 	          {getFieldDecorator('email', {
-	            rules: [{
-	              type: 'email', message: 'The input is not valid E-mail!',
+	                                rules: [{
+	                                  type: 'email', message: 'The input is not valid E-mail!',
 	            }, {
-	              required: true, message: 'Please input your E-mail!',
+	                                  required: true, message: 'Please input your E-mail!',
 	            }],
 	          })(
 	            <Input />
 	          )}
 	        </FormItem>
 	        <FormItem
-	          {...formItemLayout}
-	          label="Password"
-	          hasFeedback
+  {...formItemLayout}
+  label="Password"
+  hasFeedback
 	        >
 	          {getFieldDecorator('password', {
-	            rules: [{
-	              required: true, message: 'Please input your password!',
+	                                rules: [{
+	                                  required: true, message: 'Please input your password!',
 	            }, {
-	              validator: this.checkConfirm,
+	                                  validator: this.checkConfirm,
 	            }],
 	          })(
 	            <Input type="password" onBlur={this.handlePasswordBlur} />
 	          )}
 	        </FormItem>
 	        <FormItem
-	          {...formItemLayout}
-	          label="Confirm Password"
-	          hasFeedback
+  {...formItemLayout}
+  label="Confirm Password"
+  hasFeedback
 	        >
 	          {getFieldDecorator('confirm', {
-	            rules: [{
-	              required: true, message: 'Please confirm your password!',
+	                                rules: [{
+	                                  required: true, message: 'Please confirm your password!',
 	            }, {
-	              validator: this.checkPassowrd,
+	                                  validator: this.checkPassowrd,
 	            }],
 	          })(
 	            <Input type="password" />
 	          )}
 	        </FormItem>
 	        <FormItem
-	          {...formItemLayout}
-	          label={(
+  {...formItemLayout}
+  label={(
 	            <span>
 	              Nickname&nbsp;
 	              <Tooltip title="What do you want other to call you?">
@@ -160,44 +160,44 @@ export default class popCheck extends Component {
 	              </Tooltip>
 	            </span>
 	          )}
-	          hasFeedback
+  hasFeedback
 	        >
 	          {getFieldDecorator('nickname', {
-	            rules: [{ required: true, message: 'Please input your nickname!' }],
+	                                rules: [{ required: true, message: 'Please input your nickname!' }],
 	          })(
 	            <Input />
 	          )}
 	        </FormItem>
 	        <FormItem
-	          {...formItemLayout}
-	          label="Habitual Residence"
+  {...formItemLayout}
+  label="Habitual Residence"
 	        >
 	          {getFieldDecorator('residence', {
-	            initialValue: ['zhejiang', 'hangzhou', 'xihu'],
-	            rules: [{ type: 'array', required: true, message: 'Please select your habitual residence!' }],
+	                                initialValue: ['zhejiang', 'hangzhou', 'xihu'],
+	                                rules: [{ type: 'array', required: true, message: 'Please select your habitual residence!' }],
 	          })(
 	            <Cascader options={residences} />
 	          )}
 	        </FormItem>
 	        <FormItem
-	          {...formItemLayout}
-	          label="Phone Number"
+  {...formItemLayout}
+  label="Phone Number"
 	        >
 	          {getFieldDecorator('phone', {
-	            rules: [{ required: true, message: 'Please input your phone number!' }],
+	                                rules: [{ required: true, message: 'Please input your phone number!' }],
 	          })(
 	            <Input addonBefore={prefixSelector} />
 	          )}
 	        </FormItem>
 	        <FormItem
-	          {...formItemLayout}
-	          label="Captcha"
-	          extra="We must make sure that your are a human."
+  {...formItemLayout}
+  label="Captcha"
+  extra="We must make sure that your are a human."
 	        >
 	          <Row gutter={8}>
 	            <Col span={12}>
 	              {getFieldDecorator('captcha', {
-	                rules: [{ required: true, message: 'Please input the captcha you got!' }],
+	                                    rules: [{ required: true, message: 'Please input the captcha you got!' }],
 	              })(
 	                <Input size="large" />
 	              )}
@@ -209,7 +209,7 @@ export default class popCheck extends Component {
 	        </FormItem>
 	        <FormItem {...tailFormItemLayout} style={{ marginBottom: 8 }}>
 	          {getFieldDecorator('agreement', {
-	            valuePropName: 'checked',
+	                                valuePropName: 'checked',
 	          })(
 	            <Checkbox>I had read the <a>agreement</a></Checkbox>
 	          )}

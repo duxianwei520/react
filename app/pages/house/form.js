@@ -24,8 +24,7 @@ import { Table, Button, Tabs, Row, Col, Input, Icon, Checkbox } from 'antd'
 import { chunk, clone } from 'lodash'
 
 
-
-//连接公用常量、后端返回的数据方法  并放置在props里面调用
+// 连接公用常量、后端返回的数据方法  并放置在props里面调用
 @connect(
   (state, props) => ({
     config: state.config,
@@ -37,7 +36,7 @@ export default class form extends Component {
   // 初始化页面常量 绑定事件方法
   constructor(props) {
     super(props)
-    this.state = { 
+    this.state = {
       keyword: '',
       total: 0,
       selectedArr: [],
@@ -52,47 +51,47 @@ export default class form extends Component {
       popMultiShow: false,
       popHeight: false,
 
-      resData:{
-          data: [
-            {
-              "id": "10001",
-              "num": "2000"
-            },
-            {
-              "id": "10002",
-              "num": "3000"
-            },
-            {
-              "id": "10101",
-              "num": "555"
-            },
-            {
-              "id": "10102",
-              "num": "320"
-            },
-            {
-              "id": "10103",
-              "num": "132"
-            },
-            {
-              "id": "10108",
-              "num": "50"
-            },
-            {
-              "id": "11001",
-              "num": "30"
-            },
-            {
-              "id": "11009",
-              "num": "10"
-            }
-          ],
-          status: 1,
-          msg: '',
-          errorCode: '',
-          extraMsg: '',
-          total: "1520"
-      }
+      resData: {
+        data: [
+          {
+            'id': '10001',
+            'num': '2000',
+          },
+          {
+            'id': '10002',
+            'num': '3000',
+          },
+          {
+            'id': '10101',
+            'num': '555',
+          },
+          {
+            'id': '10102',
+            'num': '320',
+          },
+          {
+            'id': '10103',
+            'num': '132',
+          },
+          {
+            'id': '10108',
+            'num': '50',
+          },
+          {
+            'id': '11001',
+            'num': '30',
+          },
+          {
+            'id': '11009',
+            'num': '10',
+          },
+        ],
+        status: 1,
+        msg: '',
+        errorCode: '',
+        extraMsg: '',
+        total: '1520',
+      },
     }
     this.init = this.init.bind(this)
     this.handleSelect = this.handleSelect.bind(this)
@@ -114,26 +113,26 @@ export default class form extends Component {
   }
 
   // 进入页面初始化方法
-  init(){
+  init() {
     this.props.formConfig.map((item) => {
-      switch(item.sort){
-        case 'division': 
-          const divisionData = this.getItem("1", "", item.items)
-          this.setState({divisionData: divisionData})
+      switch (item.sort) {
+      case 'division':
+        const divisionData = this.getItem('1', '', item.items)
+        this.setState({ divisionData: divisionData })
         break
-        case 'pop': 
-          const popData = this.getItem("1", "", item.items)
-          this.setState({popData: popData})
+      case 'pop':
+        const popData = this.getItem('1', '', item.items)
+        this.setState({ popData: popData })
         break
       }
     })
   }
 
   // 获取当前要显示的标签数组
-  getItem(lv, pid, sort){
+  getItem(lv, pid, sort) {
     const arr = []
     sort.map(item => {
-      if(item.lv == lv && item.pid == pid){
+      if (item.lv == lv && item.pid == pid) {
         arr.push(item)
       }
     })
@@ -141,49 +140,49 @@ export default class form extends Component {
   }
 
   // 点击选择标签
-  handleSelect(item, items){
+  handleSelect(item, items) {
     const self = this
     const { config } = this.props
-    switch(item.sort){
-      case 'division':
-        const divisionData = this.getItem(parseFloat(parseInt(item.lv) + 1), item.id, items)
-        this.handleSelectSet('division', divisionData)
+    switch (item.sort) {
+    case 'division':
+      const divisionData = this.getItem(parseFloat(parseInt(item.lv) + 1), item.id, items)
+      this.handleSelectSet('division', divisionData)
       break
-      case 'pop':
-        const popData = this.getItem(parseFloat(parseInt(item.lv) + 1), item.id, items)
-        this.handleSelectSet('pop', popData)
+    case 'pop':
+      const popData = this.getItem(parseFloat(parseInt(item.lv) + 1), item.id, items)
+      this.handleSelectSet('pop', popData)
       break
     }
     const arr = this.state.selectedArr
     // 防止运用过多选之后的已选项重复
-    if(arr.length == 0){
+    if (arr.length == 0) {
       this.state.selectedArr.push(item)
     } else {
       let flag = true
       arr.map((option) => {
-        if(option.id == item.id){
+        if (option.id == item.id) {
           flag = false
         }
       })
-      if(flag){
+      if (flag) {
         arr.push(item)
       }
     }
   }
 
   // 选择某个标签之后的数据处理
-  handleSelectSet(type, data){
+  handleSelectSet(type, data) {
     const self = this
-    if(type == 'division'){
-      if(data.length == 0){
-        this.setState({divisionShow: false})
+    if (type == 'division') {
+      if (data.length == 0) {
+        this.setState({ divisionShow: false })
       }
-    } else if(type == 'pop'){
-      if(data.length == 0){
-        this.setState({popShow: false})
+    } else if (type == 'pop') {
+      if (data.length == 0) {
+        this.setState({ popShow: false })
       }
     }
-    
+
     const newState = {}
     newState[data] = data
     this.setState(newState)
@@ -191,32 +190,32 @@ export default class form extends Component {
   }
 
   // 从后台获取标签数据 并且通过对比 将每项的数量填充上
-  changeNum(type, data){
+  changeNum(type, data) {
     // console.log(this.state.resData)
-    const{ config } = this.props
+    const { config } = this.props
     const self = this
     data.map(item => (
       self.state.resData.data.map((option) => {
-        if(option.id == item.id){
+        if (option.id == item.id) {
           item.num = option.num
         }
       })
     ))
-    if(type == 'division'){
-      this.setState({divisionData: data})
-    } else if(type == 'pop'){
-      this.setState({popData: data})
+    if (type == 'division') {
+      this.setState({ divisionData: data })
+    } else if (type == 'pop') {
+      this.setState({ popData: data })
     }
     this.setState({
-      total: self.state.resData.total
+      total: self.state.resData.total,
     })
   }
 
   // 根据类型值获取当前类型传递进来的数组items
-  _getItems(sort){
+  _getItems(sort) {
     let items
     this.props.formConfig.map((item) => {
-      if(item.sort == sort){
+      if (item.sort == sort) {
         items = item.items
         return false
       }
@@ -225,129 +224,129 @@ export default class form extends Component {
   }
 
   // 取消标签选择
-  handleCancelSelect(item){
+  handleCancelSelect(item) {
     console.log(item)
     const { config } = this.props
-    if(item["checked"]){
+    if (item['checked']) {
       item.checked = !item.checked
     }
     // 这里的lv不能+1了 因为要取消当前以及当前层级的子集
-    switch(item.sort){
-      case 'division':
-        const divisionData = this.getItem(parseFloat(parseInt(item.lv)), item.pid, this._getItems(item.sort))
-        if(divisionData.length > 0){
-          this.setState({divisionShow: true, divisionData: divisionData})
-        }
+    switch (item.sort) {
+    case 'division':
+      const divisionData = this.getItem(parseFloat(parseInt(item.lv)), item.pid, this._getItems(item.sort))
+      if (divisionData.length > 0) {
+        this.setState({ divisionShow: true, divisionData: divisionData })
+      }
       break
-      case 'pop':
-        const popData = this.getItem(parseFloat(parseInt(item.lv)), item.pid, this._getItems(item.sort))
-        if(popData.length > 0){
-          this.setState({popShow: true, popData: popData})
-        }
+    case 'pop':
+      const popData = this.getItem(parseFloat(parseInt(item.lv)), item.pid, this._getItems(item.sort))
+      if (popData.length > 0) {
+        this.setState({ popShow: true, popData: popData })
+      }
       break
     }
-    let selectedNew = []
+    const selectedNew = []
     this.state.selectedArr.map((option, index) => {
-      if(!(((option.lv > item.lv) && (option.sort == item.sort)) || (option.id == item.id))){
+      if (!(((option.lv > item.lv) && (option.sort == item.sort)) || (option.id == item.id))) {
         selectedNew.push(option)
       }
     })
     this.setState({
-      selectedArr: selectedNew
+      selectedArr: selectedNew,
     })
   }
 
   // 搜索框的值发生改变的事件绑定
-  handleChange(e){
+  handleChange(e) {
     const newState = {}
     newState[e.target.name] = e.target.value
     this.setState(newState)
   }
 
   // 点击多选
-  handelMultiSelect(type, val){
-    switch(type){
-      case 'divisionMultiShow':
-        this.setState({divisionMultiShow: val})
+  handelMultiSelect(type, val) {
+    switch (type) {
+    case 'divisionMultiShow':
+      this.setState({ divisionMultiShow: val })
       break
-      case 'popMultiShow':
-        this.setState({popMultiShow: val})
+    case 'popMultiShow':
+      this.setState({ popMultiShow: val })
       break
     }
   }
 
   // 多选确定
-  handleMultiOk(type, val, sort){
+  handleMultiOk(type, val, sort) {
     let dataMap
-    switch(sort){
-      case 'division':
-        dataMap = this.state.divisionData
-        this.setState({divisionMultiShow: val})
+    switch (sort) {
+    case 'division':
+      dataMap = this.state.divisionData
+      this.setState({ divisionMultiShow: val })
       break
-      case 'pop':
-        dataMap = this.state.popData
-        this.setState({popMultiShow: val})
+    case 'pop':
+      dataMap = this.state.popData
+      this.setState({ popMultiShow: val })
       break
     }
     const selectedArr = this.state.selectedArr
     const arr = []
     dataMap.map((item) => {
-      if(item.checked == true){
+      if (item.checked == true) {
         // arr.push(item)
         let flag = true
         selectedArr.map((option) => {
-          if(option.id == item.id){
+          if (option.id == item.id) {
             flag = false
           }
         })
-        if(flag){
+        if (flag) {
           arr.push(item)
         }
       }
     })
     // debugger
     this.setState({
-      selectedArr : selectedArr.concat(arr)
+      selectedArr: selectedArr.concat(arr),
     })
   }
 
   // checkbox的状态改变
-  handleToggleCheckbox(option){
+  handleToggleCheckbox(option) {
     return () => {
       option.checked = !option.checked;
       /*
         下面这行代码虽然没做任何的赋值等操作  但是因为设置了state 导致render的变化
-        从而可以让CheckBox的选中状态发生变化 
-      */  
+        从而可以让CheckBox的选中状态发生变化
+      */
       this.setState({
         divisionData: this.state.divisionData,
       })
     }
   }
 
-  handleHight(sort){
-    switch(sort){
-      case 'division':
-        this.setState({divisionHeight: !this.state.divisionHeight})
+  handleHight(sort) {
+    switch (sort) {
+    case 'division':
+      this.setState({ divisionHeight: !this.state.divisionHeight })
       break
-      case 'pop':
-        this.setState({popHeight: !this.state.popHeight})
+    case 'pop':
+      this.setState({ popHeight: !this.state.popHeight })
       break
     }
   }
 
   // 公用方法  渲染待选择列表
-  _getDataList(arr){
+  _getDataList(arr) {
     return arr.rowData.map(item => (
-        <span 
-          key={item.id} 
-          className="item" 
+        <span
+          key={item.id}
+          className="item"
           data-id={item.id}
           data-sort={item.sort}
           data-lv={item.lv}
           data-num={item.num}
           onClick={this.handleSelect.bind(event, item, arr.items)}
-          >
+        >
           <span className="name">{item.name}</span>
           <span className="num">({item.num})</span>
         </span>
@@ -356,19 +355,20 @@ export default class form extends Component {
   }
 
   // 公用方法  渲染多选列表
-  _getCheckboxList(arr){
+  _getCheckboxList(arr) {
     const self = this
     return arr.map(item => (
         <label className="check-label" key={item.id}>
-          <Checkbox 
-            className="checkbox" 
+          <Checkbox
+            className="checkbox"
             checked={item.checked}
             type="checkbox"
             value={item.id}
-            data-sort={item.sort} 
-            data-id={item.id} 
+            data-sort={item.sort}
+            data-id={item.id}
             data-lv={item.lv}
-            onChange={self.handleToggleCheckbox(item)}>
+            onChange={self.handleToggleCheckbox(item)}
+          >
           </Checkbox>
           <span>{item.name}({item.num})</span>
         </label>
@@ -377,26 +377,27 @@ export default class form extends Component {
   }
 
   // 公用方法 获取整行列表
-  _getGroup(arg){
+  _getGroup(arg) {
     return (
       arg.rowShow ?
-        <div className={arg.height == false ? "group" : "group smallgroup"}>
+        <div className={arg.height == false ? 'group' : 'group smallgroup'}>
           <Row gutter={16}>
-            <Col lg={{ span: 2}} xs={{ span: 4}} style={{width: 80}}>
+            <Col lg={{ span: 2 }} xs={{ span: 4 }} style={{ width: 80 }}>
               {arg.label}
             </Col>
-            <Col lg={{ span: 19}} xs={{ span: 15}} className="list-wrap">
+            <Col lg={{ span: 19 }} xs={{ span: 15 }} className="list-wrap">
               {this._getDataList(arg)}
             </Col>
-            <Col lg={{ span: 3}} xs={{ span: 5}} style={{width: 100}}>
-              <Button size="small" 
+            <Col lg={{ span: 3 }} xs={{ span: 5 }} style={{ width: 100 }}>
+              <Button size="small"
                 onClick={this.handelMultiSelect.bind(event, arg.multiShowType, true)}
-                >多选
+              >多选
               </Button>
-              <Icon 
-                className="rowSlide" 
-                type={arg.height == false ? "down" : "up"} 
-                onClick={this.handleHight.bind(event, arg.sort)} />
+              <Icon
+                className="rowSlide"
+                type={arg.height == false ? 'down' : 'up'}
+                onClick={this.handleHight.bind(event, arg.sort)}
+              />
             </Col>
           </Row>
           {
@@ -406,16 +407,16 @@ export default class form extends Component {
                 {this._getCheckboxList(arg.rowData)}
               </div>
               <div className="btns">
-                <Button 
-                  type="primary" 
+                <Button
+                  type="primary"
                   size="small"
                   onClick={this.handleMultiOk.bind(event, arg.multiShowType, false, arg.sort)}
-                  >确定
+                >确定
                 </Button>
-                <Button 
-                  size="small" 
+                <Button
+                  size="small"
                   onClick={this.handelMultiSelect.bind(event, arg.multiShowType, false)}
-                  >取消
+                >取消
                 </Button>
               </div>
             </div>
@@ -427,47 +428,47 @@ export default class form extends Component {
   }
 
   // 渲染行政区划模块
-  getDivision(arg){
+  getDivision(arg) {
     return this._getGroup({
       rowShow: this.state.divisionShow,
       label: arg.label,
       rowData: this.state.divisionData,
       multiShow: this.state.divisionMultiShow,
-      multiShowType: "divisionMultiShow",
+      multiShowType: 'divisionMultiShow',
       sort: arg.sort,
       items: arg.items,
-      height: this.state.divisionHeight
+      height: this.state.divisionHeight,
     })
   }
 
   // 渲染户籍类别模块
-  getPop(arg){
+  getPop(arg) {
     return this._getGroup({
       rowShow: this.state.popShow,
       label: arg.label,
       rowData: this.state.popData,
       multiShow: this.state.popMultiShow,
-      multiShowType: "popMultiShow",
+      multiShowType: 'popMultiShow',
       sort: arg.sort,
       items: arg.items,
-      height: this.state.popHeight
+      height: this.state.popHeight,
     })
   }
 
   // 判断传送进来的参数类别
-  getFormItem(item){
+  getFormItem(item) {
     switch (item.sort) {
-      case 'division': 
-        return this.getDivision(item)
+    case 'division':
+      return this.getDivision(item)
       break
-      case 'pop': 
-        return this.getPop(item)
+    case 'pop':
+      return this.getPop(item)
       break
     }
   }
 
   // 循环要渲染的模块
-  renderRow(item, key){
+  renderRow(item, key) {
     return (
       <div key={key}>
         {this.getFormItem(item)}
@@ -476,30 +477,29 @@ export default class form extends Component {
   }
 
   // 搜索区域点击提交事件
-  handleGformSubmit(){
+  handleGformSubmit() {
     // console.log(query)
-    let arr = []
+    const arr = []
     this.state.selectedArr.map((item) => (arr.push(item.id)))
     console.log(arr.join())
     this.props.formSubmit({
       ids: arr.join(),
-      keyword: this.state.keyword
+      keyword: this.state.keyword,
     })
   }
 
   render() {
-
     // 已经选择的标签的视图
-    const selectedArrList = this.state.selectedArr.map( item => (
-        <Button 
+    const selectedArrList = this.state.selectedArr.map(item => (
+        <Button
           className="selected-btn"
           type="primary"
-          key={item.id} 
-          data-sort={item.sort} 
-          data-id={item.id} 
+          key={item.id}
+          data-sort={item.sort}
+          data-id={item.id}
           data-lv={item.lv}
           onClick={this.handleCancelSelect.bind(event, item)}
-          >{item.name}({item.num})<Icon type="minus-circle" /></Button> 
+        >{item.name}({item.num})<Icon type="minus-circle" /></Button>
       )
     )
 

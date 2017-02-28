@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link, hashHistory } from 'react-router'
 import { Table, Button, Tabs } from 'antd'
-import { 
-  fetchHouseCheckList, 
-  updateHouseCheckListQuery, 
+import {
+  fetchHouseCheckList,
+  updateHouseCheckListQuery,
   resetHouseCheckListQuery } from 'actions/house'
 import Panel from 'components/panel'
 import SearchForm from 'components/searchForm'
@@ -18,17 +18,16 @@ import './style.css'
 import { bindActionCreators } from 'redux'
 
 
-
 const TabPane = Tabs.TabPane;
 
-//连接公用常量、后端返回的数据方法  并放置在props里面调用
+// 连接公用常量、后端返回的数据方法  并放置在props里面调用
 @connect(
     (state, props) => ({
       config: state.config,
       houseCheckSearchQuery: state.houseCheckSearchQuery,
       houseCheckSearchResult: state.houseCheckSearchResult,
       amList: state.amList,
-    })/*, 
+    })/* ,
     dispatch => ({
       actions: bindActionCreators(controllers, dispatch)
     })*/
@@ -39,28 +38,28 @@ export default class houseCheckList extends Component {
   // 初始化页面常量 绑定事件方法
   constructor(props) {
     super(props)
-    this.state = { 
-      activeTab: 'list' ,
+    this.state = {
+      activeTab: 'list',
       list: [
         {
-          id: 1, 
-          address: '鄂尔多斯东胜区纺织街道23号4幢', 
-          division: '东胜区纺织街', 
+          id: 1,
+          address: '鄂尔多斯东胜区纺织街道23号4幢',
+          division: '东胜区纺织街',
           institutions: '幸福街派出所',
           policeName: '特朗普',
           houseStatus: '已建房未访查',
-          addressType: '标准地址'
+          addressType: '标准地址',
         },
         {
-          id: 2, 
-          address: '鄂尔多斯富兴街道23号4幢', 
-          division: '东胜区纺织街', 
+          id: 2,
+          address: '鄂尔多斯富兴街道23号4幢',
+          division: '东胜区纺织街',
           institutions: '幸福街派出所',
           policeName: '奥巴马',
           houseStatus: '已建房访查中',
-          addressType: '非标准地址'
-        }
-      ]
+          addressType: '非标准地址',
+        },
+      ],
     }
     this._handleSubmit = this._handleSubmit.bind(this)
     this.cacheSearch = this.cacheSearch.bind(this)
@@ -74,7 +73,7 @@ export default class houseCheckList extends Component {
     // this.props.dispatch(fetchHouseCheckList({ currentPage: 1 }))
   }
 
-  test(){
+  test() {
     console.log(hashHistory)
     // hashHistory.push('/houseManage')
     window.location.hash = '/login'
@@ -155,37 +154,36 @@ export default class houseCheckList extends Component {
   }
 
   // 列表与地图模式切换的回调函数
-  _typeChange(key){
+  _typeChange(key) {
     this.setState({ activeTab: key })
   }
 
-  gFormConfig(){
+  gFormConfig() {
     const { config } = this.props
     return [
       {
         sort: 'division',
         label: '行政区划',
-        items: config.DIVISION
+        items: config.DIVISION,
       },
       {
         sort: 'pop',
         label: '户籍类别',
-        items: config.POP
-      }
+        items: config.POP,
+      },
     ]
   }
 
-  gFormSubmit(query){
+  gFormSubmit(query) {
     console.log(query)
   }
 
 
   render() {
-
     const actions = this.props.actions
     // console.log(actions)
-    const { 
-            houseCheckSearchQuery, 
+    const {
+            houseCheckSearchQuery,
             houseCheckSearchResult,
             hasSubmitBtn,
             hasResetBtn,
@@ -199,12 +197,12 @@ export default class houseCheckList extends Component {
         <div className="list-tab">
           <Tabs tabPosition="top" onChange={this._typeChange}>
             <TabPane tab="列表" key="list">
-              <TypeList  
-                columns={this.columns()} 
+              <TypeList
+                columns={this.columns()}
                 dataSource={this.state.list}
                 // dataSource={houseCheckSearchResult.list}
                 currentPage={houseCheckSearchResult.currentPage}
-                scroll={{x: 1100}} 
+                scroll={{ x: 1100 }}
                 loading={houseCheckSearchResult.loading}
               />
             </TabPane>

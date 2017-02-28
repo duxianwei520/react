@@ -6,13 +6,13 @@ import App from './containers/App'
 import Login from './containers/App/login'
 
 import {
-  houseCheck,  
+  houseCheck,
   houseManage,
   houseDetail,
   roomDetail,
 } from './pages/house'
 
-import popCheck  from './pages/pop/index'
+import popCheck from './pages/pop/index'
 
 
 const routes = (

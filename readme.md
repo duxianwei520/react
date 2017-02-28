@@ -1,13 +1,17 @@
 # react
-一个react+redux+webpack+ES6+antd的SPA的后台管理框架demo
+一个已经运用在实际企业项目中的react+redux+webpack+ES6+antd+less的SPA后台管理框架demo
 
 # 安装
 npm install
-如果安装失败  那么推荐使用淘宝的注册源 直接运行 npm install -g cnpm --registry=https://registry.npm.taobao.org
+如果npm源太慢导致安装失败  那么推荐使用淘宝的注册源 直接运行 npm install -g cnpm --registry=https://registry.npm.taobao.org  
+
+## git的安装
+https://git-scm.com/download/win  在这里下载对应的git工具  安装之后  右键就可以看到git bush这个命令行  可以让我们快速的进入到指定的项目区运行  而不用Windows原生的cmd命令行窗口cd进去指定的目录 而且语法命令高亮也比较不错  喜欢的小伙伴可以去下载安装了
 
 # 启动
 npm  start
 运行本命令后  会自动在当前默认浏览器打开一个窗口  项目就可以跑起来啦
+如果报错  比如提示缺少webpack-dev-server   那么请单独运行明令npm install webpack-dev-server来安装这个包 其他的包确实也可以采用类似的方法再单独安装
 
 
 

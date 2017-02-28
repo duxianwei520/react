@@ -11,7 +11,7 @@ import tabListResult from './tabList'
 import {
   houseCheckSearchResult,
   houseCheckSearchQuery,
-  houseDetailResult
+  houseDetailResult,
 } from './house'
 import {
   loginResponse,
@@ -23,12 +23,12 @@ const rootReducer = combineReducers({
   tabListResult,
 
   loginResponse,
-  
+
   houseCheckSearchResult,
   houseCheckSearchQuery,
   houseDetailResult,
 
-  
+
 });
 
 export default rootReducer;

@@ -6,8 +6,8 @@ export default class TypeList extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      address: '鄂尔多斯东胜区纺织街道23号4幢'
-     }
+      address: '鄂尔多斯东胜区纺织街道23号4幢',
+    }
   }
   componentDidMount() {
     // debugger
@@ -44,12 +44,12 @@ export default class TypeList extends Component {
           {
             <Col sm={24} md={24} lg={24}>
                   <div className="detail-box">
-                    <Table 
-                      columns={columns} 
+                    <Table
+                      columns={columns}
                       dataSource={dataSource}
                       pagination={currentPage ? pagination : false}
                       loading={loading}
-                      scroll={scroll} 
+                      scroll={scroll}
                     />
                   </div>
             </Col>

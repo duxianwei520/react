@@ -118,9 +118,6 @@
       "helpMessage": ""
     },
     "ghooks": {
-      "pre-commit": "npm run precommit-msg && npm run lint",
-      "prepare-commit-msg": "prepare-commit-msg-dianwoda $2 $3",
-      "commit-msg": "validate-commit-msg"
     }
   }
 }

@@ -126,11 +126,11 @@ export default class riderList extends Component {
         <div className="table-button">
           { buttons }
         </div>
-        <Table 
-          columns={columns} 
+        <Table
+          columns={columns}
           dataSource={tableData}
           pagination={currentPage ? pagination : false}
-          scroll={this.props.scroll} 
+          scroll={this.props.scroll}
           loading={loading}
         />
       </div>

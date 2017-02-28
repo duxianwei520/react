@@ -12,12 +12,12 @@ import {
 export const requestHouseCheckList = createAction('request houseCheck list');
 export const recevieHouseCheckList = createAction('receive houseCheck list');
 export const fetchHouseCheckList = createAjaxAction(
-	house.houseCheckList, 
-	requestHouseCheckList, 
+	house.houseCheckList,
+	requestHouseCheckList,
 	recevieHouseCheckList
 );
 
-export const updateHouseCheckListQuery  = createAction('update houseCheck search query', payload => payload);
+export const updateHouseCheckListQuery = createAction('update houseCheck search query', payload => payload);
 export const resetHouseCheckListQuery = createAction('reset houseCheck search query');
 
 export const requestHouseDetail = createAction('request house detail')

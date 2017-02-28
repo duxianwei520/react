@@ -21,7 +21,7 @@ export default class Index extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      address: '鄂尔多斯东胜区纺织街道23号4幢'
+      address: '鄂尔多斯东胜区纺织街道23号4幢',
     }
     this.handleReset = this.handleReset.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -84,7 +84,7 @@ export default class Index extends Component {
     console.log(rule)
   }
 
-  handleAreaClick(e){
+  handleAreaClick(e) {
     console.log(e.target)
   }
 
@@ -138,19 +138,20 @@ export default class Index extends Component {
       <div>
         <Form horizontal >
           <FormItem
-            labelCol={{span: 2}}
-            wrapperCol={{span: 20}}
+            labelCol={{ span: 2 }}
+            wrapperCol={{ span: 20 }}
             label="用户名"
             hasFeedback
-            help={isFieldValidating('name') ? '校验中...' : (getFieldError('name') || []).join(', ')}>
+            help={isFieldValidating('name') ? '校验中...' : (getFieldError('name') || []).join(', ')}
+          >
             <Input {...nameProps} placeholder="实时校验，输入 JasonWood 看看" />
           </FormItem>
 
           <FormItem {...formItemLayout} label="地址属性">
-            <Select 
-              id="select" 
-              size="large" 
-              defaultValue="1" 
+            <Select
+              id="select"
+              size="large"
+              defaultValue="1"
               onChange={this.handleSelectChange}
             >
               <Option value="1">标准地址</Option>
@@ -159,7 +160,7 @@ export default class Index extends Component {
             </Select>
           </FormItem>
 
-          <FormItem  {...formItemLayout} label="管辖单位">
+          <FormItem {...formItemLayout} label="管辖单位">
             <Row gutter={16}>
               <Col span="12">
                 <Input defaultValue="东胜区分局" readOnly disabled />
@@ -170,7 +171,7 @@ export default class Index extends Component {
             </Row>
           </FormItem>
 
-          <FormItem  {...formItemLayout} label="行政区划">
+          <FormItem {...formItemLayout} label="行政区划">
             <Row gutter={16}>
               <Col span="4">
                 <Input defaultValue="内蒙古自治区" readOnly disabled />
@@ -193,14 +194,16 @@ export default class Index extends Component {
           <FormItem
             {...formItemLayout}
             label="邮箱"
-            hasFeedback>
+            hasFeedback
+          >
             <Input {...emailProps} type="email" placeholder="onBlur 与 onChange 相结合" />
           </FormItem>
 
           <FormItem
             {...formItemLayout}
             label="密码"
-            hasFeedback>
+            hasFeedback
+          >
             <Input {...passwdProps} type="password" autoComplete="off"
               onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
             />
@@ -209,7 +212,8 @@ export default class Index extends Component {
           <FormItem
             {...formItemLayout}
             label="确认密码"
-            hasFeedback>
+            hasFeedback
+          >
             <Input {...rePasswdProps} type="password" autoComplete="off" placeholder="两次输入密码保持一致"
               onContextMenu={noop} onPaste={noop} onCopy={noop} onCut={noop}
             />
@@ -217,7 +221,8 @@ export default class Index extends Component {
 
           <FormItem
             {...formItemLayout}
-            label="备注">
+            label="备注"
+          >
             <Input {...textareaProps} type="textarea" placeholder="随便写" id="textarea" name="textarea" />
           </FormItem>
 

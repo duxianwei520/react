@@ -24,7 +24,7 @@ export default class Login extends Component {
   // 初始化页面常量 绑定事件方法
   constructor(props, context) {
     super(props)
-    this.state = { 
+    this.state = {
       loading: false,
     }
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -34,11 +34,11 @@ export default class Login extends Component {
     this.noop = this.noop.bind(this)
   }
 
-  componentWillReceiveProps(nextProps){
+  componentWillReceiveProps(nextProps) {
     const self = this
-    if(this.props.loginResponse != nextProps.loginResponse){
-      this.setState({loading: false})
-      if(nextProps.loginResponse.data && nextProps.loginResponse.data.status == 1){
+    if (this.props.loginResponse != nextProps.loginResponse) {
+      this.setState({ loading: false })
+      if (nextProps.loginResponse.data && nextProps.loginResponse.data.status == 1) {
         const query = this.props.form.getFieldsValue()
         Object.keys(query).map((key) => {
           query[key] === undefined && delete (query[key])
@@ -51,18 +51,18 @@ export default class Login extends Component {
     }
   }
 
-  handleSubmit(e){
+  handleSubmit(e) {
     e.preventDefault()
     this.props.form.validateFields((err, values) => {
       // debugger
-      if(!err){
-        this.setState({loading: true})
+      if (!err) {
+        this.setState({ loading: true })
         this.props.dispatch(fetchLogin(values))
       }
     })
   }
 
-  handleChange(e){
+  handleChange(e) {
     const newState = {}
     newState[e.target.name] = e.target.value
     this.setState(newState)
@@ -73,30 +73,30 @@ export default class Login extends Component {
     // this.props.dispatch(fetchLogin({ currentPage: 1 }))
   }
 
-  checkName(rule, value, callback){
+  checkName(rule, value, callback) {
     const { validateFields } = this.props.form
-    if(value){
+    if (value) {
       // validateFields([''])
     }
     callback()
   }
 
-  checkPass(rule, value, callback){
+  checkPass(rule, value, callback) {
     const { validateFields } = this.props.form
-    if(value){
+    if (value) {
       // validateFields([''])
     }
     callback()
   }
 
-  noop(){
+  noop() {
     return false
   }
 
   render() {
     const { loginResponse } = this.props.loginResponse
     const { getFieldDecorator } = this.props.form
-    /*const usercode = getFieldDecorator('usercode', {
+    /* const usercode = getFieldDecorator('usercode', {
       rules: [
         { required: true, message: '请填写用户名'},
         { validator: this.checkName},
@@ -121,28 +121,28 @@ export default class Login extends Component {
                       <FormItem hasFeedback>
                         {getFieldDecorator('usercode', {
                           rules: [
-                            { required: true, min:2, message: '用户名至少为2个字符'},
-                            { validator: this.checkName}
-                          ]
+                            { required: true, min: 2, message: '用户名至少为2个字符' },
+                            { validator: this.checkName },
+                          ],
                         })(
-                          <Input 
-                            addonBefore={<Icon type="user" />} 
-                            placeholder="请输入用户名" 
-                            type="text" 
+                          <Input
+                            addonBefore={<Icon type="user" />}
+                            placeholder="请输入用户名"
+                            type="text"
                           />
                         )}
                       </FormItem>
                       <FormItem hasFeedback>
                         {getFieldDecorator('userpwd', {
-                          rules: [{ required: true, message: '请输入密码'}]
+                          rules: [{ required: true, message: '请输入密码' }],
                         })(
-                          <Input 
+                          <Input
                             addonBefore={<Icon type="lock" />}
                             placeholder="请输入密码"
                             type="password"
                           />
                         )}
-                        
+
                       </FormItem>
                       <FormItem>
                         <Button type="primary" htmlType="submit">登录</Button>
@@ -151,7 +151,7 @@ export default class Login extends Component {
                   </Spin>
                 </Col>
               </Row>
-            </div> 
+            </div>
           </div>
         <div id="companyName" className="companyName"></div>
       </div>

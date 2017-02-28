@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { Button } from 'antd'
-import { 
-  fetchHouseCheckList, 
-  updateHouseCheckListQuery, 
+import {
+  fetchHouseCheckList,
+  updateHouseCheckListQuery,
   resetHouseCheckListQuery } from 'actions/house'
 import { resetAmList } from 'actions/common'
 import Panel from 'components/panel'
@@ -17,14 +17,14 @@ import SearchTable from 'components/searchTable'
       houseCheckSearchResult: state.houseCheckSearchResult,
       amList: state.amList,
     })
-    /*function(state, props){
+    /* function(state, props){
       console.log(state)
       console.log(props)
       return {
         config: state.config,
         houseCheckSearchQuery: state.houseCheckSearchQuery,
         houseCheckSearchResult: state.houseCheckSearchResult,
-      
+
       }
     }*/
 )
@@ -53,7 +53,7 @@ export default class houseCheckList extends Component {
         key: 'keyword',
         label: '关键字',
         type: 'text',
-      }, 
+      },
       {
         key: 'division',
         label: '行政区划',
@@ -61,7 +61,7 @@ export default class houseCheckList extends Component {
         text: 'mean',
         value: 'code',
         options: config.ADMINISTRATIVE_DIVISION,
-      }, 
+      },
       {
         key: 'institutions',
         value: 'code',
@@ -69,7 +69,7 @@ export default class houseCheckList extends Component {
         label: '管辖单位',
         type: 'select',
         options: config.ADMINISTRATIVE_DIVISION,
-      }, 
+      },
       {
         key: 'houseStatus',
         value: 'code',
@@ -77,7 +77,7 @@ export default class houseCheckList extends Component {
         label: '房屋状态',
         type: 'defaultMultiSelect',
         options: config.ADMINISTRATIVE_DIVISION,
-      }, 
+      },
       {
         key: 'addressType',
         value: 'code',
@@ -85,7 +85,7 @@ export default class houseCheckList extends Component {
         label: '地址属性',
         type: 'select',
         options: config.ADMINISTRATIVE_DIVISION,
-      }
+      },
     ]
   }
 
@@ -184,7 +184,7 @@ export default class houseCheckList extends Component {
           clear={this._clear}
           scoll={{ x: 1100 }}
           loading={houseCheckSearchResult.loading}
-          hasResetBtn = {false}
+          hasResetBtn={false}
         />
       </Panel>
     )
