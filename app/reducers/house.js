@@ -19,7 +19,7 @@ export const houseCheckSearchResult = handleActions({
     // eslint-disable-next-line no-unused-vars
     const { req, res } = action.payload
     if (hasResponseError(res)) {
-      message.error(res.msg, 10)
+      message.error(res.msg)
       return { ...state, loading: false }
     }
     return { ...res.data, loading: false }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { Button } from 'antd'
+import { Button, Spin } from 'antd'
 import {
   fetchHouseCheckList,
   updateHouseCheckListQuery,
@@ -135,7 +135,7 @@ export default class houseCheckList extends Component {
       {
         title: '操作',
         key: 'operate',
-        fixed: 'right',
+        // fixed: 'right',
         width: 60,
         render: function (text, record, index) {
           return (
@@ -160,22 +160,25 @@ export default class houseCheckList extends Component {
 
   render() {
     const { houseCheckSearchQuery, houseCheckSearchResult } = this.props
+    console.log(houseCheckSearchResult)
     return (
       <Panel>
-        <SearchTable
-          onSubmit={this._handleSubmit}
-          search={houseCheckSearchQuery}
-          cacheSearch={this.cacheSearch}
-          columns={this.columns()}
-          searchList={this.searchList()}
-          tableData={houseCheckSearchResult.list}
-          currentPage={houseCheckSearchResult.currentPage}
-          totalCount={houseCheckSearchResult.totalCount}
-          clear={this._clear}
-          scroll={{ x: 1100 }}
-          loading={houseCheckSearchResult.loading}
-          hasResetBtn={false}
-        />
+        <Spin spinning={houseCheckSearchResult.loading}>
+          <SearchTable
+            onSubmit={this._handleSubmit}
+            search={houseCheckSearchQuery}
+            cacheSearch={this.cacheSearch}
+            columns={this.columns()}
+            searchList={this.searchList()}
+            tableData={houseCheckSearchResult.list}
+            currentPage={houseCheckSearchResult.currentPage}
+            totalCount={houseCheckSearchResult.totalCount}
+            clear={this._clear}
+            // scroll={{ x: 1100 }}
+            loading={houseCheckSearchResult.loading}
+            // hasResetBtn={false}
+          />
+        </Spin>
       </Panel>
     )
   }
