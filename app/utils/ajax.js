@@ -10,10 +10,10 @@ export function fetchJSON(url, params) {
   params = {
     ...params,
     headers: {
-      'User-Code': code,
-      credentials: 'include',
-      'X-Requested-With': 'XMLHttpRequest',
-      Connection: 'keep-alive',
+      // 'User-Code': code,
+      // credentials: 'include',
+      // 'X-Requested-With': 'XMLHttpRequest',
+      // Connection: 'keep-alive',
       'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
       ...params.headers,
     },
