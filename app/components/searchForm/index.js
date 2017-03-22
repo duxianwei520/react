@@ -69,8 +69,6 @@ import 'components/index.less'
 import { chunk } from 'lodash'
 import SearchChosen from '../searchChosen'
 import MultiSelect from '../multiSelect'
-import RangePicker from '../rangePicker'
-import CityCascader from '../cityCascader'
 // 引入通话原因下拉组件
 import SelectReason from '../selectReason'
 

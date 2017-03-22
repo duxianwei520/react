@@ -12,8 +12,11 @@ module.exports = {
     ],
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: './vendor.js',
+    // path: path.resolve(__dirname, 'dist'),
+    // filename: './vendor.js',
+    filename: '[name].js',
+    path: path.join(__dirname, 'dist'),
+    chunkFilename: '[name].js'
   },
   resolve: {
     extensions: ['', '.js', '.json'],
@@ -33,13 +36,16 @@ module.exports = {
         test: /\.js[x]?$/,
         exclude: /node_modules/,
         loader: 'react-hot!babel',
-      }, {
+      }, 
+      {
         test: /\.less$/,
         loader: 'style!css!postcss!less',
-      }, {
+      }, 
+      {
         test: /\.css/,
         loader: 'style!css',
-      }, {
+      }, 
+      {
         test: /\.(png|jpg)$/,
         loader: 'url-loader?limit=8192',
       }, 
@@ -63,7 +69,7 @@ module.exports = {
       url: 'http://localhost:3000'
     }),
   ],
-  devtool: 'source-map',
+  // devtool: 'source-map',
   devServer: {
     contentBase: './app/',
     historyApiFallback: true,
