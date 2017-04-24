@@ -69,7 +69,7 @@ module.exports = {
       url: 'http://localhost:3000'
     }),
   ],
-  // devtool: 'source-map',
+  devtool: 'source-map',
   devServer: {
     contentBase: './app/',
     historyApiFallback: true,

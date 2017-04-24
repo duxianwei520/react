@@ -71,6 +71,7 @@
     "html-webpack-plugin": "~2.22.0",
     "immutable": "~3.8.1",
     "isomorphic-fetch": "~2.2.1",
+    "less-vars-to-js": "^1.1.2",
     "moment": "~2.14.1",
     "open-browser-webpack-plugin": "~0.0.2",
     "rc-queue-anim": "^0.12.6",
@@ -117,7 +118,6 @@
       "subjectPatternErrorMsg": "subject does not match subject pattern!",
       "helpMessage": ""
     },
-    "ghooks": {
-    }
+    "ghooks": {}
   }
 }

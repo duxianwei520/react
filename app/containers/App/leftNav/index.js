@@ -73,7 +73,7 @@ export default class LeftNav extends Component {
             this.props.config.NAVIGATION.map((subMenu, index) => (
               <SubMenu key={index} title={
                 <span>
-                  <Icon type={menuIcon[subMenu.name]} />
+                  <Icon type={subMenu.icon} />
                   <span>{subMenu.name}</span>
                 </span>}>
                 {
