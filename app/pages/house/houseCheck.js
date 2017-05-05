@@ -65,7 +65,6 @@ export default class houseCheckList extends Component {
     this.cacheSearch = this.cacheSearch.bind(this)
     this._clear = this._clear.bind(this)
     this._typeChange = this._typeChange.bind(this)
-    this.test = this.test.bind(this)
   }
 
   // 组件已经加载到dom中
@@ -73,12 +72,6 @@ export default class houseCheckList extends Component {
     // this.props.dispatch(fetchHouseCheckList({ currentPage: 1 }))
   }
 
-  test() {
-    console.log(hashHistory)
-    // hashHistory.push('/houseManage')
-    window.location.hash = '/login'
-    // window.location.href = 'http://localhost:3000/#/login'
-  }
 
   // 点击搜索按钮的回调事件
   _handleSubmit(query, currentPage) {
@@ -193,7 +186,6 @@ export default class houseCheckList extends Component {
     return (
       <Panel>
         <Gform gFormConfig={this.gFormConfig()} gFormSubmit={this.gFormSubmit} />
-        <div><Button onClick={this.test}>测试</Button></div>
         <div className="list-tab">
           <Tabs tabPosition="top" onChange={this._typeChange}>
             <TabPane tab="列表" key="list">
