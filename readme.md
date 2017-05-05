@@ -2,11 +2,11 @@
 一个已经运用在实际企业项目中的react+redux+webpack+ES6+antd+less的SPA后台管理框架demo
 
 # 项目最适合用的场景
-咱们这个项目，最适合用在PC端的管理后台系统之类的，首先浏览器环境只是Chrome，方便快捷，不用考虑那么多恶心的兼容性问题，如果想兼容其他的自己慢慢调整咯；其次，所有文件打包成一个，其实比较方便的，当然如果功能实在太过强大多了，那么我最近的这次更新就是为了按照路由做的按需加载上去了；最后，管理后台默认用的antd的UI组件，如果小伙伴们不喜欢的话，那就自行去掉或者换其他的组件库，比如material UI都行，慢慢的去掉排错就好了。
+咱们这个项目，最适合用在PC端的管理后台系统之类的，首先浏览器环境只是Chrome，方便快捷，不用考虑那么多恶心的兼容性问题，如果想兼容其他的自己慢慢调整咯；其次，所有文件打包成一个，其实比较方便的，当然如果功能实在太过强大多了，那么可以依据路由做按需加载；最后，管理后台默认用的antd的UI组件，如果小伙伴们不喜欢的话，那就自行去掉或者换其他的组件库，比如material UI都行，然后排错就好。
 
 # 安装
 npm install
-如果npm源太慢导致安装失败  那么推荐使用淘宝的注册源 直接运行 npm install -g cnpm --registry=https://registry.npm.taobao.org 如果前面的方法都不好使的话，大家请到我的百度网盘上面去下载我已经压缩好的npm依赖包，地址是http://pan.baidu.com/s/1clFEME，
+如果npm源太慢导致安装失败  那么推荐使用淘宝的注册源 直接运行 npm install -g cnpm --registry=https://registry.npm.taobao.org 如果前面的方法都不好使的话，大家请到我的百度网盘上面去下载我已经压缩好的npm依赖包，地址是http://pan.baidu.com/s/1pLdPWgj，
 把下载到本地的node_modules.rar文件直接解压到跟app同级的当前文件夹，记住是当前文件夹的，然后不用npm install就可以直接npm start跑起来项目了。
 
 ## git的安装
@@ -45,9 +45,9 @@ npm run lint
 
 
 # 可以改善的问题
-+ 数据模拟目前没有用到mockjs，不过暂时想到的是自己建立一个转发服务器，比如我用的就是一个wamp的PHP服务器，把造好的json文件放在里面，然后就在项目里面fetch这个json文件，就可以真实的模拟数据请求了，但还是没mockjs那么方便强大
-+ dev环境跟pro或者test环境没有单独的对webpack做配置，所以部署的时候要改index.html请求路径等等
-+ 如果文件过多，start跟build文件的时候比较费劲
++ 数据模拟目前没有用到mockjs，调试不是很方便，暂时用了一个wamp服务器来转发json请求，但还是没mockjs那么方便强大
++ dev环境跟pro或者test环境没有单独的对webpack做配置，所以部署的时候可能要改index.html请求路径等等
++ 如果整个单页系统功能太大，那么对应的文件也就越大，start跟build文件的时候比较费时
 
 
 # 最后

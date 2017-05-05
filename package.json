@@ -61,7 +61,7 @@
     "webpack-hot-middleware": "~2.12.1"
   },
   "dependencies": {
-    "antd": "^2.5.0",
+    "antd": "^2.9.2",
     "babel-polyfill": "~6.9.1",
     "babel-runtime": "~6.9.2",
     "echarts": "~3.2.3",
