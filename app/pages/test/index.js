@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import ReactDom from 'react-dom'
 import { connect } from 'react-redux'
-import Panel from 'components/panel'
 import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button } from 'antd'
 
 
@@ -23,7 +22,7 @@ export default class popCheck extends Component {
 
   componentDidMount() {
     
-
+    console.log(this.props)
   }
 
 
@@ -31,10 +30,10 @@ export default class popCheck extends Component {
   
   render() {
     return (
-      <Panel>
+      <div className="page">
         测试
         <Sub/>
-      </Panel>
+      </div>
     )
   }
 }

@@ -4,14 +4,15 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { hashHistory } from 'react-router'
 import { Spin, message, Form, Icon, Input, Button, Row, Col } from 'antd'
+import { regExpConfig } from 'utils/config'
 import { fetchLogin } from 'actions/common'
 const FormItem = Form.Item
 
 @connect(
-    (state, props) => ({
-      config: state.config,
-      loginResponse: state.loginResponse,
-    })
+  (state, props) => ({
+    config: state.config,
+    loginResponse: state.loginResponse,
+  })
 )
 @Form.create({
   onFieldsChange(props, items) {
@@ -34,30 +35,33 @@ export default class Login extends Component {
     this.noop = this.noop.bind(this)
   }
 
-  componentWillReceiveProps(nextProps) {
-    const self = this
-    if (this.props.loginResponse != nextProps.loginResponse) {
-      this.setState({ loading: false })
-      if (nextProps.loginResponse.data && nextProps.loginResponse.data.status == 1) {
-        const query = this.props.form.getFieldsValue()
-        Object.keys(query).map((key) => {
-          query[key] === undefined && delete (query[key])
-        })
-        sessionStorage.setItem('usercode', query.usercode)
-        sessionStorage.setItem('userpwd', query.userpwd)
-        sessionStorage.setItem('token', nextProps.loginResponse.data.data.token)
-        hashHistory.push('/')
-      }
-    }
-  }
-
   handleSubmit(e) {
     e.preventDefault()
     this.props.form.validateFields((err, values) => {
-      // debugger
       if (!err) {
-        this.setState({ loading: true })
-        this.props.dispatch(fetchLogin(values))
+        this.state.loading = true
+        // this.setState({loading: true})
+        Object.keys(values).map((key) => values[key] = (values[key] && values[key].trim()))
+        /*this.props.dispatch(fetchLogin(values, (res) => {
+          if (res.status == 1) {
+            const query = this.props.form.getFieldsValue()
+            global.$GLOBALCONFIG.staff = res.data.user
+            sessionStorage.setItem('staff', JSON.stringify({ ...res.data.user }))
+            sessionStorage.setItem('username', query.username)
+            // sessionStorage.setItem('userName', res.data.user.userName)
+            // sessionStorage.setItem('userpwd', query.password)
+            sessionStorage.setItem('token', res.data.token)
+            sessionStorage.setItem('isLeftNavMini', false)
+            hashHistory.push('/')
+          }
+        }, (res) => {
+          message.warning(res.msg)
+          this.setState({
+            loading: false
+          })
+        }))*/
+        sessionStorage.setItem('token', 'dupi')
+        hashHistory.push('/')
       }
     })
   }
@@ -96,64 +100,58 @@ export default class Login extends Component {
   render() {
     const { loginResponse } = this.props.loginResponse
     const { getFieldDecorator } = this.props.form
-    /* const usercode = getFieldDecorator('usercode', {
-      rules: [
-        { required: true, message: '请填写用户名'},
-        { validator: this.checkName},
-      ],
-    })
-    const userpwd = getFieldDecorator('userpwd', {
-      rules: [
-        { required: true,  message: '请填写密码'},
-        { validator: this.checkPass},
-      ],
-    })*/
     return (
       <div className="login">
-          <div className="sy_top"></div>
-          <div className="btmLogin">
-            <div className="sy_bottom">
-              <h1 id="PerformName">login</h1>
-              <Row className="ul-wrap">
-                <Col span={12} offset={6}>
-                  <Spin spinning={this.state.loading}>
-                    <Form inline onSubmit={this.handleSubmit}>
-                      <FormItem hasFeedback>
-                        {getFieldDecorator('usercode', {
-                          rules: [
-                            { required: true, min: 2, message: '用户名至少为2个字符' },
-                            { validator: this.checkName },
-                          ],
-                        })(
-                          <Input
-                            addonBefore={<Icon type="user" />}
-                            placeholder="请输入用户名"
-                            type="text"
-                          />
+        <div className="sy_top"></div>
+        <div className="btmLogin">
+          <div className="sy_bottom">
+            <h1 id="PerformName">肚皮叔</h1>
+            <Row className="ul-wrap">
+              <Col span={24}>
+                <Spin spinning={this.state.loading}>
+                  <Form layout="vertical" onSubmit={this.handleSubmit}>
+                    <FormItem hasFeedback>
+                      {getFieldDecorator('username', {
+                        rules: [
+                          { required: true, message: '请输入用户名' },
+                          { validator: this.checkName },
+                          // { pattern: regExpConfig.IDcardTrim, message: '身份证号格式不正确' }
+                        ],
+                        // validateTrigger: 'onBlur',
+                      })(
+                        <Input
+                          addonBefore={<Icon type="user" />}
+                          placeholder="请输入用户名"
+                          type="text"
+                        />
                         )}
-                      </FormItem>
-                      <FormItem hasFeedback>
-                        {getFieldDecorator('userpwd', {
-                          rules: [{ required: true, message: '请输入密码' }],
-                        })(
-                          <Input
-                            addonBefore={<Icon type="lock" />}
-                            placeholder="请输入密码"
-                            type="password"
-                          />
+                    </FormItem>
+                    <FormItem hasFeedback>
+                      {getFieldDecorator('password', {
+                        rules: [
+                          { required: true, message: '请输入密码' },
+                          // { pattern: regExpConfig.pwd, message: '密码只能是6-16个数字或者字母组成' }
+                        ],
+                        // validateTrigger: 'onBlur',
+                      })(
+                        <Input
+                          addonBefore={<Icon type="lock" />}
+                          placeholder="请输入密码"
+                          type="password"
+                        />
                         )}
 
-                      </FormItem>
-                      <FormItem>
-                        <Button type="primary" htmlType="submit">登录</Button>
-                      </FormItem>
-                    </Form>
-                  </Spin>
-                </Col>
-              </Row>
-            </div>
+                    </FormItem>
+                    <FormItem>
+                      <Button type="primary" htmlType="submit">登录</Button>
+                    </FormItem>
+                  </Form>
+                </Spin>
+              </Col>
+            </Row>
           </div>
-        <div id="companyName" className="companyName"></div>
+        </div>
+        <div id="companyName" className="companyName">肚皮叔股份有限公司</div>
       </div>
     )
   }

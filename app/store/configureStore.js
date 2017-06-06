@@ -7,7 +7,7 @@ import rootReducer from '../reducers'
 const nextReducer = require('../reducers')
 
 export default function configure(initialState) {
-  console.log('initialState', initialState)
+  // console.log('initialState', initialState)
   const create = window.devToolsExtension
     ? window.devToolsExtension()(createStore)
     : createStore

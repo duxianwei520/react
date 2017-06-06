@@ -1,0 +1,36 @@
+﻿{
+  "data":{
+    "list": [
+      {
+        "id": "1",
+        "address": "鄂尔多斯东胜区纺织街道23号4幢",
+        "division": "东胜区纺织街",
+        "institutions": "幸福街派出所",
+        "policeName": "特朗普",
+        "houseStatus": "已建房未访查",
+        "addressType": "标准地址"
+      },
+      {
+        "id": "2",
+        "address": "鄂尔区纺织街道23号4幢",
+        "division": "东胜区纺织街2",
+        "institutions": "幸福街派出所2",
+        "policeName": "特朗普2",
+        "houseStatus": "已建房未访查",
+        "addressType": "标准地址"
+      },
+      {
+        "id": "3",
+        "address": "鄂尔区纺织街道23号4幢3",
+        "division": "东胜区纺织街3",
+        "institutions": "幸福街派出所3",
+        "policeName": "特朗普3",
+        "houseStatus": "已建房未访查",
+        "addressType": "标准地址"
+      }
+    ]
+  },
+  "msg":"",
+  "errorCode": "",
+  "status": 1
+}

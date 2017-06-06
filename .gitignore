@@ -50,3 +50,6 @@ jspm_packages
 
 #eslint
 .eslintcache
+
+#npm.rar
+node_modules.rar

@@ -2,7 +2,7 @@
     "username":"admin",
     "password":"123456",
     "TARGET_LIST": {
-        "DEFAULT": "http://192.168.1.64:8888",
+        "DEFAULT": "http://localhost:8080",
         "TEST": "http://192.168.1.203:19480"
     },
     "DEFAULT_CAS_SERVER": "http://192.168.1.177:9043",

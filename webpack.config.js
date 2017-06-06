@@ -74,7 +74,7 @@ module.exports = {
     contentBase: './app/',
     historyApiFallback: true,
     hot: true,
-    proxy: casProxy(),
+    // proxy: casProxy(),
     host: '0.0.0.0'
   },
 }

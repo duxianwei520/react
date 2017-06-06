@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import ReactDom from 'react-dom'
 import { connect } from 'react-redux'
-import Panel from 'components/panel'
 import { Form, Input, Tooltip, Icon, Cascader, Select, Row, Col, Checkbox, Button } from 'antd'
 
 
@@ -31,7 +30,7 @@ export default class popCheck extends Component {
   
   render() {
     return (
-      <div>
+      <div class="page">
         <Button onClick={this.handleClick.bind(this)}>点击按钮</Button>
       </div>
     )

@@ -67,10 +67,10 @@ import { Button, Form, Input, Row, Col, Select } from 'antd';
 import QueueAnim from 'rc-queue-anim'
 import 'components/index.less'
 import { chunk } from 'lodash'
-import SearchChosen from '../searchChosen'
-import MultiSelect from '../multiSelect'
+// import SearchChosen from '../searchChosen'
+// import MultiSelect from '../multiSelect'
 // 引入通话原因下拉组件
-import SelectReason from '../selectReason'
+// import SelectReason from '../selectReason'
 
 const InputGroup = Input.Group
 const FormItem = Form.Item
@@ -123,8 +123,8 @@ export default class SearchForm extends Component {
     case 'searchChosen': return this.getSearchChosen(item)
     case 'multiSelect': return this.getMultiSelect(item)
     case 'cityCascader': return this.getCityCascader(item)
-    case 'callReason': return this.getSelectReason(item)
-    case 'defaultMultiSelect': return this.getDefaultMultiSelect(item)
+    // case 'callReason': return this.getSelectReason(item)
+    // case 'defaultMultiSelect': return this.getDefaultMultiSelect(item)
     default: this.getText(item); break;
     }
     return [];

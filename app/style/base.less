@@ -1,3 +1,5 @@
+@import "./theme.less";
+
 html,
 body {
   min-width: 290px;
@@ -13,6 +15,8 @@ body {
   -webkit-font-smoothing: antialiased !important;
 }
 
+.flex-column{ flex:1; display: flex; flex-direction: column;}
+.flex-row{ flex:1; display: flex; flex-direction: row;}
 /* CONTAINER */
 /*======================================*/
 #container {
@@ -304,20 +308,6 @@ body {
 }
 /* Expanding with off canvas mode */
 
-/* PANELS */
-/*======================================*/
-.panel {
-  // box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
-  border-radius: 0;
-  border: 0;
-  // margin-bottom: 24px;
-  background-color: #fff;
-  min-height: 500px;
-}
-
-.panel-body {
-  padding: 15px 15px 0 15px;
-}
 
 .ant-tabs-bar{ margin-bottom: 0;}
 // 滚动条
@@ -328,19 +318,42 @@ body {
 ::-webkit-scrollbar{ width: 14px; height: 14px;}
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-thumb{ border-radius: 999px; border:5px solid transparent;}
-::-webkit-scrollbar-track{ box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2) inset;}
+// ::-webkit-scrollbar-track{ box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2) inset;}
 ::-webkit-scrollbar-thumb{min-height: 20px; background-clip: content-box; box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.2) inset;}
 ::-webkit-scrollbar-corner{ background: transparent;}
 
-/*login.css*/
-.sy_top {height: 50%; width: 100%; background: #4a99e6; position: absolute; top: 0;}
-.btmLogin {width: 100%;top: 50%;position: absolute;}
-.sy_bottom {text-align: center;}
-.sy_bottom h1 {font-size: 25px;color: #333;font-weight: normal;margin: 50px 0;}
+/*login.start*/
+.sy_top {height: 30%; width: 100%; background: #2D333E; position: absolute; top: 0;}
+.btmLogin {width: 100%;top: 30%;position: absolute;}
+.sy_bottom {text-align: center;
+  .ant-form{ width: 280px; margin: 0 auto;
+    .has-error{text-align: left;}
+  }
+}
+.sy_bottom h1 {font-size: 25px;color: #333;font-weight: normal;padding: 50px 0;}
 .sy_bottom li{display:inline-block;margin-right:10px;}
 .companyName{position: fixed;width: 100%; color:#ccc; bottom:10px ;text-align:center; font-size:16px;}
 .ul-wrap .ant-btn{margin-right: 10px;}
+.ul-wrap .ant-input{ height: 32px;}
 .ul-wrap .ant-spin-spinning{ left: 0; }
 /*login end*/
 .hide{ display: none;}
 .gform input{ width: auto;}
+.ant-table-fixed-header .ant-table-scroll .ant-table-header{ overflow: inherit;}
+.root,#container, .boxed, #content-container, #page-content{ height: 100%;}
+.page{ padding:@space-big @space-big 0 @space-big; background-color: #fff;}
+#page-content,
+.page,
+.page .ant-spin-nested-loading,
+.page .ant-spin-container,
+.page .search-form-table,
+.page .ant-table-wrapper,
+.page .ant-spin-nested-loading,
+.page .ant-spin-container,
+.page .ant-table,
+.page .ant-table-content,
+.page .ant-table-scroll,
+.page .ant-table-body
+{
+  .flex-column;
+}

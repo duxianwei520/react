@@ -7,26 +7,14 @@ import {
   updateHouseCheckListQuery,
   resetHouseCheckListQuery } from 'actions/house'
 import { resetAmList } from 'actions/common'
-import Panel from 'components/panel'
 import SearchTable from 'components/searchTable'
 
 @connect(
-    (state, props) => ({
-      config: state.config,
-      houseCheckSearchQuery: state.houseCheckSearchQuery,
-      houseCheckSearchResult: state.houseCheckSearchResult,
-      amList: state.amList,
-    })
-    /* function(state, props){
-      console.log(state)
-      console.log(props)
-      return {
-        config: state.config,
-        houseCheckSearchQuery: state.houseCheckSearchQuery,
-        houseCheckSearchResult: state.houseCheckSearchResult,
-
-      }
-    }*/
+  (state, props) => ({
+    config: state.config,
+    houseCheckSearchQuery: state.houseCheckSearchQuery,
+    houseCheckSearchResult: state.houseCheckSearchResult,
+  })
 )
 export default class houseCheckList extends Component {
   constructor(props) {
@@ -54,38 +42,6 @@ export default class houseCheckList extends Component {
         label: '关键字',
         type: 'text',
       },
-      {
-        key: 'division',
-        label: '行政区划',
-        type: 'multiSelect',
-        text: 'mean',
-        value: 'code',
-        options: config.ADMINISTRATIVE_DIVISION,
-      },
-      {
-        key: 'institutions',
-        value: 'code',
-        text: 'mean',
-        label: '管辖单位',
-        type: 'defaultMultiSelect',
-        options: config.ADMINISTRATIVE_DIVISION,
-      },
-      {
-        key: 'houseStatus',
-        value: 'code',
-        text: 'mean',
-        label: '房屋状态',
-        type: 'select',
-        options: config.ADMINISTRATIVE_DIVISION,
-      },
-      {
-        key: 'addressType',
-        value: 'code',
-        text: 'mean',
-        label: '地址属性',
-        type: 'select',
-        options: config.ADMINISTRATIVE_DIVISION,
-      },
     ]
   }
 
@@ -100,37 +56,44 @@ export default class houseCheckList extends Component {
       {
         title: '序号',
         key: 'index',
+        width: '50px',
         render: (text, recordId, index) => <span>{index + 1}</span>,
       },
       {
         title: '建筑物地址',
         dataIndex: 'address',
         key: 'address',
+        width: '15%',
       },
       {
         title: '行政区划',
         dataIndex: 'division',
         key: 'division',
+        width: '10%',
       },
       {
         title: '管辖单位',
         dataIndex: 'institutions',
         key: 'institutions',
+        width: '10%',
       },
       {
         title: '管辖警员',
         dataIndex: 'policeName',
         key: 'policeName',
+        width: '100px',
       },
       {
         title: '房屋状态',
         dataIndex: 'houseStatus',
         key: 'houseStatus',
+        width: '10%',
       },
       {
         title: '地址属性',
         dataIndex: 'addressType',
         key: 'addressType',
+        width: '100px',
       },
       {
         title: '操作',
@@ -160,9 +123,9 @@ export default class houseCheckList extends Component {
 
   render() {
     const { houseCheckSearchQuery, houseCheckSearchResult } = this.props
-    console.log(houseCheckSearchResult)
+    // console.log(houseCheckSearchResult)
     return (
-      <Panel>
+      <div className="page">
         <Spin spinning={houseCheckSearchResult.loading}>
           <SearchTable
             onSubmit={this._handleSubmit}
@@ -174,12 +137,12 @@ export default class houseCheckList extends Component {
             currentPage={houseCheckSearchResult.currentPage}
             totalCount={houseCheckSearchResult.totalCount}
             clear={this._clear}
-            // scroll={{ x: 1100 }}
+            scroll={{ y: true }}
             loading={houseCheckSearchResult.loading}
             // hasResetBtn={false}
           />
         </Spin>
-      </Panel>
+      </div>
     )
   }
 }
