@@ -17,6 +17,10 @@ npm  start
 运行本命令后  会自动在当前默认浏览器打开一个窗口  项目就可以跑起来啦
 如果报错  比如提示缺少webpack-dev-server   那么请单独运行明令npm install webpack-dev-server来安装这个包 其他的包确实也可以采用类似的方法再单独安装
 
+# 启动数据托管服务
+node  mockserver.js
+如果需要数据服务，那么就要一直开启着这个服务
+
 # 打包部署
 npm run build
 打包之后会再当目录生成一个dist文件夹  index.html就是入口文件 
@@ -43,11 +47,6 @@ npm run lint
 + components：存放的是公用的一些组件  可以理解为jQuery框架的jQuery插件
 + containers：存放的是我们基本的页面的组件  比如说头部 左侧 中间内容区的布局 
 
-
-# 可以改善的问题
-+ 数据模拟目前没有用到mockjs，调试不是很方便，暂时用了一个wamp服务器来转发json请求，但还是没mockjs那么方便强大
-+ dev环境跟pro或者test环境没有单独的对webpack做配置，所以部署的时候可能要改index.html请求路径等等
-+ 如果整个单页系统功能太大，那么对应的文件也就越大，start跟build文件的时候比较费时
 
 
 # 最后
