@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { hashHistory } from 'react-router'
 import { Spin, message, Form, Icon, Input, Button, Row, Col } from 'antd'
-import { regExpConfig } from 'utils/config'
 import { fetchLogin } from 'actions/common'
 const FormItem = Form.Item
 

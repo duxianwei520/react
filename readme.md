@@ -4,16 +4,16 @@
 
 ng1.x老衲用过3个月，觉得整个框架组织结构更像是专门为系统指定的，要什么有什么，这样的话对于在线mobile app性能是个大的考验，还有一个不喜欢的点是他的写法更像是PHP哪种形式的绑定，比较总的后端思维在里面
 
-vue用来做过一个微信端的小项目，觉得还是比较容易上手的，1.x感觉跟ng1.x的思想上更加接近，但是对于开发app的话，没有weex也只能依赖于cordova之类的，觉得在性能上可能还是差了那么点意思，再有一个重要的点就是，主要是尤小溪个人的项目，虽然后面也有不少的人加入，但觉得精力还是太有限了。
+vue贫道也做过一个微信端的小项目，觉得还是比较容易上手的，1.x感觉跟ng1.x的思想上更加接近，但是对于开发app的话，没有weex也只能依赖于cordova之类的，觉得在性能上可能还是差了那么点意思，再有一个重要的点就是，主要是尤小溪个人的项目，虽然后面也有不少的人加入，但觉得精力还是太有限了。
 
-综上，react可能是折中所有方案里面最合适的一个技术栈了，不加全家桶的话，跟vue一样的轻量，移动端有比较成熟的react native。
+最后react可能是所有方案里面最合适最这种的一个技术栈了，不加全家桶的话，跟vue一样的轻量，移动端有比较成熟的react native。
 
 so，就是这个了
 
 
 ## 技术栈
 
-react15.0 + redux + react-router + webpack + ES6/7 + fetch + less + flex
+react + redux + react-router + webpack + ES6/7 + fetch + less + flex
 
 
 
@@ -24,33 +24,41 @@ react15.0 + redux + react-router + webpack + ES6/7 + fetch + less + flex
 ```
 git clone https://github.com/duxianwei520/react.git  
 
-cd react
+cd react （进入当前的项目）
 
-npm install
+npm install  (安装依赖包)
 
 npm start (运行本地开发环境)
+npm run build (打包)
 
 node mockserver.js (前端本地用node模拟接口进程)
 
 ```
 
 
-# 说明
+## 说明
 
->  如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ 
-
->  或者您可以 "follow" 一下，我会不断开源更多的有趣的项目
+>  喜欢的别忘记了可以star一下的噢！ 
 
 >  开发环境 win10  Chrome 58.0.3029.110  nodejs 6.2.0
 
->  如果npm install太慢导致有些npm依赖包下载失败  那么推荐使用淘宝的注册源 直接运行 npm install -g cnpm --registry=https://registry.npm.taobao.org 如果这个方法还不行的话，可以到我的百度网盘上面去下载我已经压缩好的npm依赖包，地址是http://pan.baidu.com/s/1pLdPWgj，
+>  如果npm install太慢导致有些npm依赖包下载失败 你可以看控制台的报错信息，再手动npm install 具体的开发包，推荐使用淘宝的注册源，直接运行，
+```
+npm install -g cnpm --registry=https://registry.npm.taobao.org 
+
+```
+如果这个方法还不行的话，可以到我的百度网盘上面去下载我已经压缩好的npm依赖包，地址是
+``` 
+http://pan.baidu.com/s/1pLdPWgj
+
+```
 把下载到本地的node_modules.rar文件直接解压到跟app同级的当前文件夹，记住是当前文件夹的，然后不用npm install就可以直接npm start跑起来项目了。
 
 >  如有问题请直接在 Issues 中提，或者您发现问题并有非常好的解决方案，欢迎 PR 👍
 
 
 
-# 功能一览
+## 功能一览
 - [√] 项目按路由模块加载
 - [√] 登录，以及登录权限控制
 - [√] 退出
@@ -63,7 +71,7 @@ node mockserver.js (前端本地用node模拟接口进程)
 
 
 
-# 总结
+## 总结
 
 1、这整个技术栈是我们公司前端部门在用的，写熟悉了之后，用来做后台管理系统类的实在是很方便，大家都表示再也不要用jQuery来做这样子的系统了
 
@@ -72,7 +80,7 @@ node mockserver.js (前端本地用node模拟接口进程)
 
 
 
-# 部分截图
+## 部分截图
 
 
 ### 登录页
@@ -102,7 +110,7 @@ node mockserver.js (前端本地用node模拟接口进程)
 
 
 
-# 项目结构
+## 项目结构
 
 ```
 .
@@ -208,6 +216,6 @@ node mockserver.js (前端本地用node模拟接口进程)
 ```
 
 
-# License
+## License
 
 [GPL](https://github.com/duxianwei520/react/blob/master/COPYING)

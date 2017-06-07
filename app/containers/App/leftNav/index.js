@@ -3,8 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { routerActions } from 'react-router-redux'
 import { Menu, Icon, Spin } from 'antd'
-import { menuIcon } from './../../../utils/config'
-import { updateTabList } from '../../../actions/tabList'
+import { updateTabList } from 'actions/tabList'
 
 const SubMenu = Menu.SubMenu
 

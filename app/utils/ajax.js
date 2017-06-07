@@ -2,48 +2,62 @@ import fetch from 'isomorphic-fetch'
 import { API_PREFIX, API_SUFFIX } from '../constants'
 
 // todo : 连接store
-const code = global.$GLOBALCONFIG.STAFF.code
+// const code = global.$GLOBALCONFIG.STAFF.code
 
-
-export function fetchJSON(url, params) {
-  // eslint-disable-next-line no-param-reassign
-  params = {
-    ...params,
-    headers: {
-      // 'User-Code': code,
-      // credentials: 'include',
-      // 'X-Requested-With': 'XMLHttpRequest',
-      // Connection: 'keep-alive',
-      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-      ...params.headers,
-    },
-  }
-  // eslint-disable-next-line no-param-reassign
-  url = `${API_PREFIX}${url}${API_SUFFIX}`
-  return fetch(url, params)
-}
 function buildParams(obj) {
   if (!obj) {
     return ''
   }
   const params = []
-  // eslint-disable-next-line no-restricted-syntax
-  for (const key in obj) {
-    if ({}.hasOwnProperty.call(obj, key)) {
-      const value = obj[key] === undefined ? '' : obj[key]
-      params.push(`${key}=${value}`)
-    }
+  for (const key of Object.keys(obj)) {
+    const value = obj[key] === undefined ? '' : obj[key]
+    params.push(`${key}=${encodeURIComponent(value)}`)
   }
-  return params.join('&')
+  const arg = params.join('&')
+  return arg
 }
+
+// 下面是注释用formdata的方式传输数据
+/*export function fetchJSON(url, params) {
+  params = {
+    ...params,
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+      ...params.headers,
+    },
+  }
+  url = `${API_PREFIX}${url}${API_SUFFIX}`
+  return fetch(url, params)
+}*/
+
+export function fetchJSON(url, params, target) {
+  let data = {
+    'method': 'POST',
+    'Content-Type': 'application/json',
+    'body': JSON.stringify(params)
+  }
+
+  if(target){
+    url = `${target}${url}${API_SUFFIX}`
+  } else {
+    url = `${API_PREFIX}${url}${API_SUFFIX}`
+  }
+  return fetch(url, data)
+}
+
+
 // eslint-disable-next-line arrow-parens
-export const fetchJSONByPost = url => query => {
-  const params = {
+export const fetchJSONByPost = (url, target) => query => {
+  // 下面是注释用formdata的方式传输数据
+  /*const params = {
     method: 'POST',
     body: buildParams(query),
   }
-  return fetchJSON(url, params)
+  return fetchJSON(url, params)*/
+  return fetchJSON(url, query, target)
 }
+
+
 
 export const fetchJSONStringByPost = url => query => {
   const params = {

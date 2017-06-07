@@ -270,7 +270,7 @@ export default class SearchForm extends Component {
           <div key="arr">
             {
               arr.map((item, key) => (
-                <Col md={24 / cols} key={key}>
+                <Col sm={24 / cols} key={key}>
                   <FormItem label={item.label} labelCol={{ span: 10 }}
                     wrapperCol={{ span: 14 }}
                   >
