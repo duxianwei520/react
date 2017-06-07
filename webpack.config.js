@@ -28,6 +28,7 @@ module.exports = {
       utils: __dirname + '/app/utils',
       constants: __dirname + '/app/constants',
       controllers: __dirname + '/app/controllers',
+      style: __dirname + '/app/style',
     },
   },
   module: {

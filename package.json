@@ -10,9 +10,7 @@
   "scripts": {
     "start": "webpack-dev-server --history-api-fallback --hot --inline --process --colors --port 3000",
     "build": "webpack",
-    "test": "PWD=$(pwd) ava --verbose",
-    "lint": "eslint ./ --cache --fix --ignore-pattern .gitignore",
-    "precommit-msg": "echo Pre-commit checking...please wait && exit 0"
+    "lint": "eslint ./ --cache --fix --ignore-pattern .gitignore"
   },
   "author": "duxiaodu",
   "devDependencies": {
@@ -117,7 +115,6 @@
       "subjectPattern": ".+",
       "subjectPatternErrorMsg": "subject does not match subject pattern!",
       "helpMessage": ""
-    },
-    "ghooks": {}
+    }
   }
 }

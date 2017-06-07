@@ -5,7 +5,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import './welcome.less'
 
 @connect(
     (state, props) => ({
@@ -28,10 +27,8 @@ export default class welcome extends Component {
   render() {
     return (
       <div className="welcome">
-        <div className="content_right content_rightBg">
-          <div className="footer">
-            <p>dupi</p>
-          </div>
+        <div className="content">
+          <h2 className="title">肚皮叔：行，我等你</h2>
         </div>
       </div>
     )

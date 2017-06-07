@@ -42,6 +42,11 @@ export default class houseCheckList extends Component {
         label: '关键字',
         type: 'text',
       },
+      {
+        key: 'division',
+        label: '行政区划',
+        type: 'text',
+      },
     ]
   }
 
