@@ -2,7 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
-const casProxy = require('./proxy');
+// const casProxy = require('./proxy');
 
 module.exports = {
   entry: {
