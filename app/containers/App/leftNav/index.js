@@ -20,7 +20,7 @@ export default class LeftNav extends Component {
     this.state = {
       current: pathname,
       openKeys: ['sub1'],
-      isLeftNavMini: false,
+      isLeftNavMini: true,
     }
     
     this._handleClick = this._handleClick.bind(this)

@@ -13,21 +13,19 @@ import Third from './third'
 export default class sub extends Component {
   constructor(props) {
     super(props)
-    this.state = { 
-      
+    this.state = {
+
     }
   }
 
   componentDidMount() {
-    
+
   }
 
 
-
-  
   render() {
     return (
-      <div  className="page">
+      <div className="page">
         <h1>我是二级页面</h1>
         <Third />
       </div>

@@ -1,3 +1,9 @@
+/*
+ * @Author: dupi
+ * @Date: 2017-06-28 17:16:12
+ * @Last Modified by: dupi
+ * @Last Modified time: 2017-06-29 15:54:17
+ */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
@@ -19,14 +25,18 @@ import SearchTable from 'components/searchTable'
 export default class houseCheckList extends Component {
   constructor(props) {
     super(props)
-    this.state = { }
+    this.state = {
+      data: {
+
+      },
+    }
     this._handleSubmit = this._handleSubmit.bind(this)
     this.cacheSearch = this.cacheSearch.bind(this)
     this._clear = this._clear.bind(this)
   }
 
   componentDidMount() {
-    this.props.dispatch(fetchHouseCheckList({ currentPage: 1 }))
+    this.props.dispatch(fetchHouseCheckList({ currentPage: 1 }, (respose) => {}))
   }
 
   _handleSubmit(query, currentPage) {
@@ -35,6 +45,10 @@ export default class houseCheckList extends Component {
   }
 
   searchList() {
+    const { data } = this.state
+    data && data.list && data.list.map(item => {
+
+    })
     const { config } = this.props
     return [
       {
@@ -128,6 +142,7 @@ export default class houseCheckList extends Component {
 
   render() {
     const { houseCheckSearchQuery, houseCheckSearchResult } = this.props
+
     // console.log(houseCheckSearchResult)
     return (
       <div className="page">

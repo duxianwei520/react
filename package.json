@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "duxiaodu",
   "repository": {
-    "type": "gitlab",
-    "url": "http://192.168.1.88/duxiaodu"
+    "type": "git",
+    "url": "https://github.com/duxianwei520/react"
   },
   "private": true,
   "scripts": {
@@ -84,36 +84,5 @@
     "redux-actions": "~0.10.1",
     "redux-thunk": "~2.1.0",
     "webpack": "~1.13.1"
-  },
-  "ava": {
-    "files": [
-      "./app/**/*.test.js"
-    ],
-    "require": [
-      "./test/setup-test-env.js"
-    ],
-    "failFast": true,
-    "tap": true,
-    "babel": "inherit"
-  },
-  "config": {
-    "validate-commit-msg": {
-      "types": [
-        "feat",
-        "fix",
-        "docs",
-        "style",
-        "refactor",
-        "perf",
-        "test",
-        "chore",
-        "revert"
-      ],
-      "warnOnFail": false,
-      "maxSubjectLength": 100,
-      "subjectPattern": ".+",
-      "subjectPatternErrorMsg": "subject does not match subject pattern!",
-      "helpMessage": ""
-    }
   }
 }

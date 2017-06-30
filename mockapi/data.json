@@ -86,7 +86,7 @@
     "totalCount": 100,
     "currentPage": 1
   },
-  "msg":"",
+  "msg":"没有权限",
   "errorCode": "",
   "status": 1
 }

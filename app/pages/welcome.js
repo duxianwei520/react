@@ -1,7 +1,11 @@
 /*
-** creator: dupi  2016-11-10 11:30  创建js
-** editor: dupi 2016-02-09 16:00 在头部添加文件修改记录
-*/
+ * @Author: dupi
+ * @Date: 2017-06-27 13:51:09
+ * @Last Modified by: dupi
+ * @Last Modified time: 2017-06-27 15:09:38
+ */
+
+
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
@@ -16,6 +20,7 @@ export default class welcome extends Component {
   constructor(props, context) {
     super(props)
     this.state = {
+      data: {},
     }
   }
 
