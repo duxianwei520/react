@@ -14,7 +14,6 @@
   },
   "author": "duxiaodu",
   "devDependencies": {
-    "ava": "~0.15.2",
     "babel": "~6.5.2",
     "babel-cli": "~6.11.4",
     "babel-core": "~6.10.4",

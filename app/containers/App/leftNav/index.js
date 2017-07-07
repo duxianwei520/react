@@ -22,7 +22,7 @@ export default class LeftNav extends Component {
       openKeys: ['sub1'],
       isLeftNavMini: true,
     }
-    
+
     this._handleClick = this._handleClick.bind(this)
     this._handleToggle = this._handleToggle.bind(this)
     this.navMini = this.navMini.bind(this)
@@ -88,7 +88,7 @@ export default class LeftNav extends Component {
   renderLeftNav(options) {
     const self = this
     return options.map((item, index) => {
-      if(!item.children){
+      if (!item.children) {
         return (
           // <SubMenu key={index} title={item.name}>
             <Menu.Item key={item.url ? item.url : item.id} name={item.name}>
@@ -105,15 +105,15 @@ export default class LeftNav extends Component {
               <span className="menu-name">{item.name}</span>
             </span>}>
             {
-              item.url ? 
+              item.url ?
                 <Menu.Item key={item.url} name={item.name}>
                   <Icon type={item.icon} title={item.name} />
                   <span className="menu-name">{item.name}</span>
                 </Menu.Item> : null
             }
-            
+
             {
-              item.children && item.children.length > 0 ? self.renderLeftNav(item.children): null
+              item.children && item.children.length > 0 ? self.renderLeftNav(item.children) : null
             }
           </SubMenu>
         )
