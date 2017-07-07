@@ -41,7 +41,7 @@ export default class Login extends Component {
         this.state.loading = true
         // this.setState({loading: true})
         Object.keys(values).map((key) => values[key] = (values[key] && values[key].trim()))
-        /*this.props.dispatch(fetchLogin(values, (res) => {
+        /* this.props.dispatch(fetchLogin(values, (res) => {
           if (res.status == 1) {
             const query = this.props.form.getFieldsValue()
             global.$GLOBALCONFIG.staff = res.data.user
@@ -77,7 +77,7 @@ export default class Login extends Component {
   }
 
   checkName(rule, value, callback) {
-    const { validateFields } = this.props.form
+    // const { validateFields } = this.props.form
     if (value) {
       // validateFields([''])
     }
@@ -85,7 +85,7 @@ export default class Login extends Component {
   }
 
   checkPass(rule, value, callback) {
-    const { validateFields } = this.props.form
+    // const { validateFields } = this.props.form
     if (value) {
       // validateFields([''])
     }
