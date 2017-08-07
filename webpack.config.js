@@ -3,6 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 // const casProxy = require('./proxy');
+var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   entry: {
@@ -69,6 +70,8 @@ module.exports = {
     new OpenBrowserPlugin({
       url: 'http://localhost:3000'
     }),
+    // 分析代码
+    new BundleAnalyzerPlugin({analyzerPort: 8188,})
   ],
   devtool: 'source-map',
   devServer: {

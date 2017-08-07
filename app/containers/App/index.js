@@ -10,7 +10,7 @@ import LeftNav from './leftNav'
 import RightAside from './rightAside'
 import TabList from './tabList'
 import Extra from './extra'
-import 'antd/dist/antd.less'
+
 import '../../style/base.less'
 
 @connect(

@@ -18,7 +18,7 @@ function buildParams(obj) {
 }
 
 // 下面是注释用formdata的方式传输数据
-/*export function fetchJSON(url, params) {
+/* export function fetchJSON(url, params) {
   params = {
     ...params,
     headers: {
@@ -31,13 +31,13 @@ function buildParams(obj) {
 }*/
 
 export function fetchJSON(url, params, target) {
-  let data = {
+  const data = {
     'method': 'POST',
     'Content-Type': 'application/json',
-    'body': JSON.stringify(params)
+    'body': JSON.stringify(params),
   }
 
-  if(target){
+  if (target) {
     url = `${target}${url}${API_SUFFIX}`
   } else {
     url = `${API_PREFIX}${url}${API_SUFFIX}`
@@ -49,14 +49,13 @@ export function fetchJSON(url, params, target) {
 // eslint-disable-next-line arrow-parens
 export const fetchJSONByPost = (url, target) => query => {
   // 下面是注释用formdata的方式传输数据
-  /*const params = {
+  /* const params = {
     method: 'POST',
     body: buildParams(query),
   }
   return fetchJSON(url, params)*/
   return fetchJSON(url, query, target)
 }
-
 
 
 export const fetchJSONStringByPost = url => query => {
