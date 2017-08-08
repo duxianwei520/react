@@ -1,28 +1,28 @@
 /*
  * @Author: dupi
  * @Date: 2017-06-28 17:16:12
- * @Last Modified by: dupi
- * @Last Modified time: 2017-06-29 15:54:17
+ * @Last Modified by: duxianwei
+ * @Last Modified time: 2017-08-08 20:55:31
  */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
-import { Button, Spin } from 'antd'
+import { Button, Spin, Form, Input, Table } from 'antd'
 import {
   fetchHouseCheckList,
-  updateHouseCheckListQuery,
-  resetHouseCheckListQuery } from 'actions/house'
-import { resetAmList } from 'actions/common'
-import SearchTable from 'components/searchTable'
+} from 'actions/house'
+
+const FormItem = Form.Item
+
+@Form.create({})
 
 @connect(
   (state, props) => ({
     config: state.config,
-    houseCheckSearchQuery: state.houseCheckSearchQuery,
     houseCheckSearchResult: state.houseCheckSearchResult,
   })
 )
-export default class houseCheckList extends Component {
+export default class app extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -31,58 +31,30 @@ export default class houseCheckList extends Component {
       },
     }
     this._handleSubmit = this._handleSubmit.bind(this)
-    this.cacheSearch = this.cacheSearch.bind(this)
-    this._clear = this._clear.bind(this)
   }
 
   componentDidMount() {
     this.props.dispatch(fetchHouseCheckList({ currentPage: 1 }, (respose) => {}))
   }
 
-  _handleSubmit(query, currentPage) {
-    // query.amRegions = this._getAmRegions(query.am)
-    this.props.dispatch(fetchHouseCheckList({ ...query, currentPage: currentPage }))
+  _handleSubmit(currentPage) {
+    this.props.dispatch(fetchHouseCheckList({ keyword: '' }))
   }
 
-  searchList() {
-    const { data } = this.state
-    data && data.list && data.list.map(item => {
-
-    })
-    const { config } = this.props
-    return [
-      {
-        key: 'keyword',
-        label: '关键字',
-        type: 'text',
-      },
-      {
-        key: 'division',
-        label: '行政区划',
-        type: 'text',
-      },
-    ]
-  }
-
-
-  _clear() {
-    this.props.dispatch(resetAmList())
-    this.props.dispatch(resetHouseCheckListQuery())
-  }
 
   columns() {
     return [
       {
         title: '序号',
         key: 'index',
-        width: '50px',
+        width: '5%',
         render: (text, recordId, index) => <span>{index + 1}</span>,
       },
       {
         title: '建筑物地址',
         dataIndex: 'address',
         key: 'address',
-        width: '15%',
+        width: '25%',
       },
       {
         title: '行政区划',
@@ -100,25 +72,25 @@ export default class houseCheckList extends Component {
         title: '管辖警员',
         dataIndex: 'policeName',
         key: 'policeName',
-        width: '100px',
+        width: '10%',
       },
       {
         title: '房屋状态',
         dataIndex: 'houseStatus',
         key: 'houseStatus',
-        width: '10%',
+        width: '15%',
       },
       {
         title: '地址属性',
         dataIndex: 'addressType',
         key: 'addressType',
-        width: '100px',
+        width: '15%',
       },
       {
         title: '操作',
         key: 'operate',
         // fixed: 'right',
-        width: 60,
+        width: '10%',
         render: function (text, record, index) {
           return (
             <span>
@@ -132,34 +104,39 @@ export default class houseCheckList extends Component {
     ]
   }
 
-  cacheSearch(item) {
-    this.props.dispatch(updateHouseCheckListQuery(item))
-  }
-
   tableData() {
     return this.props.houseCheckSearchQuery.list
   }
 
   render() {
-    const { houseCheckSearchQuery, houseCheckSearchResult } = this.props
-
+    const { houseCheckSearchResult, form } = this.props
+    const { getFieldDecorator } = form
     // console.log(houseCheckSearchResult)
     return (
       <div className="page">
+        <div className="search" style={{ marginBottom: '10px' }}>
+          <Form onSubmit={this._handleSubmit} layout="inline">
+            <FormItem label="关键字">
+              {
+                getFieldDecorator('keyword', {
+                  rules: [{
+                    required: false,
+                  }],
+                })(
+                  <Input placeholder="请输入关键字" size="default" style={{ width: '200px' }} />
+                )
+              }
+            </FormItem>
+            <Button type="primary" onClick={this._handleSubmit}>确定</Button>
+          </Form>
+        </div>
         <Spin spinning={houseCheckSearchResult.loading}>
-          <SearchTable
-            onSubmit={this._handleSubmit}
-            search={houseCheckSearchQuery}
-            cacheSearch={this.cacheSearch}
+          <Table
+            dataSource={houseCheckSearchResult.list}
             columns={this.columns()}
-            searchList={this.searchList()}
-            tableData={houseCheckSearchResult.list}
             currentPage={houseCheckSearchResult.currentPage}
             totalCount={houseCheckSearchResult.totalCount}
-            clear={this._clear}
             scroll={{ y: true }}
-            loading={houseCheckSearchResult.loading}
-            // hasResetBtn={false}
           />
         </Spin>
       </div>
