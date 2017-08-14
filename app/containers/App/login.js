@@ -108,7 +108,7 @@ export default class Login extends Component {
             <Row className="ul-wrap">
               <Col span={24}>
                 <Spin spinning={this.state.loading}>
-                  <Form layout="vertical" onSubmit={this.handleSubmit}>
+                  <Form onSubmit={this.handleSubmit}>
                     <FormItem hasFeedback>
                       {getFieldDecorator('username', {
                         rules: [
@@ -119,7 +119,7 @@ export default class Login extends Component {
                         // validateTrigger: 'onBlur',
                       })(
                         <Input
-                          addonBefore={<Icon type="user" />}
+                          prefix={<Icon type="user" style={{ fontSize: 13 }} />}
                           placeholder="请输入用户名"
                           type="text"
                         />
@@ -134,7 +134,7 @@ export default class Login extends Component {
                         // validateTrigger: 'onBlur',
                       })(
                         <Input
-                          addonBefore={<Icon type="lock" />}
+                          prefix={<Icon type="lock" style={{ fontSize: 13 }} />}
                           placeholder="请输入密码"
                           type="password"
                         />

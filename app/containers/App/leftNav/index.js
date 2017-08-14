@@ -20,7 +20,7 @@ export default class LeftNav extends Component {
     this.state = {
       current: pathname,
       openKeys: ['sub1'],
-      isLeftNavMini: true,
+      isLeftNavMini: false,
     }
 
     this._handleClick = this._handleClick.bind(this)
@@ -35,7 +35,8 @@ export default class LeftNav extends Component {
       this.setState({
         isLeftNavMini: false,
       })
-    } else {
+    }
+    if (sessionStorage.getItem('isLeftNavMini') == 'true') {
       this.setState({
         isLeftNavMini: true,
       })

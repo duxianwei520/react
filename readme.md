@@ -71,6 +71,7 @@ http://pan.baidu.com/s/1pLdPWgj
 - [√] nodejs代理数据示例
 - [√] 页面高度flex自适应
 - [√] fetch数据跨域的设置
+- [√] 实时的webpack包大小预览
 
 
 

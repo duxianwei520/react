@@ -52,7 +52,7 @@
     "style-loader": "~0.13.1",
     "url-loader": "~0.5.7",
     "validate-commit-msg": "^2.8.0",
-    "webpack-bundle-analyzer": "^2.8.3",
+    "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-middleware": "~1.6.1",
     "webpack-dev-server": "~1.14.1",
     "webpack-hot-middleware": "~2.12.1"

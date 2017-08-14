@@ -2,7 +2,7 @@
  * @Author: duxianwei
  * @Date: 2017-08-07 20:10:37
  * @Last Modified by: duxianwei
- * @Last Modified time: 2017-08-08 19:30:49
+ * @Last Modified time: 2017-08-11 11:54:11
  */
 
 const webpack = require('webpack')
@@ -78,13 +78,13 @@ module.exports = {
     // 提取css
     new ExtractTextPlugin('vendor.[hash].css'),
     // 根据入口文件，提取重复引用的公共代码类库，打包到单独文件中
-    // new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor', // 入口文件名
-      filename: 'vendor.bundle.js', // 打包后的文件名
+      name: 'vendor.[hash]', // 入口文件名
+      filename: 'vendor.[hash].bundle.js', // 打包后的文件名
     }),
     // 为组件分配id
-    new webpack.optimize.OccurrenceOrderPlugin(),
+    // new webpack.optimize.OccurrenceOrderPlugin(),
     /* 压缩优化代码开始  可以关掉*/
     new webpack.optimize.UglifyJsPlugin({ minimize: true }),
     /* 压缩优化代码结束*/
