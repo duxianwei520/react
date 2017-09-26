@@ -14,11 +14,12 @@ export default (() => {
     global.NAVIGATION = [
       {
         id: 600110230,
-        name: '陈一发儿',
+        name: '菜单列表',
         icon: 'book',
         url: '',
         children: [
-            { id: 600110232, name: '童话镇', url: 'houseManage', icon: 'user' },
+            { id: 600110232, name: '表格', url: 'table', icon: 'user' },
+            { id: 600110233, name: '图表', url: 'echarts', icon: 'area-chart' },
         ],
       },
       {

@@ -1,7 +1,7 @@
 import React from 'react'
 import {
   Route,
-  IndexRoute
+  IndexRoute,
 } from 'react-router'
 import App from './containers/App'
 import Welcome from './pages/welcome'
@@ -16,13 +16,21 @@ import Welcome from './pages/welcome'
 
 // import popCheck from './pages/pop/index'
 
-const houseManage = (location, cb) => {
+// 表格列表
+const table = (location, cb) => {
   require.ensure([], require => {
-    cb(null, require('./pages/house/houseManage').default)
-  }, 'houseManage')
+    cb(null, require('./pages/menu/table').default)
+  }, 'table')
 }
 
+// 图表
+const echarts = (location, cb) => {
+  require.ensure([], require => {
+    cb(null, require('./pages/menu/echarts').default)
+  }, 'echarts')
+}
 
+// 登录
 const Login = (location, cb) => {
   require.ensure([], require => {
     cb(null, require('./containers/App/login').default)
@@ -49,9 +57,10 @@ const routes = (
   <Route>
     <Route path="/" component={App} onEnter={isLogin}>
       <IndexRoute component={Welcome} />
-      <Route path="/houseManage" getComponent={houseManage} />
+      <Route path="/table" getComponent={table} />
+      <Route path="/echarts" getComponent={echarts} />
 
-      <Route path="/test" getComponent={test} query={{'name': 'dupi'}} />
+      <Route path="/test" getComponent={test} query={{ 'name': 'dupi' }} />
 
     </Route>
     <Route path="/login" getComponent={Login}></Route>

@@ -48,7 +48,7 @@ export default class LeftNav extends Component {
     // console.log('click ', e)
     this.setState({
       current: e.key,
-      openKeys: e.keyPath.slice(1),
+      // openKeys: e.keyPath.slice(1),
     }, () => {
       actions.push(e.key)
       this.props.dispatch(updateTabList({ title: e.item.props.name, content: '', key: e.key }))
@@ -126,7 +126,10 @@ export default class LeftNav extends Component {
     // const { loading } = this.props.navResult
     // const navs = this.props.config.NAVIGATION || []
     // console.log('this.props.location', this.props.location)
-    const selectedKeys = [`${this.props.location.pathname.split('$')[0]}$`.replace('/', '')]
+    // const selectedKeys = [`${this.props.location.pathname.split('$')[0]}$`.replace('/', '')]
+
+    const selectedKeys = [this.props.location.pathname.replace('/', '')]
+    // console.log(this.state.openKeys)
     return (
       <div className={this.state.isLeftNavMini ? 'LeftNavMini' : ''}>
         <nav id="mainnav-container" className="mainnav-container">

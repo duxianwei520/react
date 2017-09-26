@@ -2,7 +2,7 @@
  * @Author: dupi
  * @Date: 2017-06-28 17:16:12
  * @Last Modified by: duxianwei
- * @Last Modified time: 2017-08-08 20:55:31
+ * @Last Modified time: 2017-09-21 10:30:34
  */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -11,6 +11,10 @@ import { Button, Spin, Form, Input, Table } from 'antd'
 import {
   fetchHouseCheckList,
 } from 'actions/house'
+
+if (process.env.NODE_ENV === 'development') {
+  console.log('development')
+}
 
 const FormItem = Form.Item
 
@@ -137,6 +141,7 @@ export default class app extends Component {
             currentPage={houseCheckSearchResult.currentPage}
             totalCount={houseCheckSearchResult.totalCount}
             scroll={{ y: true }}
+            rowClassName={(record, index) => record.id == 1 ? 'red' : 'base'}
           />
         </Spin>
       </div>
