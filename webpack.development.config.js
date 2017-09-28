@@ -1,9 +1,3 @@
-/*
- * @Author: duxianwei
- * @Date: 2017-08-07 20:10:37
- * @Last Modified by: duxianwei
- * @Last Modified time: 2017-08-08 19:24:50
- */
 
 const webpack = require('webpack')
 const path = require('path')
@@ -47,7 +41,8 @@ module.exports = {
       {
         test: /\.js[x]?$/,
         exclude: /node_modules/,
-        loader: 'react-hot!babel',
+        // loader: 'react-hot!babel', // 暂时不用react-hot-loader
+        loader: 'babel',
       },
       {
         test: /\.less$/,
