@@ -8,7 +8,7 @@
   },
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --config ./webpack.development.config.js --process --hot --inline",
+    "start": "webpack-dev-server --config ./webpack.development.config.js",
     "build": "webpack --config ./webpack.product.config.js",
     "lint": "eslint ./ --cache --fix --ignore-pattern .gitignore"
   },

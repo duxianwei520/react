@@ -92,9 +92,9 @@ module.exports = {
   devtool: 'source-map',
   devServer: {
     contentBase: './app/',
-    historyApiFallback: true,
-    hot: true,
-    inline: true,
+    historyApiFallback: false,
+    hot: false,
+    inline: false,
     // proxy: casProxy(),
     host: '0.0.0.0',
     port: PORT,
