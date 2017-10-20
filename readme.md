@@ -96,11 +96,21 @@ https://pan.baidu.com/s/1o8mOrV0
 
 <img src="https://github.com/duxianwei520/react/blob/master/screenshots/welcome.png" width="1010" height="566"/>
 
-
-
 ### 列表页
 
 <img src="https://github.com/duxianwei520/react/blob/master/screenshots/list.png" width="1002" height="582"/>
+
+### 图表
+
+<img src="https://github.com/duxianwei520/react/blob/master/screenshots/echart.png" width="674" height="513"/>
+
+### Facebook官方富文本编辑器draft.js
+
+<img src="https://github.com/duxianwei520/react/blob/master/screenshots/draft.png" width="675" height="414"/>
+
+### 富文本编辑器kindeditor
+
+<img src="https://github.com/duxianwei520/react/blob/master/screenshots/kindeditor.png" width="580" height="398"/>
 
 ### 请求接口
 
@@ -112,6 +122,9 @@ https://pan.baidu.com/s/1o8mOrV0
 <img src="https://github.com/duxianwei520/react/blob/master/screenshots/receiveData.png" width="997" height="586"/>
 
 
+### 构建完成的包的分析截图
+
+<img src="https://github.com/duxianwei520/react/blob/master/screenshots/analysis.png" width="1101" height="555"/>
 
 
 ## 项目结构
