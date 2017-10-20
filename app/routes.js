@@ -37,11 +37,24 @@ const Login = (location, cb) => {
   }, 'login')
 }
 
-
+// 测试
 const test = (location, cb) => {
   require.ensure([], require => {
     cb(null, require('./pages/test').default)
   }, 'test')
+}
+// 编辑器
+const editor = (location, cb) => {
+  require.ensure([], require => {
+    cb(null, require('./pages/menu/editor').default)
+  }, 'editor')
+}
+
+// kindEditor
+const kindEditor = (location, cb) => {
+  require.ensure([], require => {
+    cb(null, require('./pages/menu/kindEditor').default)
+  }, 'kindEditor')
 }
 
 /* 进入路由的判断*/
@@ -59,6 +72,8 @@ const routes = (
       <IndexRoute component={Welcome} />
       <Route path="/table" getComponent={table} />
       <Route path="/echarts" getComponent={echarts} />
+      <Route path="/editor" getComponent={editor} />
+      <Route path="/kindEditor" getComponent={kindEditor} />
 
       <Route path="/test" getComponent={test} query={{ 'name': 'dupi' }} />
 

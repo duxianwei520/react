@@ -46,7 +46,8 @@ module.exports = {
       },
       {
         test: /\.less$/,
-        loader: 'style!css!postcss!less',
+        // loader: 'style!css!postcss!less',
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap=true!postcss-loader?sourceMap=true!less-loader?sourceMap=<true></true>'),
       },
       {
         test: /\.css/,
@@ -94,9 +95,10 @@ module.exports = {
     contentBase: './app/',
     historyApiFallback: false,
     hot: false,
-    inline: false,
+    // inline: false,
     // proxy: casProxy(),
     host: '0.0.0.0',
     port: PORT,
+    // stats: { colors: true },
   },
 }

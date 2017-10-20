@@ -52,7 +52,7 @@ npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
 如果这个方法还不行的话，可以到我的百度网盘上面去下载我已经压缩好的npm依赖包，地址是
 ``` 
-http://pan.baidu.com/s/1pLdPWgj
+https://pan.baidu.com/s/1o8mOrV0
 
 ```
 把下载到本地的node_modules.rar文件直接解压到跟app同级的当前文件夹，记住是当前文件夹的，然后不用npm install就可以直接npm start跑起来项目了。
