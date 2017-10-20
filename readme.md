@@ -94,7 +94,7 @@ https://pan.baidu.com/s/1o8mOrV0
 
 ### 欢迎页
 
-<img src="https://github.com/duxianwei520/react/blob/master/screenshots/welcome.png" width="1010" height="566"/>
+<img src="https://github.com/duxianwei520/react/blob/master/screenshots/welcome.png" width="616" height="459"/>
 
 ### 列表页
 
