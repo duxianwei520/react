@@ -2,7 +2,7 @@
  * @Author: dupi
  * @Date: 2017-06-28 17:16:12
  * @Last Modified by: duxianwei
- * @Last Modified time: 2017-10-19 14:07:44
+ * @Last Modified time: 2017-11-03 11:38:17
  */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -38,7 +38,7 @@ export default class app extends Component {
       script.src = '../../components/kindeditor/kindeditor-all-min.js';
       document.body.appendChild(script);
       script.onload = () => {
-        window.KindEditor.ready((K) => {
+        // window.KindEditor.ready((K) => {
           /* K.each({
             'plug-align': {
               name: '对齐方式',
@@ -87,17 +87,17 @@ export default class app extends Component {
             });
           }); */
 
-          self.editor = K.create('#editor', {
+        self.editor = window.KindEditor.create('#editor', {
             // themeType: 'qq',
-            uploadJson: $GLOBALCONFIG.$ctx + '/common/apis/image/upload.json',
+          uploadJson: $GLOBALCONFIG.$ctx + '/common/apis/image/upload.json',
             // resizeType: 1,
-            allowPreviewEmoticons: false,
+          allowPreviewEmoticons: false,
             // allowImageUpload: true,
-            allowImageRemote: false,
-            items: [
-              'bold', 'italic', 'underline', 'fontname', 'fontsize', 'forecolor', 'hilitecolor', 'link', 'image',
-            ],
-          })
+          allowImageRemote: false,
+          items: [
+            'bold', 'italic', 'underline', 'fontname', 'fontsize', 'forecolor', 'hilitecolor', 'link', 'image',
+          ],
+        })
           // self.editor.loadPlugin('image', function () {
           //   self.editor.plugin.imageDialog({
           //     showRemote: false,
@@ -109,7 +109,7 @@ export default class app extends Component {
           //   });
           // });
           // self.editor.html('<h3>Hello KindEditor</h3>')
-        })
+        // })
       };
       this.setState({
         isEditorLoaded: true,

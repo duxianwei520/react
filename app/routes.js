@@ -23,6 +23,27 @@ const table = (location, cb) => {
   }, 'table')
 }
 
+// 表格列表
+const table1 = (location, cb) => {
+  require.ensure([], require => {
+    cb(null, require('./pages/menu/table1').default)
+  }, 'table1')
+}
+
+// 表格列表
+const table2 = (location, cb) => {
+  require.ensure([], require => {
+    cb(null, require('./pages/menu/table2').default)
+  }, 'table2')
+}
+
+// 表格列表
+const table3 = (location, cb) => {
+  require.ensure([], require => {
+    cb(null, require('./pages/menu/table3').default)
+  }, 'table3')
+}
+
 // 图表
 const echarts = (location, cb) => {
   require.ensure([], require => {
@@ -38,10 +59,10 @@ const Login = (location, cb) => {
 }
 
 // 测试
-const test = (location, cb) => {
+const chat = (location, cb) => {
   require.ensure([], require => {
-    cb(null, require('./pages/test').default)
-  }, 'test')
+    cb(null, require('./pages/chat').default)
+  }, 'chat')
 }
 // 编辑器
 const editor = (location, cb) => {
@@ -71,11 +92,14 @@ const routes = (
     <Route path="/" component={App} onEnter={isLogin}>
       <IndexRoute component={Welcome} />
       <Route path="/table" getComponent={table} />
+      <Route path="/table1" getComponent={table1} />
+      <Route path="/table2" getComponent={table2} />
+      <Route path="/table3" getComponent={table3} />
       <Route path="/echarts" getComponent={echarts} />
       <Route path="/editor" getComponent={editor} />
       <Route path="/kindEditor" getComponent={kindEditor} />
 
-      <Route path="/test" getComponent={test} query={{ 'name': 'dupi' }} />
+      <Route path="/chat" getComponent={chat} />
 
     </Route>
     <Route path="/login" getComponent={Login}></Route>

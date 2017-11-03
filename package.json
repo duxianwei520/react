@@ -55,7 +55,9 @@
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-dev-middleware": "~1.6.1",
     "webpack-dev-server": "~1.14.1",
-    "webpack-hot-middleware": "~2.12.1"
+    "webpack-hot-middleware": "~2.12.1",
+    "express": "3.4.x",
+    "socket.io": "0.9.x"
   },
   "dependencies": {
     "antd": "^2.12.2",

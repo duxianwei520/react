@@ -39,6 +39,7 @@ export default class Login extends Component {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         this.state.loading = true
+        console.log(values)
         // this.setState({loading: true})
         Object.keys(values).map((key) => values[key] = (values[key] && values[key].trim()))
         /* this.props.dispatch(fetchLogin(values, (res) => {
@@ -60,6 +61,7 @@ export default class Login extends Component {
           })
         }))*/
         sessionStorage.setItem('token', 'dupi')
+        sessionStorage.setItem('username', values.username)
         hashHistory.push('/')
       }
     })

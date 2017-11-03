@@ -67,6 +67,7 @@ export default class Header extends Component {
         </Menu.Item>
       </Menu>
     )
+    const username = sessionStorage.getItem('username')
     return (
       <header id="navbar">
         <div id="navbar-container" className="boxed">
@@ -82,7 +83,7 @@ export default class Header extends Component {
             <ul className="nav navbar-top-links pull-right">
               <li className="login-info">
                 <Dropdown overlay={menu} trigger={['click']}>
-                  <a className="ant-dropdown-link">{staff.usertable.username || '肚皮叔'}</a>
+                  <a className="ant-dropdown-link">{username || '肚皮叔'}</a>
                 </Dropdown>
               </li>
             </ul>

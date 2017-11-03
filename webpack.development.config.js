@@ -5,13 +5,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const OpenBrowserPlugin = require('open-browser-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 // const casProxy = require('./proxy');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const PORT = 3010
 
 module.exports = {
   entry: {
-    js: './app/client.js',
+    client: './app/client.js',
+    a: ['immutable'],
     vendor: [
       'react', 'classnames', 'react-router', 'react-dom',
     ],
@@ -88,7 +89,7 @@ module.exports = {
       url: `http://localhost:${PORT}/#/login`,
     }),
     // 分析代码
-    new BundleAnalyzerPlugin({ analyzerPort: 8188 }),
+    // new BundleAnalyzerPlugin({ analyzerPort: 666 }),
   ],
   devtool: 'source-map',
   devServer: {

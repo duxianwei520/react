@@ -14,11 +14,14 @@ export default (() => {
     global.NAVIGATION = [
       {
         id: 600110230,
-        name: '菜单列表',
+        name: '功能列表',
         icon: 'book',
         url: '',
         children: [
             { id: 600110232, name: '表格', url: 'table', icon: 'user' },
+            { id: 600110242, name: '表格1', url: 'table1', icon: 'user' },
+            { id: 600110242, name: '表格2', url: 'table2', icon: 'user' },
+            { id: 600110242, name: '表格3', url: 'table3', icon: 'user' },
             { id: 600110233, name: '图表', url: 'echarts', icon: 'area-chart' },
             { id: 600110234, name: '编辑器', url: 'editor', icon: 'area-chart' },
             { id: 600110235, name: 'kindEditor', url: 'kindEditor', icon: 'area-chart' },
@@ -26,11 +29,11 @@ export default (() => {
       },
       {
         id: 600110430,
-        name: '老铁',
+        name: '其他',
         icon: 'calculator',
         url: '',
         children: [
-            { id: 600110431, name: '情书小老弟', url: 'test', icon: 'book' },
+            { id: 600110431, name: '聊天室', url: 'chat', icon: 'book' },
         ],
       },
     ];

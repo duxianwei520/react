@@ -6,13 +6,13 @@ const OpenBrowserPlugin = require('open-browser-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const fs = require('fs-extra')
 // const casProxy = require('./proxy');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 // const PORT = 3010
 
 module.exports = {
   entry: {
-    js: './app/client.js',
+    client: './app/client.js',
     vendor: [
       'react', 'classnames', 'react-router', 'react-dom',
     ],
@@ -76,8 +76,13 @@ module.exports = {
     // 根据入口文件，提取重复引用的公共代码类库，打包到单独文件中
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor.[hash]', // 入口文件名
-      filename: 'vendor.[hash].bundle.js', // 打包后的文件名
+      // name: 'vendor', // 入口文件名
+    //   filename: 'vendor.[hash].bundle.js', // 打包后的文件名
+      // minChunks: Infinity,
+      async: true,
+      // async: 'chunk-vendor',
+      // children: true,
+      minChunks: 3,
     }),
     // 为组件分配id
     // new webpack.optimize.OccurrenceOrderPlugin(),
@@ -88,7 +93,7 @@ module.exports = {
       template: path.join(__dirname, 'app/index.html'),
     }),
     // 分析代码
-    // new BundleAnalyzerPlugin({ analyzerPort: 8188 }),
+    new BundleAnalyzerPlugin({ analyzerPort: 8188 }),
   ],
 }
 

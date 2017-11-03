@@ -41,6 +41,29 @@ export default class LeftNav extends Component {
         isLeftNavMini: true,
       })
     }
+    const menu = window.$GLOBALCONFIG.NAVIGATION
+    const curPath = `${this.props.location.pathname.replace('/', '')}`
+    // console.log(menu)
+    let len = 0
+    let curSub = 0
+    menu.map(item => {
+      if (item.url && curPath === item.url) {
+        curSub = len
+      } else if (item.children && item.children.length > 0) {
+        item.children.map(record => {
+          if (curPath === record.url) {
+            curSub = len
+          }
+        })
+      }
+      if (item.children && item.children.length > 0) {
+        len++
+      }
+    })
+    // console.log(curSub)
+    this.setState({
+      openKeys: [`sub${curSub}`],
+    })
   }
 
   _handleClick(e) {
@@ -100,7 +123,7 @@ export default class LeftNav extends Component {
         )
       } else {
         return (
-          <SubMenu key={index} title={
+          <SubMenu key={`sub${index}`} title={
             <span>
               <Icon type="caret-down" title={item.name} />
               <span className="menu-name">{item.name}</span>

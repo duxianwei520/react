@@ -13,7 +13,7 @@ so，就是这个啦
 
 ## 技术栈
 
-react + redux + react-router + webpack + ES6/7 + fetch + less + flex
+react + redux + react-router + webpack + ES6/7 + fetch + less
 
 
 
@@ -35,6 +35,10 @@ npm run build (打包)
 另开启一个命令窗口 启动node的本地json数据代理服务
 
 node mockserver.js (前端本地用node模拟接口进程)
+
+想要开启聊天室功能 需要进入到server文件目录 然后开启socket服务
+
+node imSercer.js
 
 ```
 
@@ -72,6 +76,9 @@ https://pan.baidu.com/s/1o8mOrV0
 - [√] 页面高度flex自适应
 - [√] fetch数据跨域的设置
 - [√] 实时的webpack包大小预览
+- [√] draftjs编辑器
+- [√] kindeditor编辑器
+- [√] 聊天室
 
 
 
@@ -120,6 +127,10 @@ https://pan.baidu.com/s/1o8mOrV0
 ### 接口按返回
 
 <img src="https://github.com/duxianwei520/react/blob/master/screenshots/receiveData.png" width="997" height="586"/>
+
+### 聊天室
+
+<img src="https://github.com/duxianwei520/react/blob/master/screenshots/chat.gif" width="1352" height="578"/>
 
 
 ### 构建完成的包的分析截图
