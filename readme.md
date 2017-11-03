@@ -116,7 +116,7 @@ https://pan.baidu.com/s/1o8mOrV0
 
 ### 聊天室
 
-<img src="https://github.com/duxianwei520/react/blob/master/screenshots/chat.gif" width="1352" height=""/>
+<img src="https://github.com/duxianwei520/react/blob/master/screenshots/chat.gif" width="1331" height=""/>
 
 
 ### 构建完成的包的分析截图
