@@ -96,7 +96,7 @@ https://pan.baidu.com/s/1o8mOrV0
 
 ### 欢迎页
 
-<img src="https://github.com/duxianwei520/react/blob/master/screenshots/welcome.png" width="811" height="593"/>
+<img src="https://github.com/duxianwei520/react/blob/master/screenshots/welcome.gif" width="976" height="586"/>
 
 ### 列表页
 
@@ -104,15 +104,15 @@ https://pan.baidu.com/s/1o8mOrV0
 
 ### 图表
 
-<img src="https://github.com/duxianwei520/react/blob/master/screenshots/echart.png" width="674" height="513"/>
+<img src="https://github.com/duxianwei520/react/blob/master/screenshots/echart.gif" width="976" height="586"/>
 
 ### Facebook官方富文本编辑器draft.js
 
-<img src="https://github.com/duxianwei520/react/blob/master/screenshots/draft.png" width="675" height="414"/>
+<img src="https://github.com/duxianwei520/react/blob/master/screenshots/draft.gif" width="976" height="586"/>
 
 ### 富文本编辑器kindeditor
 
-<img src="https://github.com/duxianwei520/react/blob/master/screenshots/kindeditor.png" width="580" height="398"/>
+<img src="https://github.com/duxianwei520/react/blob/master/screenshots/kindeditor.gif" width="976" height="586"/>
 
 ### 聊天室
 
