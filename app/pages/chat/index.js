@@ -2,7 +2,7 @@
  * @Author: dupi
  * @Date: 2017-06-29 15:34:19
  * @Last Modified by: duxianwei
- * @Last Modified time: 2017-11-03 14:32:26
+ * @Last Modified time: 2017-11-14 11:17:31
  */
 
 import React, { Component } from 'react'
@@ -10,6 +10,7 @@ import ReactDom from 'react-dom'
 import { connect } from 'react-redux'
 import { hashHistory } from 'react-router'
 import { Button, Input, Icon, Form, Dropdown, message } from 'antd'
+import * as io from 'socket.io-client'
 import 'style/im.less'
 
 const FormItem = Form.Item
@@ -66,76 +67,76 @@ export default class popCheck extends Component {
 
   loadSocket() {
     const that = this
-    const script = document.createElement('script')
-    script.type = 'text/javascript'
-    script.src = '../../components/socket.io.js'
-    document.body.appendChild(script)
-    script.onload = () => {
-      const url = location.hostname
-      that.socket = window.io.connect(`http://${url}:3333/`)
+    // const script = document.createElement('script')
+    // script.type = 'text/javascript'
+    // script.src = '../../components/socket.io.js'
+    // document.body.appendChild(script)
+    // script.onload = () => {
+    const url = location.hostname
+    that.socket = io.connect(`http://${url}:3333/`)
 
       // 测试是否链接上websocket
-      that.socket.on('connect', () => console.log('连接socket服务器成功'))
+    that.socket.on('connect', () => console.log('连接socket服务器成功'))
 
-      that.socket.emit('login', sessionStorage.getItem('username'))
+    that.socket.emit('login', sessionStorage.getItem('username'))
 
       // 有新的消息发送
-      that.socket.on('newMsg', (user, msg, color) => {
-        this._displayNewMsg(user, msg, color)
-      })
+    that.socket.on('newMsg', (user, msg, color) => {
+      this._displayNewMsg(user, msg, color)
+    })
 
       // 登录聊天室成功
-      that.socket.on('loginSuccess', (nickName, users) => {
+    that.socket.on('loginSuccess', (nickName, users) => {
         // console.log(users)
+      const arr = []
+      users.map((item, index) => {
+        arr.push({ name: item, id: index })
+      })
+      that.setState({
+        users: arr,
+        count: arr.length,
+        usersTem: arr,
+      })
+    })
+
+      // 用户名重名
+    that.socket.on('nickExisted', (nickName, users) => {
+      message.error('登录用户名重复，请重新登录设置不同的用户名', 5)
+      setTimeout(() => {
+        hashHistory.push('/login')
+      }, 3000)
+    })
+
+      // 监听错误消息
+    that.socket.on('error', (err) => {
+        // console.log(err)
+    })
+
+      // 监听系统消息
+    this.socket.on('system', (nickName, users, type) => {
+        // console.log(nickName, users, type)
+      if (users.length) {
         const arr = []
         users.map((item, index) => {
           arr.push({ name: item, id: index })
         })
         that.setState({
           users: arr,
-          count: arr.length,
           usersTem: arr,
+          count: arr.length,
         })
-      })
+      }
 
-      // 用户名重名
-      that.socket.on('nickExisted', (nickName, users) => {
-        message.error('登录用户名重复，请重新登录设置不同的用户名', 5)
-        setTimeout(() => {
-          hashHistory.push('/login')
-        }, 3000)
-      })
-
-      // 监听错误消息
-      that.socket.on('error', (err) => {
-        // console.log(err)
-      })
-
-      // 监听系统消息
-      this.socket.on('system', (nickName, users, type) => {
-        // console.log(nickName, users, type)
-        if (users.length) {
-          const arr = []
-          users.map((item, index) => {
-            arr.push({ name: item, id: index })
-          })
-          that.setState({
-            users: arr,
-            usersTem: arr,
-            count: arr.length,
-          })
-        }
-
-        let typeNew
-        if (type === 'login') {
-          typeNew = '加入了'
-        }
-        if (type === 'logout') {
-          typeNew = '离开了'
-        }
-        this._displayNewMsg('system', `${nickName}${typeNew}群聊`, 'color')
-      })
-    }
+      let typeNew
+      if (type === 'login') {
+        typeNew = '加入了'
+      }
+      if (type === 'logout') {
+        typeNew = '离开了'
+      }
+      this._displayNewMsg('system', `${nickName}${typeNew}群聊`, 'color')
+    })
+    // }
   }
 
   // 显示消息

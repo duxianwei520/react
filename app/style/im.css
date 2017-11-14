@@ -1,38 +1,49 @@
 /*
  reset antd
 */
+.im-wrap {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: url(../images/leftBg.jpg) no-repeat center;
+  background-size: cover;
+  background-clip: border-box;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
 #im {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 600px;
-  height: 400px;
+  width: 100%;
+  height: 100%;
   border: 1px solid #e9e9e9;
   display: flex;
   flex-direction: row;
   box-shadow: -1px -1px 4px 0px rgba(0, 0, 0, 0.2);
 }
 #im .im-l {
-  float: left;
+  display: flex;
+  flex-direction: column;
   width: 150px;
-  min-width: 150px;
-  max-width: 150px;
   border-right: 1px solid #e9e9e9;
   flex: 0 0 150px;
   height: 100%;
 }
 #im .im-l .search {
   padding: 5px;
-  border-bottom: 1px solid #e9e9e9;
+  border-bottom: rgba(90, 141, 239, 0.2);
   height: 40px;
 }
 #im .im-l ul {
   overflow-y: auto;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 #im .im-l ul li {
   cursor: pointer;
   padding: 5px;
+  color: #fff;
+  text-align: left;
 }
 #im .im-l ul li:hover {
   background-color: rgba(90, 141, 239, 0.2);
@@ -48,10 +59,11 @@
   vertical-align: middle;
 }
 #im .im-l ul .on {
-  background-color: rgba(90, 141, 239, 0.2);
+  background-color: #f7f7f7;
+  color: #666;
 }
 #im .im-r {
-  float: right;
+  display: flex;
   flex: auto;
   background-color: #f7f7f7;
   position: relative;
@@ -60,7 +72,8 @@
 #im .im-r .im-r-box {
   display: flex;
   flex-direction: column;
-  height: 400px;
+  height: 100%;
+  flex: 1;
 }
 #im .im-r .im-r-box .operate {
   padding: 5px;
@@ -204,6 +217,8 @@
 }
 #im .im-r .im-r-box .im-b .box .tool {
   height: 36px;
+  display: flex;
+  justify-content: space-between;
 }
 #im .im-r .im-r-box .im-b .box .tool .tools {
   cursor: pointer;
