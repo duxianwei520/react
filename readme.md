@@ -233,3 +233,8 @@ https://pan.baidu.com/s/1o8mOrV0
 ## License
 
 [GPL](https://github.com/duxianwei520/react/blob/master/COPYING)
+
+
+## 关于交流
+想加入群聊的话，
+可以加入我创建的reactQQ群：598372207，也可以加我QQ：631827052
