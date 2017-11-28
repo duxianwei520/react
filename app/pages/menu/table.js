@@ -2,7 +2,7 @@
  * @Author: dupi
  * @Date: 2017-06-28 17:16:12
  * @Last Modified by: duxianwei
- * @Last Modified time: 2017-09-21 10:30:34
+ * @Last Modified time: 2017-11-28 15:34:27
  */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -12,8 +12,8 @@ import {
   fetchHouseCheckList,
 } from 'actions/house'
 
-if (process.env.NODE_ENV === 'development') {
-  console.log('development')
+if (process.env.NODE_ENV === 'dev') {
+  console.log('dev')
 }
 
 const FormItem = Form.Item
@@ -136,12 +136,12 @@ export default class app extends Component {
         </div>
         <Spin spinning={houseCheckSearchResult.loading}>
           <Table
+            rowKey="id"
             dataSource={houseCheckSearchResult.list}
             columns={this.columns()}
-            currentPage={houseCheckSearchResult.currentPage}
-            totalCount={houseCheckSearchResult.totalCount}
+            pagination={{ total: houseCheckSearchResult.totalCount, pageSize: houseCheckSearchResult.pageSize }}
             scroll={{ y: true }}
-            rowClassName={(record, index) => record.id == 1 ? 'red' : 'base'}
+            rowClassName={(record, index) => record.id === 1 ? 'red' : 'base'}
           />
         </Spin>
       </div>

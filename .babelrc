@@ -4,14 +4,15 @@
     "espower", 
     "transform-runtime", 
     "transform-decorators-legacy", 
-    ["import", [
+    ["import", 
+      [
         {
           "libraryName": "antd",
           "style": true
         }
       ]
-    ], 
-    ["webpack-alias", {"config": "${process.cwd()}/webpack-test.config.js"}]],
+    ]
+  ],
   "env": {
       
   }

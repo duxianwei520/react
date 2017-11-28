@@ -34,11 +34,11 @@ npm run build (打包)
 
 另开启一个命令窗口 启动node的本地json数据代理服务
 
-node mockserver.js (前端本地用node模拟接口进程)
+npm run mock (对，就是传说中的mockjs http://highsea90.com/t/mock/)
 
-想要开启聊天室功能 需要进入到server文件目录 然后开启socket服务
+想要体验聊天室功能  先开启socket服务 在scripts文件夹下面
 
-node imSercer.js
+npm run chat
 
 ```
 
@@ -70,12 +70,12 @@ https://pan.baidu.com/s/1o8mOrV0
 - [√] 登录，以及登录权限控制
 - [√] 退出
 - [√] 欢迎主页
-- [√] 左侧菜单，正常moni切换
-- [√] redux完整范例
-- [√] nodejs代理数据示例
+- [√] 左侧菜单，正常mini切换
+- [√] redux完整示范
+- [√] mockjs模拟后端返回接口
 - [√] 页面高度flex自适应
 - [√] fetch数据跨域的设置
-- [√] 实时的webpack包大小预览
+- [√] 实时的webpack包大小预览,方便优化
 - [√] draftjs编辑器
 - [√] kindeditor编辑器
 - [√] 聊天室
@@ -94,13 +94,9 @@ https://pan.baidu.com/s/1o8mOrV0
 ## 部分截图
 
 
-### 欢迎页
+### 列表页 mock数据返回
 
-<img src="https://github.com/duxianwei520/react/blob/master/screenshots/welcome.gif" width="976" height="586"/>
-
-### 列表页
-
-<img src="https://github.com/duxianwei520/react/blob/master/screenshots/list.gif" width="960" height="581"/>
+<img src="https://github.com/duxianwei520/react/blob/master/screenshots/list.gif" width="1082" height="557"/>
 
 ### 图表
 
@@ -134,12 +130,8 @@ https://pan.baidu.com/s/1o8mOrV0
 ├─.eslintignore	                      // eslint设置忽略的文件
 ├─.eslintrc.json                      // eslint的配置文件
 ├─.gitignore                          // git忽略上传的文件
-├─mockserver.js                       // node本地转发json的执行文件
 ├─package.json                        // npm命令包
-├─proxy.js                            // 设置代理的js,现在基本不用
 ├─readme.md                           // 项目介绍
-├─webpack-test.config.js              // webpack测试的配置文件，目前还没做
-├─webpack.config.js                   // 目前项目webpack的配置文件
 ├─_config.yml 
 ├─_gitattributes
 ├─test
@@ -149,9 +141,6 @@ https://pan.baidu.com/s/1o8mOrV0
 |      ├─login.png
 |      ├─receiveData.png
 |      ├─requestData.png
-|      └welcome.png
-├─mockapi                             // 前端静态json数据存放的文件夹
-|    └data.json
 ├─app                                 // 页面主文件
 |  ├─client.js
 |  ├─history.js
@@ -235,6 +224,9 @@ https://pan.baidu.com/s/1o8mOrV0
 [GPL](https://github.com/duxianwei520/react/blob/master/COPYING)
 
 
-## 关于交流
-想加入群聊的话，
-可以加入我创建的reactQQ群：598372207
+## 交流
+想跟其他的使用react的小伙伴们交流的话，
+可以加入我创建的reactQQ群：598372207~
+
+## 一点小心愿
+如果各位小伙伴们可以介绍合适的菇凉认识，没错，我就是传说中的单身汪，/(ㄒoㄒ)/~~
