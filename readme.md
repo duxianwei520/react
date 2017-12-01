@@ -13,7 +13,7 @@ so，就是这个啦
 
 ## 技术栈
 
-react + redux + react-router + webpack + ES6/7 + fetch + less
+react + redux + react-router + webpack7 + fetch + less
 
 
 
@@ -36,7 +36,7 @@ npm run build (打包)
 
 npm run mock (对，就是传说中的 mockjs http://highsea90.com/t/mock/)
 
-想要体验聊天室功能  先开启socket服务 在scripts文件夹下面
+想要体验聊天室功能  先开启socket服务 运行命令
 
 npm run chat
 
@@ -227,5 +227,3 @@ https://pan.baidu.com/s/1c1MMUHU
 ## 交流
 想跟其他的使用react的小伙伴们交流的话，
 可以加入我创建的reactQQ群：598372207~
-
-###### 如果各位小伙伴们可以介绍合适的菇凉认识，感激不尽，没错，我就是传说中的单身汪，/(ㄒoㄒ)/~~
