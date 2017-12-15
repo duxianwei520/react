@@ -12,9 +12,9 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const webpackConfigBase = {
   entry: {
     client: path.join(__dirname, '/../app/client.js'),
-    a: ['immutable'],
+    // a: ['immutable'],
     vendor: [
-      'react', 'classnames', 'react-router', 'react-dom',
+      'react', 'react-router', 'react-dom',
     ],
   },
   output: {

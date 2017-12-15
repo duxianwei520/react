@@ -24,7 +24,7 @@ const webpackConfigProd = {
   plugins: [
     // 定义环境变量为开发环境
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('prod'),
+      'process.env.NODE_ENV': JSON.stringify('production'),
       IS_DEVELOPMETN: false,
     }),
     // 提取css
