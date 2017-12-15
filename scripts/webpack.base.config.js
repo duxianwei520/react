@@ -46,14 +46,14 @@ const webpackConfigBase = {
         loader: 'babel',
       },
       {
-        test: /\.less$/,
-        // loader: 'style!css!postcss!less',
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap=true!postcss-loader?sourceMap=true!less-loader?sourceMap=<true></true>'),
-      },
-      {
         test: /\.css/,
         // loader: 'style!css',
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap=true!postcss-loader?sourceMap=true!less-loader?sourceMap=<true></true>'),
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader'),
+      },
+      {
+        test: /\.less$/,
+        // loader: 'style!css!postcss!less',
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?sourceMap=true!postcss-loader?sourceMap=true!less-loader?sourceMap=<true>'),
       },
       {
         test: /\.(png|jpg)$/,
