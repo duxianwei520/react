@@ -2,7 +2,7 @@
  * @Author: dupi
  * @Date: 2017-06-28 17:16:12
  * @Last Modified by: duxianwei
- * @Last Modified time: 2017-11-03 11:38:17
+ * @Last Modified time: 2018-01-16 10:03:46
  */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -35,7 +35,7 @@ export default class app extends Component {
       // window.loadAMapPromise = $.Deferred();
       const script = document.createElement('script');
       script.type = 'text/javascript';
-      script.src = '../../components/kindeditor/kindeditor-all-min.js';
+      script.src = 'http://kindeditor.net/ke4/kindeditor-all-min.js?t=20160331.js';
       document.body.appendChild(script);
       script.onload = () => {
         // window.KindEditor.ready((K) => {

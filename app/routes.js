@@ -58,6 +58,13 @@ const Login = (location, cb) => {
   }, 'login')
 }
 
+// 注册
+const Register = (location, cb) => {
+  require.ensure([], require => {
+    cb(null, require('./containers/App/register').default)
+  }, 'register')
+}
+
 // 测试
 const chat = (location, cb) => {
   require.ensure([], require => {
@@ -103,6 +110,7 @@ const routes = (
 
     </Route>
     <Route path="/login" getComponent={Login}></Route>
+    <Route path="/register" getComponent={Register}></Route>
   </Route>
 );
 

@@ -10,14 +10,7 @@ export function isArray(arr) {
 }
 
 const logOut = () => {
-  sessionStorage.removeItem('usercode')
-  sessionStorage.removeItem('userpwd')
-  sessionStorage.removeItem('token')
-  sessionStorage.removeItem('userid')
-  sessionStorage.removeItem('divisionid')
-  sessionStorage.removeItem('userinfo')
-  sessionStorage.removeItem('tabList')
-  sessionStorage.removeItem('alarmCall')
+  sessionStorage.clear()
   hashHistory.push('/login')
 }
 
@@ -60,7 +53,7 @@ export const createAjaxAction = (api, startAction, endAction) => (data, cb, reje
       .catch(catchError) // eslint-disable-line no-use-before-define
   }
 
-/*export const createAjax = (url, param, callback) => {
+/* export const createAjax = (url, param, callback) => {
   let respon;
   ajax.fetchJSONByPost(url)(param)
     .then(checkStatus) // eslint-disable-line no-use-before-define
@@ -110,7 +103,7 @@ export const hasResponseError = (data, errorHandler) => {
   return false
 };
 
-/*export const createApiCustomAjax = (api, startAction, endAction) => (data, apiParam, cb) =>
+/* export const createApiCustomAjax = (api, startAction, endAction) => (data, apiParam, cb) =>
   (dispatch) => {
     let respon
     dispatch(startAction())

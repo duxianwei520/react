@@ -2,7 +2,7 @@ export default (() => {
   window.$GLOBALCONFIG = {};
   +function (global) {
     // 本地开发打开的路径以及端口
-    global.$ctx = 'http://localhost:1111';
+    global.$ctx = 'http://localhost:8000';
 
     // 用户登录信息
     global.STAFF = {

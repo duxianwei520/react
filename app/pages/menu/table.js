@@ -2,7 +2,7 @@
  * @Author: dupi
  * @Date: 2017-06-28 17:16:12
  * @Last Modified by: duxianwei
- * @Last Modified time: 2017-11-28 15:34:27
+ * @Last Modified time: 2017-12-27 16:09:47
  */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -12,8 +12,8 @@ import {
   fetchHouseCheckList,
 } from 'actions/house'
 
-if (process.env.NODE_ENV === 'dev') {
-  console.log('dev')
+if (process.env.NODE_ENV === 'development') {
+  console.log('development')
 }
 
 const FormItem = Form.Item
