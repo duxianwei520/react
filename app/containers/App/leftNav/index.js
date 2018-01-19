@@ -8,8 +8,8 @@ import { updateTabList } from 'actions/tabList'
 const SubMenu = Menu.SubMenu
 
 @connect(
-    (state, props) => ({ config: state.config }),
-    (dispatch) => ({ actions: bindActionCreators(routerActions, dispatch), dispatch: dispatch })
+  (state, props) => ({ config: state.config }),
+  (dispatch) => ({ actions: bindActionCreators(routerActions, dispatch), dispatch: dispatch })
 )
 export default class LeftNav extends Component {
 
@@ -115,10 +115,10 @@ export default class LeftNav extends Component {
       if (!item.children) {
         return (
           // <SubMenu key={index} title={item.name}>
-            <Menu.Item key={item.url ? item.url : item.id} name={item.name}>
-              <Icon type={item.icon} title={item.name} />
-              <span className="menu-name">{item.name}</span>
-            </Menu.Item>
+          <Menu.Item key={item.url ? item.url : item.id} name={item.name}>
+            <Icon type={item.icon} title={item.name} />
+            <span className="menu-name">{item.name}</span>
+          </Menu.Item>
           // </SubMenu>
         )
       } else {
@@ -164,12 +164,11 @@ export default class LeftNav extends Component {
               theme="dark"
               openKeys={this.state.openKeys}
               onOpenChange={this._handleToggle}
-              // selectedKeys={[`${this.props.location.pathname}`]}
               selectedKeys={selectedKeys}
               mode="inline"
-              // mode="vertical"
+              inlineIndent="12"
             >
-              { this.renderLeftNav(this.props.config.NAVIGATION || []) }
+              {this.renderLeftNav(this.props.config.NAVIGATION || [])}
             </Menu>
           </Spin>
         </nav>
