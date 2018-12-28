@@ -1,0 +1,124 @@
+﻿@import './theme.less';
+.flexcolumn{display: flex; flex:1; flex-direction: column;}
+.page-usermanage{
+  .page-header{flex: initial;/* margin-top: @space-big */;/* margin-left:@space-big; */ }
+  .page-content .ant-pagination { padding-bottom: @space-big * 2; right: @space-big * 2;}
+  .page-content{flex: auto;
+    .table-content{margin-top:0;}
+  }
+  .page-body{ border:@border-split;}
+  .page-title{border-bottom: @border-split;}
+  .page-body-main{.flexcolumn;}
+  .ant-layout-sider-children{.flexcolumn; height: 100%;
+    .ant-spin-nested-loading{.flexcolumn;
+      .ant-spin-container{.flexcolumn;
+        .page-title{border-right: @border-split;}
+        .treeside{ .flexcolumn;margin-bottom: 0;background: @component-background; border-right: @border-split; padding:@space-big;overflow: auto;
+          > div{.flexcolumn; }
+          .ant-tree-switcher-noop{ display: none;}
+          .ant-tree {max-width: 190px;
+            li { margin: 0; position: relative; padding: 1px 0;
+              .ant-tree-node-content-wrapper{  width: 100%; padding:7.5px 5px; margin-left: 2px; font-size: 13px; color: #4A4A4A;
+                &:hover { background-color: rgba(90, 141, 239, 0.12);
+                  .right-icon { display: block; }
+                }
+              }
+              .ant-tree-child-tree{ position: relative; }
+              .ant-tree-child-tree li:after{
+                content: ''; position: absolute; left: -13px; top: -18px; bottom: 17px; border-left: 1px solid @border-color-split;
+              }
+              .ant-tree-child-tree li:before{
+                content: ''; position: absolute; left: -12px; top: 18px; width: 12px; border-top: 1px solid @border-color-split;
+              }
+              .ant-tree-switcher.ant-tree-switcher_close,
+              .ant-tree-switcher.ant-tree-switcher_open {
+                margin-top: 12.3px;  cursor: pointer;  display: inline-block; width: 12px; height: 12px; text-align: center; /*border: @border-split;*/ background: #fff; z-index: 9; position: relative;
+              }
+              .ant-tree-switcher.ant-tree-switcher_close:after,
+              .ant-tree-switcher.ant-tree-center_close:after,
+              .ant-tree-switcher.ant-tree-bottom_close:after,
+              .ant-tree-switcher.ant-tree-noline_close:after {
+                content: '\E645'; font-size: 21px !important; left: -5px; top: -7px; position: absolute;font-weight: normal;
+              }
+              .ant-tree-switcher.ant-tree-switcher_open:after,
+              .ant-tree-switcher.ant-tree-center_open:after,
+              .ant-tree-switcher.ant-tree-bottom_open:after,
+              .ant-tree-switcher.ant-tree-noline_open:after {
+                content: '\E621'; font-size: 21px !important; left: -5px;  top: -7px; position: absolute;font-weight: normal;
+              }
+            }
+            .right-icon { float: right; margin-right: 20px; display: none;
+              i {  margin-left: @space-base;  color: @blue;
+                &:hover { color: @blue; }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .ant-layout-content{.flexcolumn;}
+}
+
+// 角色管理
+.page-rolemanage{
+  .page-footer{margin: 0 -@space-big;}
+  .roleModuleList{
+    tr{
+      td:first-child{ text-align: left; padding-left: @space-base;;
+        span{ white-space: nowrap;}
+      }
+    }
+  }
+  .page-content{
+    .ant-spin-nested-loading{.flexcolumn;
+      .ant-spin-container{.flexcolumn;}
+    }
+  }
+  .ant-layout-content{.flexcolumn;
+    .color-red{color:@red;}
+    .color-green{color:@green;}
+    .table-checkbox{display: inline-block;}
+  }
+  .ant-layout-sider-children{.flexcolumn; padding:@space-big; border-right: @border-split;
+    .ant-input-group-addon{ cursor: pointer;}
+    .ant-spin-nested-loading{.flexcolumn;
+      .ant-spin-container{.flexcolumn;
+        .treeside{ .flexcolumn;margin-bottom: 0;background: @component-background; border-right: 0; padding:0;overflow: auto;
+          .ant-tree li{border: 0;}
+          .roleslist {overflow-y: auto; overflow-x: hidden;
+            .title{ padding-bottom: @space-base; display: block; color: @text-color-bold; font-size: @font-size-lg; border-bottom: @border-base; margin:@space-base 0 0 @space-sm;}
+            li{ padding:@space-sm 0 @space-sm @space-base; text-align: left; position: relative; line-height: @line-height-normal; display: flex;
+              a{ color: @text-color-bold;}
+              .name{ display: block; flex:1}
+              &:hover{ background: @hover-background;
+                .icons{
+                  display: inline-block;
+                }
+              }
+            }
+            .icons{display: none; top: @space-normal; right:@space-sm; white-space: nowrap;
+              i{ padding: @space-sm; color: #fff; margin-right: @space-sm; color: @text-color;
+                &:hover{color: @blue;}
+              }
+            }
+            .active{background:  @hover-background;}
+          }
+        }
+      }
+    }
+  }
+}
+
+// 模块管理
+.page-modulemanage{
+  .ant-table-body{
+    .ant-table-tbody{
+      tr{
+        td:first-child{ text-align: left; padding-left: 12%;
+          span{ white-space: nowrap;}
+        }
+      }
+    }
+  }
+}

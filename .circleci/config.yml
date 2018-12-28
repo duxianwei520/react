@@ -1,0 +1,82 @@
+version: 2
+
+references:
+  container_config: &container_config
+    docker:
+      - image: circleci/node:8
+    working_directory: ~/react
+
+  attach_workspace: &attach_workspace
+    attach_workspace:
+      at: ~/react
+
+  react_16: &react_16
+    environment:
+      REACT: 16
+
+  workflow: &workflow
+    jobs:
+      - setup:
+          filters:
+            branches:
+              ignore: gh-pages
+      - testing:
+          requires:
+            - setup
+      - lint:
+          requires:
+            - setup
+
+
+jobs:
+  setup:
+    <<: *container_config
+    steps:
+      - checkout
+      - run: node -v
+      - run: npm -v
+      - run: npm install
+      - run:
+          command: |
+            set +eo
+            npm ls
+            true
+      - persist_to_workspace:
+          root: ~/react
+          paths:
+            - node_modules
+
+  testing:
+    <<: *container_config
+    steps:
+      - checkout
+      - *attach_workspace
+      - run: npm run testing
+      - run: node ./scripts/webpack.testing.config.js
+      - persist_to_workspace:
+          root: ~/react
+          paths:
+            - dist
+
+
+  lint:
+    <<: *container_config
+    steps:
+      - checkout
+      - *attach_workspace
+      - run: npm run lint
+
+
+workflows:
+  version: 2
+  build_test:
+    <<: *workflow
+  nightly:
+    <<: *workflow
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters:
+            branches:
+              only:
+                - master

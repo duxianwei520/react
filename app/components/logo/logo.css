@@ -1,0 +1,116 @@
+.logo-gather-demo-edit-wrapper {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #f1f1f1;
+  padding: 0 5%;
+  line-height: 45px;
+}
+
+.logo-gather-demo-edit-wrapper ul {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+
+.logo-gather-demo-edit-wrapper ul li:first-child {
+  margin-left: 0;
+}
+
+.logo-gather-demo-edit-wrapper ul li {
+  float: left;
+  vertical-align: middle;
+  margin: 0 5px;
+}
+
+.logo-gather-demo-wrapper {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  /*margin:0 auto;*/
+  left: 0;
+  background: transparent;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.logo-gather-demo-wrapper .point-wrapper {
+  position: absolute;
+}
+
+.logo-gather-demo-wrapper .point {
+  border-radius: 100%;
+}
+
+.logo-gather-demo-wrapper .right-side {
+  width: 1038px;
+  height: 280px;
+  position: absolute;
+  right: 0;
+  top: -60px;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+.logo-gather-demo-wrapper .right-side * {
+  pointer-events: none;
+}
+
+@media screen and (max-width: 414px) {
+  .exhibition-details-demo {
+    overflow: hidden;
+  }
+
+  .logo-gather-demo-edit-wrapper {
+    transform: translateY(100%);
+    transition: transform .45s ease-in-out;
+  }
+
+  .logo-gather-demo-edit-wrapper.open{
+    transform: translateY(0);
+  }
+
+  .logo-gather-demo-edit-wrapper .anticon-down{
+    transition: transform .45s ease-in-out;
+  }
+
+  .logo-gather-demo-edit-wrapper.open .anticon-down{
+    transform: rotate(180deg);
+  }
+
+  .logo-gather-demo-edit-wrapper > div {
+    width: 90%;
+    line-height: 24px !important;
+    margin-bottom: 5px;
+  }
+
+  .exhibition-details-demo .edit-button{
+    position: absolute;
+    top: -20px;
+    width: 30px;
+    height: 20px;
+    border-radius: 30px 30px 0 0;
+    background: #f1f1f1;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: auto;
+    box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.15);
+  }
+
+  .logo-gather-demo-edit-wrapper ul {
+    margin: 5px auto;
+  }
+
+  .phone-float-none {
+    clear: both;
+    margin-left: 0 !important;
+  }
+
+  .none {
+    display: none;
+  }
+
+}
