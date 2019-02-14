@@ -11,6 +11,7 @@ import {
   fetchRoleList,
   fetchChangeUserStatus,
 } from '@apis/manage'
+import '@styles/set.less'
 import TreeList from './treeList'
 import AddPolice from './modal/addPolice'
 import SelectRole from './modal/selectRole'

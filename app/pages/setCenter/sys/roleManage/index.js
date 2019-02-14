@@ -18,6 +18,7 @@ import {
   fetchUpdateButton,
   fetchTreeList,
 } from '@apis/manage'
+import '@styles/set.less'
 import RolesList from './roleList'
 import RolesModule from './roleModuleList'
 import PeopleTree from './peopleTreeList'

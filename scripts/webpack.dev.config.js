@@ -5,6 +5,8 @@ const merge = require('webpack-merge')
 const webpackConfigBase = require('./webpack.base.config')
 const OpenBrowserPlugin = require('open-browser-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const AutoDllPlugin = require('autodll-webpack-plugin');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 const PORT = 8888
 function resolve(relatedPath) {
@@ -25,6 +27,25 @@ const webpackConfigDev = {
     new OpenBrowserPlugin({
       url: `http://localhost:${PORT}/#/login`,
     }),
+    // 分析代码
+    // new BundleAnalyzerPlugin({ analyzerPort: 3015 }),
+    
+    new AutoDllPlugin({
+      inject: true, // will inject the DLL bundle to index.html
+      debug: true,
+      filename: '[name].1.0.js',
+      path: './dll',
+      entry: {
+        dll: [
+          'react',
+          'react-dom',
+          'react-router',
+          'babel',
+          'react-router-dom',
+          'axios',
+        ]
+      },
+    })
   ],
   devtool: 'source-map',
   devServer: {

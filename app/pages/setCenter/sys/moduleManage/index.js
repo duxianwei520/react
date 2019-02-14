@@ -12,6 +12,7 @@ import {
   fetchModuleAdd, // 新增模块
   fetchButtonList, // 按钮权限列表
 } from '@apis/manage'
+import '@styles/set.less'
 
 import ModuleList from './moduleList'
 import ModuleModal from './modal/moduleAdd' // 新增修改模块

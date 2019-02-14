@@ -92,10 +92,7 @@ export default class Login extends Component {
     console.log(this.props.loginResponse)
     return (
       <div className="login-container">
-        <div className="extraLink">
-          <a href="http://56.32.3.185:7777/pgis/html/prologue/prologue.html" target="_blank" rel="noopener noreferrer">数据承载</a>
-          <a href="http://56.32.3.123:8080/search/sspt/datasearch/prologue.html" target="_blank" rel="noopener noreferrer">数据纽带</a>
-        </div>
+        <div className="extraLink" />
         <div className="flexcolumn">
           <div className="login-header" key="header">
             <div className="slogan">
