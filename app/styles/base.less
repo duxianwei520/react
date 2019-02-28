@@ -1,0 +1,508 @@
+@import "./theme.less";
+
+html,body { background-color: transparent; font-family: @font-family;font-size: @font-size-base; color: @text-color; overflow: hidden; -webkit-font-smoothing: antialiased !important;}
+table{ border-spacing: 0; border-collapse: collapse;table-layout: fixed}
+textarea{ padding: @space-sm;}
+table tr td ,table tr th{ text-align: center; padding: @space-base; line-height: normal; }
+table tr td .ant-select{ width: 100%; }
+table tr td a{ padding: 0 @space-sm; }
+h1, .h1 { font-size: @font-size-hg; }
+h2, .h2 { font-size: @font-size-hg; }
+h3, .h3 { font-size: @font-size-lg; }
+h4, .h4 { font-size: @font-size-lg; color:@text-color-bold    }
+h5, .h5 { font-size: @font-size-base; }
+h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5, {font-weight: 600;}
+::selection {background-color: rgba(46, 165, 204, 0.41);color: inherit !important;}
+.left, .fl{ float:left; text-align: left;}
+.right, .fr{ float: right;}
+.hide, .hide.ant-btn{display: none !important;}
+.red, .error{color: @error-color !important;}
+.info{color: @info-color !important;}
+.gray{color: @gray !important}
+.yellow{color: @warning-color !important;}
+.green, .success{color:@success-color !important;}
+.orange{color: @orange !important;}
+.highlight, .blue{color: @blue !important;}
+.fail{color: @text-color-secondary !important;}
+.transparent{ color: transparent;}
+a{ color: @primary-color;
+  &:focus{text-decoration: none;}
+}
+ul li,dl dt{list-style: none}
+
+.text-left{ text-align: left !important; }
+.text-right{ text-align: right !important; }
+.input-base-width{width: 240px !important;} // 基本搜索框的宽度
+.fullWidth{ width: 100% !important;} // 占满宽度
+.center{ text-align: center !important;} // 文本居中
+.pointer{cursor: pointer !important;}// 手形
+.move{cursor: move !important;}// 拖拽
+// margin的设置
+.mrbase{ margin-right: @space-base !important;}
+.mtbase{ margin-top: @space-base !important;}
+.mbbase{ margin-bottom: @space-base !important;}
+.mlbase{ margin-left: @space-base !important;}
+.mrbig{ margin-right: @space-big !important;}
+.mtbig{ margin-top: @space-big !important;}
+.mbbig{ margin-bottom: @space-big !important;}
+.mlbig{ margin-left: @space-big !important;}
+.mrlg{ margin-right: @space-lg !important;}
+.mtlg{ margin-top: @space-lg !important;}
+.mblg{ margin-bottom: @space-lg !important;}
+.mllg{ margin-left: @space-lg !important;}
+// padding 的通用设置
+.prbase{ padding-right: @space-base !important;}
+.ptbase{ padding-top: @space-base !important;}
+.pbbase{ padding-bottom: @space-base !important;}
+.plbase{ padding-left: @space-base !important;}
+.prbig{ padding-right: @space-big !important;}
+.ptbig{ padding-top: @space-big !important;}
+.pbbig{ padding-bottom: @space-big !important;}
+.plbig{ padding-left: @space-big !important;}
+.prlg{ padding-right: @space-lg !important;}
+.ptlg{ padding-top: @space-lg !important;}
+.pblg{ padding-bottom: @space-lg !important;}
+.pllg{ padding-left: @space-lg !important;}
+.table-content{margin-top: 0;
+  &.clear-overlap-border .ant-table-body .ant-table-fixed{margin-top: -1px;}
+  .ant-table-body{ flex: 1;}
+  .ant-pagination{ margin-top: @space-big; display: flex; justify-content: flex-end; min-height: 28px; }
+}
+.total{ font-size: 16px; color: @primary-color;} // 总计
+.modalMaxHeight{ max-height: 400px; overflow-y: auto; overflow-x: hidden; min-height: 100px;} // 基本弹窗的最大高度自适应
+.flexcolumn{display: flex; flex:1; flex-direction: column;}
+.flexrow{ display: flex; flex:1; flex-direction: row;}
+.flexAuto{display: flex;flex:1} // 与theme.less中的flexAuto冲突
+.regularFlex{display: flex;flex: 0 0 auto;}
+.nodata{text-align: center; color: @text-color-secondary; padding-top:@space-big;} // 暂无数据的样式
+.ellipsis{display: block;text-overflow: ellipsis;white-space: nowrap;overflow: hidden;flex:1 1 auto !important;}// 文本过长时省略
+.page-scrollfix{
+  .page-header{ padding-right: @space-big + @scroll-width/2;}
+  .page-content{ padding-right: @space-big + @scroll-width/2;}
+  .page-footer{ padding-right: @space-big + @scroll-width/2;}
+  .table-scrollfix{ margin-right: -@scroll-width;}
+  .ant-modal-content{
+    .ant-pagination{ margin-right: @space-big/2;}
+  }
+}
+// 全局基础样式、reset等,有可能和antd同级，所以要放在body里面提升优先级
+body{
+  // 去除number型输入框的上下箭头
+  input[type=number]{
+    &::-webkit-outer-spin-button,&::-webkit-inner-spin-button{-webkit-appearance: none;margin: 0;}
+  }
+  .popover-dark{ // tip浮层的样式主体化
+     min-width: 130px; 
+    .title{ color: #AFB4BA;}
+    .ant-popover-inner{ background-color: #485465; padding-left: @space-big;border-radius: 0;}
+    p{padding-top: @space-sm ;}
+    .ant-popover-arrow{background-color: #485465;}
+    a{ color: #F8F8F8;
+      &:hover{ color: @primary-color;}
+    }
+  }
+  .drawer-lg { width: 520px;}
+  .drawer-base { width: 448px;}
+  .drawer-sm{ width: 350px;}
+  .nowrap{ white-space: nowrap;
+    td, th{ white-space: nowrap;}
+  }
+  .ant-input-lg{ height: @line-height-sm ; }
+  .ant-select-lg .ant-select-selection--single{ height: @line-height-sm ; }
+  .ant-select-lg .ant-select-selection__rendered { line-height: @line-height-sm ; }
+  .ant-select-open .ant-select-selection{ box-shadow: none; outline: none; }
+  .ant-select-selection:focus,.ant-select-selection:active{ box-shadow: none; }
+  .ant-table tr:nth-of-type(even){background-color: @background-color-base;}
+  .ant-form{ // 重置form相关
+    .ant-form-item{margin-bottom: @space-big;}
+  }
+  .ant-modal-mask{ background-color: rgba(74, 74, 74, 0.4);}
+  .ant-modal{display: flex; flex-direction: column; justify-content: center;padding-bottom: 0px;}
+  .ant-input[disabled]{ color: @text-color-secondary; background-color: @background-color-content;}
+  .ant-select-dropdown-menu-item{ line-height: @line-height-sm;}
+  .ant-select-dropdown{ 
+    .ant-select-dropdown-menu-item{ padding:@space-sm @space-base;}
+  }
+  .ant-btn[disabled]{
+    span{ color: @text-color-secondary;} // 禁用按钮的颜色
+  }
+  .ant-tabs{ height: auto;
+    .ant-tabs-bar{ margin-bottom: 0;}
+  }
+  .ant-input-suffix .anticon-close-circle{ opacity: 0.4; cursor: pointer;// 输入框结尾的清空按钮
+    &:hover{opacity: 0.6;}
+  } 
+  .ant-form-item-label{ text-overflow: ellipsis;}
+  .noborder{border: 0;
+    &:focus{ border: 0; box-shadow: none;}
+  }
+  .ant-tree li .ant-tree-node-content-wrapper.ant-tree-node-selected{ background-color: #ddeffb;}
+  .ant-tree li .ant-tree-node-content-wrapper{ height: auto; line-height: normal;}
+  ul{margin: 0; padding-left: 0;}
+  .ant-layout-footer{ background: transparent;}
+  .ant-layout-sider-children{ height: auto;}
+  h1, h2, h3, h4, h5, h6, p{ margin-bottom: 0;} // 默认p标签底部没有外边距
+  .ant-divider{width: 0; border-right: @border-split;}
+  .ant-form .ant-form-item, .ant-form-item{ margin-bottom: @space-big;}
+  // .ant-input{height: @line-height-sm;}
+  // .ant-select-selection--single{height: @line-height-sm; line-height: @line-height-sm;}
+  // .ant-btn-lg{ font-size: @font-size-base; height: @line-height-sm;}
+  .ant-menu-dark{
+    .ant-menu-sub{background: @nav-background;}
+    .ant-menu-item{
+      &:hover{ background-color: #4c577b;}
+    }
+  }
+  // 不要focus的效果
+  .ant-btn.ant-btn-primary:focus{background-color: @primary-color; border-color: @primary-color;}
+  .ant-popover{
+    .ant-popover-buttons{
+      button:first-of-type{float: right;margin: 0 0 0 10px;}
+      // .ant-btn-primary{float: left;}
+    }
+  }
+  .ant-tabs{ height: auto;}
+  .center{ text-align: center;}
+  .ant-input-suffix .anticon-close-circle{ opacity: 0.4; cursor: pointer;} // 输入框结尾的清空按钮
+  .ant-input-suffix .anticon-close-circle:hover{opacity: 0.6;}
+  .ant-form-item-label{ text-overflow: ellipsis;}
+  .noborder{border: 0;
+    &:focus{ border: 0; box-shadow: none;}
+  }
+  .ant-tree li .ant-tree-node-content-wrapper.ant-tree-node-selected{ background-color: #ddeffb;}
+  .ant-tree li .ant-tree-node-content-wrapper{ height: auto; line-height: normal;}
+  ul{margin: 0; padding-left: 0;}
+  .ant-layout-footer{ background: transparent;}
+  .ant-layout-sider-children{ height: auto;}
+  h1, h2, h3, h4, h5, h6, p{ margin-bottom: 0;}
+  .ant-modal{display: flex; flex-direction: column; justify-content: center;
+    .ant-modal-body{max-height: 600px;min-height: 120px; overflow-y: auto;display: flex;flex-direction: column;
+      .ant-table-header{flex:0 0 auto;}
+    }
+  }
+  .ant-divider{width: 0; border-right: @border-split;}
+  .ant-menu-dark{
+    .ant-menu-sub{background: @nav-background;}
+    .ant-menu-item{
+      &:hover{ background-color: #4c577b;}
+    }
+  }
+  .esriPopup{
+    .esriPopupWrapper{width: 360px;
+      .titlePane{background-color: #fff;border-bottom:@border-base;
+        .title{line-height: 35px;padding: 0 20px 0 10px;color: #4A4A4A;}
+        .titleButton.close{top: 9px;right: 8px;background-image: none;
+          &::before,&::after{content:'';width: 12px;height: 1px;top:8px;transform: rotate(45deg);background-color:#bababa;display: block;position: absolute;}
+          &::after{transform: rotate(-45deg)}
+        }
+      }
+  
+      .contentPane{background-color: #fff;padding:@space-base @space-big;color:#666;}
+      .actionsPane{background-color: #fff;}
+      a{text-decoration: none;}
+    }
+  }
+}
+
+// 空间大数据被嵌入模式下的样式
+.isIframe{
+  #content-container{padding: 0;}
+  .mainnav-container, .breadcrumb{display: none;}
+  #nav{ margin-top: 0;}
+}
+
+// 动画缓冲效果
+// #page-content{ transition-property: all; transition-duration: 0.35s; animation-duration: 0.35s;}
+
+// 顶部样式
+#navbar{ background-color: @g-header-bg-color;padding:0 @space-big;position: absolute; z-index: 10; left: 0; top: 0;width: 100%; height: @g-header-height; 
+  #navbar-container{ display: flex; justify-content: space-between;flex-direction: row;
+    .row{ width: 100%;
+      .col{ text-align: right; white-space: nowrap;}
+      // 顶级菜单样式
+      .topMenus{ display: inline-block;line-height: @g-header-height; height: @g-header-height;margin: 0 0 0 @space-hg; overflow: hidden;
+        span{ display: inline-block; color: #fff; cursor: pointer;line-height: @g-header-height; height: @g-header-height; padding:0 @space-lg;font-size: 16px; font-family: 'PingFangSC-Regular'; 
+          &:hover{ background-color: @blue;}
+        }
+        .on{ background: #010104 ;}
+      }
+    }
+    .userCenter{display: inline-block; background:url(../images/user.jpg) no-repeat 0 center; width: 28px;height: @g-header-height - 4;
+      // .anticon{display: none;}
+    }
+    .brand-title{ display: inline-block; line-height: @g-header-height; float: left;
+      .logo{ display: inline-block; color: #fff; width: 31px; height: 19px; background:url(../images/logo.png) no-repeat 0 0; vertical-align: middle; margin-right: @space-sm; 
+      }
+      .brand-text{ display: block; font-size: 18px; font-family: 'PingFangSC-Regular'; letter-spacing: 4px; text-align: left; color: #fff;transition-property: all; transition-duration: 0.6s;
+        // &:hover{ color: @text-color-secondary;}
+      }
+    }
+    ul{ white-space: nowrap; display: inline-block; vertical-align: middle; line-height: @g-header-height; 
+      li{ display: inline-block; padding:0 @space-base;
+        a{color: #fff; padding:0 @space-big; display: inline-block;transition-property: all; transition-duration: 0.6s;
+          &:hover{ }
+          .anticon{ margin-right: @space-sm;}
+        }
+      }
+    }
+  }
+}
+
+#container { height: auto; position: relative; min-width: 290px; overflow: hidden; -webkit-transition: opacity 0.5s linear 1.5s; transition: opacity 0.5s linear 1.5s;
+  
+}
+#content-container { position: relative; padding-top: @g-header-height; padding-left: @g-left-width-base;  background-color: #e7ebee; }
+#mainnav-container { position: absolute; width: @g-left-width-base; left: 0; margin-top: @g-header-height; top: 0; bottom: 0; z-index: 4; min-height: 100%; background-color: @nav-background ; 
+  .ant-menu-dark{background-color: @nav-item-background ; }
+  .ant-menu-item{ /*margin-left: -12px;*/ padding-right: 0; color: #fff; height: @line-height-hg; line-height: @line-height-hg; margin: 0;
+    &:hover{ background-color: #4c577b;}
+  }
+  .ant-menu-item-selected{ background-color: @blue;}
+  .ant-menu .ant-menu-submenu-title { background-color: @nav-background; height: @line-height-hg; line-height: @line-height-hg; padding:0; margin:0; color: #fff;
+    &:after{ display: none;}
+    .anticon{ font-size: 10px; width: 10px; height: 10px; margin:-4px 16px 0 0; transition: transform .3s ease;}
+  }
+  .ant-menu-submenu-arrow{ right: 6px; display: none;}
+  .ant-menu-sub{ 
+    .anticon{ font-size: @font-size-lg; margin:0 @space-big 0 0; color: #fff;}
+  }
+  .ant-menu-submenu-open.ant-menu-submenu-inline .ant-menu-submenu-title .anticon{ transform: rotate(180deg) scale(1); }
+  .ant-menu-inline.ant-menu-sub { background-color: #333745; }
+  .ant-menu-submenu .ant-menu-sub .ant-menu-item{margin:0px; height: @line-height-hg; line-height: @line-height-hg; padding-left: 12px!important;}
+}
+.nav-dropmenu{ border: 1px solid #ccc;
+  .ant-dropdown-menu-item{ width: 280px;
+    .label{ white-space: nowrap;margin: 0 10px 0 0;}
+  }
+}
+.ant-table-pagination{ text-align: right;}
+
+
+.LeftNav-control{ background-color: #4A5064; text-align: center; height: 30px; line-height: 30px; cursor: pointer;
+  .qqbicon{ margin: 0;}
+  &:hover{ background-color: #4c577b;}
+}
+
+.boxed-mini{
+  #content-container{padding-left: @g-left-width-mini;}
+  .main{
+    .left-contant{left: @g-left-width-mini;}
+  }
+}
+.LeftNavMini #mainnav-container{ width: @g-left-width-mini;
+  .ant-menu-dark.ant-menu-inline{ width: @g-left-width-mini;}
+  .ant-menu-submenu-title{padding: 0 12px !important}
+  .ant-menu-inline-collapsed{width: @g-left-width-mini;}
+  .menu-name{ display: none;}
+}
+
+.ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab .anticon-close{opacity: 0;}
+
+// 右上角
+.nav-dropmenu{ border: @border-base; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); position: relative; top: -4px; right: -8px;
+  .ant-dropdown-menu-item{ width: 280px;
+    .value{ width: 83%; display: inline-block; overflow: hidden;text-overflow: ellipsis;white-space: nowrap; vertical-align: bottom;}
+  }
+  .ant-row{ height: 100%;}
+  div{ height: 100%;}
+  .anticon-caret-up{ position: absolute; z-index: 2000; top: -11px;right: 35px; font-size: 16px;  color: #fff;}
+}
+
+// 重置滚动条
+::-webkit-scrollbar{ width: 14px; height: 14px;}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb{ border-radius: 999px; border:5px solid transparent;}
+// ::-webkit-scrollbar-track{ box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2) inset;}
+::-webkit-scrollbar-thumb{min-height: 20px; background-clip: content-box; box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.2) inset;}
+::-webkit-scrollbar-corner{ background: transparent;}
+
+.gform input{ width: auto;}
+.ant-table-fixed-header .ant-table-scroll .ant-table-header{ overflow: inherit;}
+.root,#container, .boxed, #content-container, #page-content{ height: 100%;}
+.page{ background-color: #fff;}
+
+#page-content,
+.page,
+.content-container,
+.page .ant-spin-nested-loading,
+.page .ant-spin-container,
+.page .search-form-table,
+.page .ant-table-wrapper,
+.page .ant-spin-nested-loading,
+.page .ant-spin-container,
+.page .ant-table,
+.page .ant-table-content,
+.page .ant-table-scroll,
+.page .ant-table-body,
+.page .ant-tabs-content,
+.page-main,
+.page-tablelist,
+.table-content,
+.table-content .ant-table-wrapper,
+.table-content .ant-spin-nested-loading,
+.table-content .ant-spin-container,
+.table-content .ant-table, 
+.table-content .ant-table-content, 
+.table-content .ant-table-scroll,
+.table-content .ant-table-scroll > span
+{ .flexcolumn; }
+
+.gtab {display: none;} // 隐藏全局的浏览器历史记录
+/*弹框尺寸*/
+.modal-large { width: 78% !important; }
+.modal-middle { width: 788px !important; }
+.modal-custom{width: 720px !important ;}
+.modal-small{ width: 20% !important; }
+
+
+/*弹框的body的滚动条*/
+// 全局主要框架风格的结构设定
+.page{
+  .page-search{ padding: 0;}
+  .page-header-list{background: @form-header-color; padding: @space-base 0; border: @border-split; border-radius: @border-radius-base; margin-bottom: @space-big; // 页头如果有新增的表单列表
+    .ant-form-item{ margin-bottom: 0;}
+  }
+  .page-main{ margin: @space-big; /* padding: @space-big; border: @border-base; */ border-radius: @border-radius-base; background-color: @body-background;.flexcolumn;
+    .flexcolumn div .ant-btn-primary{ margin: @space-base 0;}
+  }
+  .ant-table-body{display:block;}
+  
+  .gform{ margin: 0;}
+  .page-top{ display: flex; flex-direction: column; min-height: 38px;flex: 0 0 auto; 
+    .top-wrap{ flex: 0 0 auto;}
+    .ant-layout-header{padding: 0; margin-top: @space-base;}
+  }
+  .page-top-sub{ padding: 0 @space-big + @scroll-width/2 0 @space-big;}
+  // .ant-form-item{margin-bottom: 0;}
+  .ant-table-header{ background: @component-background; flex:0 0 auto;}
+  .ant-layout{background: @component-background;}
+  .Breadcrumb{ background:@title-background;  padding:@space-base @space-big;}
+  .page-body{.flexcolumn; margin:@space-big; background: @component-background;}
+  .ant-layout-header{ line-height: @line-height-lg; height: auto; padding: 0 @space-big;}
+  .ant-layout-header, .ant-layout-sider, .ant-layout-content{ background-color: @component-background;}
+  .ant-layout-content{.flexcolumn;position: relative}
+  .page-header{ padding: @space-big @space-big 0 @space-big ;flex: 0 0 auto;
+  }
+  .page-content{ padding:@space-big @space-big 0 @space-big;.flexcolumn; flex: auto;
+    .page-content{padding:0;} // 如果已经有了content，那么下面的content就去除padding样式
+    .ant-table-wrapper{.flexcolumn;}
+    .ant-pagination{ padding: @space-big 0 @space-big @space-big; display: flex; justify-content: flex-end; min-height: 28px;
+      .ant-pagination-options-size-changer{ margin-right: 0;}
+    }
+  }
+  .page-footer{.flexrow; flex:initial; justify-content: space-between; padding:@space-big; border-top: @border-split; min-height: 60px;
+    .page-footer-buttons{ 
+      .ant-btn{margin-left: @space-big;}
+      .ant-btn:first-of-type{margin-left: 0;}
+    }
+    .ant-pagination {margin-top: 0;
+      .ant-pagination-options-size-changer{ margin-right: 0;}
+    }
+    .r{display: flex; justify-content: flex-end;flex:1;}
+  }
+  .page-operation{line-height: @line-height-normal; border-bottom: 0; justify-content: space-between; flex: 0 0 auto;
+    .ant-radio-button-wrapper-checked{ background-color: @primary-color; color: #fff;} // radio组的高亮显示
+  }
+  .view-content::-webkit-scrollbar{width:0;}
+  .view-content{ width: 100%; overflow-y: auto;
+    .view-title{  background-color: @g-title-bg-color;  padding:0 @space-lg; height: @line-height-lg; line-height: @line-height-lg;
+      .title{ border-left: 2px solid @primary-color; padding-left: @space-sm; display: inline-block; line-height: 13px;}
+      .icon-edit{ float: right;
+        .anticon-edit{ margin:0 @space-sm 0 0; font-size: @font-size-lg; }
+      }
+    }
+  }
+  .ant-table{
+    th{ text-align: center;}
+    .ant-table-content{
+      .ant-table-scroll{ flex:0 1 auto;
+        .ant-table-thead{
+          // th{border-bottom:2px solid @border-color-split;}
+          // wk 添加全局样式
+          th, td{ border-bottom: @border-split; border-right: @border-split; padding:@space-base; text-align: center;}
+          th{ color: @text-color; background-color: @title-background; font-weight: bold; border-bottom: 0;}
+        }
+      }
+      .ant-table-body table{ 
+        border-top: @border-split; 
+        border-bottom-left-radius: @border-radius-base;
+        border-bottom-right-radius: @border-radius-base;
+        th, td{ border-bottom: @border-split; border-right: @border-split; padding:@space-base; text-align: center;}
+        th{ color: @text-color; background-color: @title-background; font-weight: bold;}
+      }
+    }
+  }
+  .ant-btn{ line-height: normal;}
+  // 主要是用在table里面的td里面的左右布局的 比如三实访查人口用到了
+  .cell-layout{ display: flex; justify-content: space-between; width: 100%;
+    .nowrap{max-width: 80%; display: inline-block; overflow: hidden; white-space: nowrap;text-overflow: ellipsis;}
+    .right{white-space: nowrap;}
+    .flexrow{ align-items: center;}
+  }
+  // .detail-content tr td p span{width: 75%; display: inline-block; overflow: hidden; white-space: nowrap;text-overflow: ellipsis;}
+  // .tableList{.flexcolumn;}
+  .tableList, .table-scrollfix{.flexcolumn;
+    .ant-spin-nested-loading, 
+    .ant-spin-container,
+    .ant-table,
+    .clearfix,
+    .ant-table-content,
+    .ant-table-scroll,
+    .ant-table-scroll > span,
+    .detail-content,
+    .list-tabs{ .flexcolumn; }
+  }
+  .has-pagination .ant-pagination { position: fixed; right:@space-big ;bottom: 0 } // 分页常见样式 比如三实访查人口
+  .page-title{ height: 34px; line-height: 34px; color: @text-color-bold; padding:0 @space-big; font-size: @font-size-base;} // 常见的标题的样式  比如用户管理的头部
+  .input-base-width{width: 268px; margin-right: @space-base;} // 基本搜索框的宽度
+  .layout-between{ display: flex; justify-content: space-between; /*width: 100%;*/ // 常见的左右flex布局 比如用户管理
+    .flexrow{ align-items: center;} // flex布局同行居中 比如用户管理的搜索框
+    .ant-form-item{margin-bottom: 0;}
+    .ant-pagination {padding: 0;}
+  }
+
+ //表头有两级的样式
+  .second-title-table .ant-table-thead>tr th{
+    border-bottom: @border-split!important
+    
+  }
+  // 树形结构展开收起的加号减号的大小
+  .ant-table-row-collapsed:after, .ant-table-row-expanded:after{font-size: 20px; line-height: 10px;}
+  // 一般的搜索区域比如线索记录 只有一个日期选择跟一个确定按钮 那么就采用这种形式 
+  .page-search{
+    .ant-calendar-picker{ display: inline-block;}
+  }
+  .ant-tabs-tab{ font-size: @font-size-base;}
+}
+
+// 全局404公共样式
+.developing{ text-align: center; padding-top: 80px;background-color: #fff;min-height: 500px;
+  .ant-progress-text{ font-size: 14px; }
+}
+
+// 释放page-content的padding占用的左右距离
+.page-footer.clear-both-side-white{
+  margin: 0 -@space-big 0 -@space-big;
+}
+.popTip{
+  .ant-tabs-top{display: flex;flex-direction: column;
+    .ant-tabs-tabpane{display: flex;
+      .table-flex{display: flex;}
+    }
+  }
+}
+
+.ant-confirm-btns{ white-space: nowrap;
+  button{font-size: @font-size-base;}
+  button:first-of-type{ float: right; margin:0 0 0 @space-base;}
+}
+body button + button, 
+.ant-modal-footer button + button{margin-left: @space-base;}
+
+// 自定义icon
+.qqbicon{ display: inline-block; width: 18px; height: 18px; background-color:transparent; background-image: url(../images/icon/menu/default.png); background-repeat: no-repeat; background-position: center center; vertical-align: middle; margin-right: 10px;}
+.qqbicon-navcontrol{ background-image: url(../images/navcontrol.png); }
+.ant-menu .@{qqbicon-prefix}{ margin:0 15px 5px 3px; }
+.@{qqbicon-prefix}-userManage{ background-image: url(../images/icon/menu/userManage.png); } // 用户管理
+.@{qqbicon-prefix}-roleManage{ background-image: url(../images/icon/menu/roleManage.png); } // 角色管理
+.@{qqbicon-prefix}-moduleManage{ background-image: url(../images/icon/menu/moduleManage.png); } // 模块管理

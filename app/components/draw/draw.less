@@ -1,0 +1,152 @@
+
+
+@import "../../styles/theme.less";
+.flexcolumn{display: flex; flex:1; flex-direction: column;}
+
+@keyframes move{
+  0%{right: -100px;}
+  100%{ right: 0;}
+}
+
+@keyframes drawEnter {
+  0%{transform: translateX(100%);}
+  100% {transform: translateX(0);}
+}
+@keyframes drawLeave {
+  0%{transform: translateX(0);}
+  100% {transform: translateX(100%);}
+}
+
+@keyframes maskEnter {
+  0%{opacity: 0;}
+  100% {opacity: 1;}
+}
+@keyframes maskLeave {
+  0%{opacity: 1;}
+  100% {opacity: 0;}
+}
+.drawer-wrap{position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; /*transition-property: all;transition-duration: 0.3s;*/
+  .ant-table tr:nth-of-type(even){background: transparent;}
+  /*这里主要设置弹窗中的layout*/
+  .ant-layout-sider, .ant-layout, .ant-layout-header{ background: @nav-item-background;}
+  .ant-modal-mask{ background-color: rgba(55, 55, 55, 0.2);}
+  .draw{.flexcolumn;position: absolute;z-index: 1000; top: 0; right: 0; height: 100%;;background: @nav-item-background; /*animation: move 0.3s;*/
+    .title-split-line{ color: #fff;padding-left:@space-base  ;margin: @space-big 0;}
+    .ant-select-disabled{
+      .ant-select-selection{background: rgba(134, 111, 111, 0.2);}
+    }
+    .ant-modal-close{
+      &:hover{
+        .ant-modal-close-x{  color: #fff;}
+      }
+      .ant-modal-close-x{ line-height: 51px; height: 51px;}
+    }
+    .table-horizontal .ant-table-content .ant-table-body table{border-top: 0;}
+    label{color: #fff;}
+    .ant-select-selection{ background: transparent; min-height: @line-height-normal;
+      .ant-select-selection__rendered{height: @line-height-normal;line-height: @line-height-normal;}
+      .ant-select-selection__placeholder{ color: @text-color-secondary;;}
+      .ant-select-selection-selected-value{ color: #fff;}
+      .ant-select-arrow{
+        &:before{color: #fff;}
+      }
+    }
+    .ant-modal{ .flexcolumn;top: 0; padding-bottom: 0; width: 100%;
+      .ant-modal-header{ padding:@space-base @space-big; .flexcolumn; flex: 0 0 auto;background: @nav-background; border:0;
+        .ant-modal-title{font-size: @font-size-base; color: #fff;line-height: 36px; height: 36px;
+          .ant-modal-close-x{
+            :hover{ color: #fff;}
+          }
+        }
+      }
+      .ant-modal-content{.flexcolumn;flex: auto; background: @nav-item-background;
+        .ant-modal-body{.flexcolumn; flex:auto; overflow-y: auto; max-height: inherit;}
+        .ant-modal-footer{.flexcolumn; flex: 0 0 auto;background: @nav-item-background; border-top: 1px solid rgba(223, 228, 234, 0.1); padding:@space-big;
+          button{ font-size: @font-size-base; height: @line-height-normal;}
+          button + button{margin-left: @space-big;}
+        }
+      }
+    }
+    .ant-form-item-label label{color: #fff;}
+    .ant-btn-ghost span{ color: #fff;}
+    .ant-input{ background: transparent; color: #fff; padding:@space-sm @space-base; border: @border-dark;
+      &:hover{background: @nav-item-background;}
+    }
+    .ant-input-number,.ant-input-number-input{ background: transparent; color: #fff;
+      &:hover{background: @nav-item-background;}
+    }
+    .ant-input-number{border:@border-dark;}
+    input.ant-input{height: @line-height-normal;}
+    .ant-upload.ant-upload-select-picture-card{ background: transparent; border: @border-dark;}
+    .ant-table-thead > tr > th, .ant-table-thead > tr > td{ background: transparent; color: #fff; padding: @space-base;}
+    .ant-table-placeholder{ background: transparent; padding: @space-base;}
+    .ant-table-tbody{
+      td{color: #fff;border-bottom: @border-dark;padding: @space-base;}
+      tr{
+        &:hover{
+          td{background: @nav-background;}
+        }
+      }
+    }
+    .ant-table-bordered{
+      .ant-table-placeholder{border: @border-dark; border-top: 0;}
+      table{border: @border-dark; border-bottom:0; border-right: 0;}
+      th{ border-right: @border-dark; border-bottom: @border-dark;}
+      td{border-right: @border-dark;}
+    }
+    .ant-btn-ghost{border: @border-dark;
+      &:hover{border-color: #fff;}
+    }
+    .ant-checkbox-inner{background: transparent;border: @border-dark;}
+    .ant-upload-list-item{border:@border-dark;}
+    .ant-table-content{
+      .ant-table-header{ background: transparent;}
+      .ant-table-body{ background: transparent;}
+      .ant-table-scroll{
+        .ant-table-body{ background: transparent;}
+      }
+    }
+    .ant-btn{text-overflow: ellipsis; overflow: hidden;}
+    .ant-badge-status-text{ color: #fff;}
+    table tr td, table tr th{ text-align: center;}
+    .ant-table-fixed-right table{ background: @nav-background;}
+    .ant-table-fixed{
+      .ant-table-thead{
+        tr{
+          th{ padding-right: 18px;}
+        }
+      }
+      .ant-table-row-hover{
+        td{background: @nav-background;}
+      }
+    }
+  }
+  .draw-enter{ animation-name: drawEnter; animation-duration: 0.3s; animation-play-state: running;}
+  .draw-leave{ animation-name: drawLeave; animation-duration: 0.3s; animation-play-state: running;}
+  .mask-enter{ animation-name: maskEnter; animation-duration: 0.3s; animation-play-state: running;}
+  .mask-leave{ animation-name: maskLeave; animation-duration: 0.3s; animation-play-state: running;}
+}
+.drawer-wrap .ant-input::-webkit-input-placeholder{color: @text-color-secondary;}
+.drawer-wrap .ant-input-number-input::-webkit-input-placeholder{color: @text-color-secondary;}
+// 进入drawer组件给body加一个全局的class用来重定义一些没法定义样式的
+.body-drawer{
+  
+  .ant-select-dropdown{ background: @nav-item-background; border:1px solid #fff;
+    .ant-select-dropdown-menu-item{ color: #fff; padding:@space-sm @space-base;
+      &:hover{background: @nav-background;}
+    }
+    .ant-select-dropdown-menu-item-selected{background: @nav-background;}
+    .ant-select-dropdown-menu-item-active{background: @nav-background;}
+  }
+  .ant-select-dropdown-menu::-webkit-scrollbar-thumb{box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.2) inset;
+    &:hover{box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.5) inset;}
+  }
+  .draw{
+    .ant-select-selection--multiple .ant-select-selection__choice{ background: transparent; color: #fff; border:@border-dark;}
+  }
+}
+
+.ant-modal-body::-webkit-scrollbar-thumb{ box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.2) inset;transition-property: all; transition-duration: 0.6s;
+  &:hover{box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.5) inset;}
+}
+.ant-modal-body::-webkit-scrollbar-corner{ background: transparent;}

@@ -1,0 +1,92 @@
+@import "./theme.less";
+.im-wrap{display: flex; flex-direction: column; flex:1; background: url(../images/leftBg.jpg)  no-repeat center;background-size: cover; background-clip: border-box; height: 100%; width: 100%; text-align: center;}
+#im{width: 100%; height: 100%; border: @border-split; display: flex; flex-direction: row; box-shadow: -1px -1px 4px 0px rgba(0, 0, 0, 0.2);
+  .im-l{display: flex;flex-direction: column; width: 150px; border-right: @border-split; flex: 0 0 150px; height: 100%;
+    .search{ padding: @space-sm; border-bottom: @background-color-hover; height: 40px;}
+    ul{ overflow-y: auto; height: 100%; display: flex; flex-direction: column;
+      li{ cursor: pointer; padding: @space-sm; color: #fff; text-align: left;
+        &:hover{ background-color: @background-color-hover;}
+        img{vertical-align: middle; margin-right: @space-base; width:30px;}
+        .anticon{ font-size: 30px; margin-right:@space-sm; vertical-align: middle;}
+      }
+      .on{background-color: @background-color-base; color: @text-color;}
+    }
+  }
+  .im-r{display: flex; flex:auto; background-color: @background-color-base; position: relative; height: 100%;
+    .im-r-box{ display: flex; flex-direction: column; height: 100%; flex: 1;
+      .operate{padding: @space-sm; border-bottom: @border-split; height: 40px; flex: 0 0 40px; background: @body-background; display: flex;justify-content: space-between; line-height: 30px;
+        .totle{ font-size: @font-size-lg; color: @primary-color; vertical-align: middle;
+          .count{ font-size: 20px; margin-left: @space-sm;}
+        }
+        i{ cursor: pointer; font-size: 16px;line-height: 32px;}
+      }
+      .record-list{ padding:@space-base; overflow-y: auto; flex: auto;
+        .system{ color:@primary-color; padding: @space-sm;
+          .time{ margin-left: @space-base;}
+        }
+        .item{ display: flex; flex-direction: row; margin-bottom: @space-base;
+          .item-avatar{flex: 0 0 40px; width: 40px;
+            .anticon{ font-size: 30px;}
+            img{ width: 30px;}
+          }
+          .item-content{ flex: 0 0 auto; 
+            .name{ margin-right: @space-sm; color: @text-color-secondary}
+            .time{color: @text-color-secondary;}
+            .content{background-color: @body-background; padding: @space-sm @space-base;position: relative; border: @border-base; display: inline-block;}
+          }
+          .arrow{ position: absolute; left: -11px; top: 5px;  
+            i, em{ display: inline-block; width: 0; height: 0; border-width: 7px; border-style: solid; overflow: hidden;font-size: 0;line-height: 0;vertical-align: top; border-top-color: transparent;border-bottom-color: transparent;border-left-color: transparent;}
+            i{border-width: 3px; border-top-color: @border-color-base; color: @border-color-base; margin-left: 4px;}
+            em{border-top-color: @body-background; margin: 1px 0 0 -4px; color: @body-background; border-width: 4px;}
+          }
+        }
+        .item-r{ flex-direction: row-reverse;
+          .item-avatar{text-align: right;
+          }
+          .item-content{
+            .name{ margin-right: @space-sm; margin-left: 0;}
+            .content{background-color: @border-color-split; border: @border-base;}
+          }
+          .arrow{ right: -11px; left: auto;  
+            i, em{ border-top-color: transparent;border-right-color: transparent; border-bottom-color: transparent;}
+            i{ border-top-color: @border-color-base; color: @border-color-base; margin-right: 4px; margin-left: 0;}
+            em{border-top-color: @border-color-split; margin: 1px 0 0 -14px; color: @border-color-split;}
+          }
+        }
+      }
+      .im-b{ background-color: @body-background; border-top: @border-split; height: 110px;
+        .box{
+          .tool{ height: @line-height-lg; display: flex; justify-content: space-between;
+            .tools{ cursor: pointer; margin-left: @space-base;}
+            .anticon{ font-size: 20px;line-height: @line-height-lg;}
+          }
+          .msg-box{
+            .ant-row{ margin-bottom: 0;
+              .ant-input{border:0;padding:0 @space-sm; resize: none;
+              &:focus{border: 0; box-shadow: none;}
+              }
+            }
+          }
+          .send-box{ text-align: right; padding-right: @space-sm; margin-bottom: @space-sm;
+            button{ margin-left: @space-sm;}
+          }
+        }
+      }
+    }
+  }
+}
+
+#im-min{position: absolute; right: 0; bottom: 0; width: 280px; cursor: pointer;border: @border-split; background: @background-color-base;
+  &:hover{ background: @background-color-hover;}
+  .box{padding: @space-base; 
+    .des{ margin-left: @space-base;}
+    i{font-size: 16px; vertical-align: middle;}
+  }
+}
+
+#emojis{width: 379px; height: 175px; background-color: @body-background; border: @border-split;
+  .face{ display: inline-block; background: @body-background; cursor: pointer;border: @border-base;width: 30px; height: 30px; overflow: hidden; margin:-1px 0 0 -1px; position: relative; z-index: 1; float: left;
+    &:hover{border: 1px solid @primary-color; z-index: 2;}
+    img{ max-width: 30px;}
+  }
+}
