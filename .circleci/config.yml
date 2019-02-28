@@ -26,9 +26,6 @@ references:
       - lint:
           requires:
             - setup
-      - jest:
-          requires:
-            - setup
 
 
 jobs:
@@ -69,17 +66,6 @@ jobs:
       - *attach_workspace
       - run: npm run lint
 
-  jest:
-    <<: *container_config
-    steps:
-      - checkout
-      - *attach_workspace
-      - run: npm run test
-
-orbs:
-  codecov: codecov/codecov@1.0.4
-
-  
 workflows:
   version: 2
   build_test:

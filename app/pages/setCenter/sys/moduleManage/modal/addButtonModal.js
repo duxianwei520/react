@@ -7,9 +7,9 @@ import Drawer from "@components/draw/draw";
 const FormItem = Form.Item;
 
 
-@connect((state, props) => ({
-  config: state.config
-}))
+// @connect((state, props) => ({
+//   config: state.config
+// }))
 @Form.create()
 
 // 声明组件  并对外输出

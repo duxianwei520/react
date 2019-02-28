@@ -9,11 +9,8 @@ react@16.5.2 + redux@3.7.2 + react-router@3.2.0 + webpack@3.10.0 + axios@0.18.0 
 [![GitHub stars](https://img.shields.io/github/stars/duxianwei520/react.svg)](https://github.com/duxianwei520/react/stargazers)
 [![GitHub issues](https://img.shields.io/github/issues/duxianwei520/react.svg)](https://github.com/duxianwei520/react/issues)
 [![GitHub license](https://img.shields.io/github/license/duxianwei520/react.svg)](https://github.com/duxianwei520/react/blob/master/LICENSE)
-[![Coverage Status](https://coveralls.io/repos/github/jinxedjkldsa/testing/badge.svg?branch=master)](https://coveralls.io/github/jinxedjkldsa/testing?branch=master)
-
 
 ## Project introduce
-
 
 ```
 git clone --depth 1 https://github.com/duxianwei520/react.git  

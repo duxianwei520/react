@@ -40,7 +40,7 @@ export default class pop extends Component {
   }
 
   // 删除
-  deleteButton(id) {
+  deleteButton = (id) => {
     fetchModuleDelete({ id: id }, (result) => {
       message.success(result.msg)
       this.props.updateList()
@@ -48,7 +48,7 @@ export default class pop extends Component {
   }
 
   // 上线下线
-  showOrHide(id, val) {
+  showOrHide=(id, val) => {
     fetchChangeModuleStatus({ id: id, status: val }, (result) => {
       this.props.updateList()
     })

@@ -9,6 +9,7 @@ jest.mock("../../../../app/pages/setCenter/sys/moduleManage/modal/addButtonModal
 
 let form;
 let moduleManage = Enzyme.mount(<ModuleManage />);
+console.log(moduleManage)
 moduleManage.setState({ tableDataSource: fetchTreeList.data.list });
 jest.mock("../../../../app/configs/ajax");
 jest.mock("../../../../app/apis/manage.js");

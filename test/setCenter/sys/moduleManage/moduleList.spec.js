@@ -22,6 +22,7 @@ const param = {
   buttonList: moduleManage.instance().buttonList
 };
 let moduleList = Enzyme.mount(<ModuleList {...param} />);
+console.log(moduleList)
 fetchModuleList.data.list[1].resName = "123";
 moduleList.setProps({ dataSource: fetchModuleList.data.list });
 test("addButton", () => {

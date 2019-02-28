@@ -18,8 +18,8 @@
     "chat": "node ./scripts/chatServer.js",
     "precommit": "lint-staged",
     "preCommitInit": "node ./node_modules/husky/lib/installer/bin.js install",
-    "dll": "webpack --config ./scripts/webpack.dll.config.js",
-    "test:report":"jest --coverage --coverageReporters=text-lcov | coveralls"
+    "test:report":"jest --coverage --coverageReporters=text-lcov | coveralls",
+    "dll": "webpack --config ./scripts/webpack.dll.config.js"
   },
   "husky": {
     "hooks": {

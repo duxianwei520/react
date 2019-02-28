@@ -58,3 +58,6 @@ jspm_packages
 
 #don't upload node_modules.rar
 node_modules.rar
+
+#don't upload react.rar
+react.rar

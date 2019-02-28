@@ -32,13 +32,13 @@ export default class Index extends Component {
     this.props.form.resetFields()
   }
 
-  // upDateValue = () => {
-  //   if (this.props.pid) {
-  //     this.props.form.setFieldsValue({
-  //       parentid: this.props.pid,
-  //     })
-  //   }
-  // }
+  upDateValue = () => {
+    if (this.props.pid) {
+      this.props.form.setFieldsValue({
+        parentid: this.props.pid,
+      })
+    }
+  }
 
   handleSubmit = (e) => {
     e.preventDefault();
