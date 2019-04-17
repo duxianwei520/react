@@ -46,9 +46,6 @@ https://github.com/duxianwei520/resource/blob/master/react/node_modules.rar
 
 <img src="https://github.com/duxianwei520/resource/blob/master/react/screenshots/echart.gif" width="973" height="557"/>
 
-### chatroom
-
-<img src="https://github.com/duxianwei520/resource/blob/master/react/screenshots/chat.gif" width="973" height="557"/>
 
 ### set center
 
