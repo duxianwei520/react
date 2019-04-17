@@ -1,7 +1,7 @@
 import React from "react";
 import Enzyme from "../../../../Enzyme.js";
-import RoleManage from "../../../../../app/pages/setCenter/sys/roleManage/index";
-import ButtonModal from "../../../../../app/pages/setCenter/sys/roleManage/modal/buttonModal";
+import RoleManage from "../../../../../app/pages/set/roleManage/index";
+import ButtonModal from "../../../../../app/pages/set/roleManage/modal/buttonModal";
 jest.mock("../../../../../app/configs/ajax");
 jest.mock("../../../../../app/apis/manage.js");
 jest.mock("../../../../../app/components/draw/draw");

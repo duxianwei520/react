@@ -1,7 +1,7 @@
 import React from "react";
 import Enzyme from "../../../../Enzyme.js";
-import RoleManage from "../../../../../app/pages/setCenter/sys/roleManage/index";
-import RoleAdd from "../../../../../app/pages/setCenter/sys/roleManage/modal/roleAdd";
+import RoleManage from "../../../../../app/pages/set/roleManage/index";
+import RoleAdd from "../../../../../app/pages/set/roleManage/modal/roleAdd";
 import fetchRoleDetail from "../../../../../app/mocks/apis/sys/roleManage/fetchRoleDetail";
 jest.mock("../../../../../app/configs/ajax");
 jest.mock("../../../../../app/apis/manage.js");

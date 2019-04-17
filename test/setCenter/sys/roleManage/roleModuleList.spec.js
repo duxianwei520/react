@@ -1,12 +1,12 @@
 import React from "react";
 import Enzyme from "../../../Enzyme.js";
-import RoleManage from "../../../../app/pages/setCenter/sys/roleManage/index";
+import RoleManage from "../../../../app/pages/set/roleManage/index";
 import fetchRoleList from "../../../../app/mocks/apis/sys/userManage/fetchRoleList";
 import UserList from "../../../../app/mocks/apis/sys/userManage/fetchUserList";
 import fetchTreeList from "../../../../app/mocks/apis/sys/roleManage/fetchTreeList";
 import fetchModuleListInRole from "../../../../app/mocks/apis/sys/roleManage/fetchModuleListInRole";
-import RoleModuleList from "../../../../app/pages/setCenter/sys/roleManage/roleModuleList";
-import RoleCheckbox from "../../../../app/pages/setCenter/sys/roleManage/roleCheckbox";
+import RoleModuleList from "../../../../app/pages/set/roleManage/roleModuleList";
+import RoleCheckbox from "../../../../app/pages/set/roleManage/roleCheckbox";
 jest.mock("../../../../app/configs/ajax");
 jest.mock("../../../../app/apis/manage.js");
 let form;

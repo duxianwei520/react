@@ -45,8 +45,7 @@ export default class App extends Component {
       this.setState({
         isLeftNavMini: false,
       })
-    }
-    if (sessionStorage.getItem('isLeftNavMini') === 'true') {
+    } else {
       this.setState({
         isLeftNavMini: true,
       })

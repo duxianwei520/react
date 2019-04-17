@@ -1,20 +1,29 @@
 
 import React, { Component } from 'react'
-import { /* Link, */ hashHistory } from 'react-router'
+import { connect } from 'react-redux'
+import { Link, hashHistory } from 'react-router'
 import { Menu, Dropdown, Button, Modal, message, Icon, Row, Col } from 'antd'
 import { brandName } from '@config'
 import { logout } from '@apis/common'
+// import User from '@images/user.png'
 
 import EditPassword from './modal/editPassword'
+import UserInfo from './modal/userInfo'
+
 
 const { confirm } = Modal
 
+@connect((state, props) => ({
+  config: state.config,
+  staffResponse: state.staffResponse,
+}))
 export default class Header extends Component {
   // 初始化页面常量 绑定事件方法
   constructor(props, context) {
     super(props)
     this.state = {
-      // loading: false,
+      loading: false,
+      userInfo: false, // 控制用户信息弹框显隐
       editPasswordMadalIsOpen: false,
     }
     this.handleLogout = this.handleLogout.bind(this)
@@ -27,8 +36,8 @@ export default class Header extends Component {
 
   // 登出
   handleLogout() {
-    // const { config } = this.props
-    // const self = this
+    const { config } = this.props
+    const self = this
     confirm({
       title: '提示',
       content: '确认退出登录吗？',
@@ -37,7 +46,7 @@ export default class Header extends Component {
           // console.log(result)
           if (result.status === 1) {
             sessionStorage.clear()
-            // config.staff = {}
+            config.staff = {}
             hashHistory.push('/login')
           } else {
             message.warning(result.msg)
@@ -62,6 +71,16 @@ export default class Header extends Component {
     this.setState({ editPasswordMadalIsOpen: true })
   }
 
+  // 点击显示用户信息
+  getUserInfo() {
+    this.setState({ userInfo: true })
+  }
+
+  // 点击关闭用户信息弹窗
+  onCancel() {
+    this.setState({ userInfo: false })
+  }
+
   logoClick = () => {
     // const nav = JSON.parse(sessionStorage.getItem('gMenuList'))
     // if (nav[0] && nav[0].children && nav[0].children[0].children && nav[0].children[0].children[0] && nav[0].children[0].children[0].resKey) {
@@ -83,6 +102,10 @@ export default class Header extends Component {
     userinfo && userinfo.roles && userinfo.roles.map((item) => {
       roles.push(item.roleName)
     })
+    let name = ''
+    if (sessionStorage.getItem('userinfo')) {
+      name = JSON.parse(sessionStorage.getItem('userinfo')).chineseName
+    }
     // console.log(JSON.parse(sessionStorage.getItem('userinfo')))
     const userCenter = (
       <Menu className="nav-dropmenu">
@@ -127,20 +150,23 @@ export default class Header extends Component {
                 {
                   gMenuList && gMenuList.map((item, index) => (<span
                     className={item.resKey === topKey ? 'topMenu on' : 'topMenu'}
-                    key={item.resKey}
+                    key={index}
                     onClick={() => this.props.topMenuClick(item, index)}
                   >{item.resName}</span>))
                 }
               </nav>
             </Col>
             <Col span={4} className="col">
-              <ul>
-                <li>
-                  <Dropdown overlay={userCenter}>
-                    <a className="ant-dropdown-link"><Icon type="user" />{userinfo.chineseName || userinfo.username}</a>
-                  </Dropdown>
-                </li>
-              </ul>
+              <div className="right">
+                <ul>
+                  <li>
+                    <a onClick={() => this.getUserInfo()}>{name}</a>
+                  </li>
+                  <li>
+                    <a onClick={this.handleLogout}>退出</a>
+                  </li>
+                </ul>
+              </div>
             </Col>
           </Row>
         </div>
@@ -152,6 +178,14 @@ export default class Header extends Component {
               onCancel={this.cancel}
             />
             : null
+        }
+
+        {
+          this.state.userInfo ?
+            <UserInfo
+              onCancel={() => this.onCancel()}
+              handleLogout={this.handleLogout}
+            /> : null
         }
       </header>
     )

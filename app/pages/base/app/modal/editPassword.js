@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Button, Form, Input, /* Select, */ Modal, Row, Col, message } from 'antd'
 import { regExpConfig } from '@reg'
+import md5 from 'md5'
 import {
   fetchPassword,
 } from '@actions/common'
@@ -40,6 +41,14 @@ export default class index extends Component {
     this.props.form.validateFields((errors, fieldsValue) => {
       if (errors) {
         return
+      }
+
+      if (fieldsValue.password) {
+        // if (process.env.NODE_ENV === 'production') {
+        //   fieldsValue.password = fieldsValue.password
+        // } else {
+        fieldsValue.password = md5(fieldsValue.password)
+        // }
       }
       const values = {
         oldPwd: fieldsValue.oldPwd ? fieldsValue.oldPwd : '',

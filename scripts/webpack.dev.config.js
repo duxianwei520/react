@@ -22,7 +22,7 @@ const webpackConfigDev = {
     // 将打包后的资源注入到html文件内    
     new HtmlWebpackPlugin({
       template: resolve('../app/index.html'),
-      mapConfig:'http://41.196.99.30/tgram-pgisbase/config/qdkjdsj_map_config.js'
+      mapConfig:'http://192.168.0.1/map_config.js'
     }),
     new OpenBrowserPlugin({
       url: `http://localhost:${PORT}/#/login`,

@@ -1,14 +1,14 @@
 import React from "react";
 import Enzyme from "../../../../Enzyme.js";
-import RoleManage from "../../../../../app/pages/setCenter/sys/roleManage/index";
-import ModuleManage from "../../../../../app/pages/setCenter/sys/moduleManage/index";
-import ButtonModal from "../../../../../app/pages/setCenter/sys/moduleManage/modal/buttonModal";
+import RoleManage from "../../../../../app/pages/set/roleManage/index";
+import ModuleManage from "../../../../../app/pages/set/moduleManage/index";
+import ButtonModal from "../../../../../app/pages/set/moduleManage/modal/buttonModal";
 import fetchButtonList from "../../../../../app/mocks/apis/sys/roleManage/fetchButtonList";
 
 jest.mock("../../../../../app/configs/ajax");
 jest.mock("../../../../../app/apis/manage.js");
 jest.mock("../../../../../app/components/draw/draw");
-jest.mock("../../../../../app/pages/setCenter/sys/moduleManage/modal/addButtonModal");
+jest.mock("../../../../../app/pages/set/moduleManage/modal/addButtonModal");
 
 const moduleManage = Enzyme.mount(<ModuleManage />);
 function modalParam(ModalParam) {

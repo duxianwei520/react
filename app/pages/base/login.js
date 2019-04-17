@@ -8,6 +8,7 @@ import { brandName } from '@config'
 import { clearGformCache2, login } from '@actions/common'
 import { /* login,  */staff, menu } from '@apis/common'
 import Logo from '@components/logo/logo'
+import md5 from 'md5'
 import QueuiAnim from 'rc-queue-anim'
 
 // import '@styles/base.less'
@@ -50,6 +51,12 @@ export default class Login extends Component {
       if (!err) {
         const query = this.props.form.getFieldsValue()
         this.setState({ loading: true })
+        /* if (process.env.NODE_ENV === 'production') {
+          values.password = values.password
+        } else {
+          values.password = md5(values.password)
+        } */
+        values.password = md5(values.password)
         this.props.dispatch(login(values, (res) => {
           sessionStorage.setItem('token', res.data.token)
           sessionStorage.setItem('ticket', res.data.ticket)
@@ -61,6 +68,7 @@ export default class Login extends Component {
               sessionStorage.setItem('leftNav', JSON.stringify(nav))
 
               staff({ usercode: query.username }, (resp) => {
+                sessionStorage.setItem('userinfo', JSON.stringify(resp.data))
                 hashHistory.push('/')
               }, (r) => {
                 message.warning(r.msg)

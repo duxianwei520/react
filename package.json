@@ -15,10 +15,9 @@
     "lint": "eslint ./ --cache --fix --ignore-pattern .gitignore",
     "test": "jest --coverage",
     "mock": "supervisor -w mock ./app/mocks/http.js",
-    "chat": "node ./scripts/chatServer.js",
     "precommit": "lint-staged",
     "preCommitInit": "node ./node_modules/husky/lib/installer/bin.js install",
-    "test:report":"jest --coverage --coverageReporters=text-lcov | coveralls",
+    "test:report": "jest --coverage --coverageReporters=text-lcov | coveralls",
     "dll": "webpack --config ./scripts/webpack.dll.config.js"
   },
   "husky": {
@@ -33,6 +32,9 @@
     },
     {
       "name": "Huxiaoyu"
+    },
+    {
+      "name": "jinxedjkldsa"
     }
   ],
   "jest": {
@@ -156,6 +158,7 @@
     "husky": "^1.1.2",
     "immutable": "~3.8.1",
     "lint-staged": "^7.3.0",
+    "md5": "^2.2.1",
     "rc-queue-anim": "^1.4.1",
     "rc-tween-one": "~1.7.3",
     "react": "^16.5.2",

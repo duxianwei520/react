@@ -1,11 +1,11 @@
 import React from "react";
 import Enzyme from "../../../Enzyme.js";
-import RoleManage from "../../../../app/pages/setCenter/sys/roleManage/index";
-import ModuleManage from "../../../../app/pages/setCenter/sys/moduleManage/index";
-import AddModal from "../../../../app/pages/setCenter/sys/moduleManage/modal/moduleAdd";
+import RoleManage from "../../../../app/pages/set/roleManage/index";
+import ModuleManage from "../../../../app/pages/set/moduleManage/index";
+import AddModal from "../../../../app/pages/set/moduleManage/modal/moduleAdd";
 import fetchTreeList from "../../../../app/mocks/apis/sys/roleManage/fetchTreeList";
-import ButtonModal from "../../../../app/pages/setCenter/sys/moduleManage/modal/buttonModal";
-jest.mock("../../../../app/pages/setCenter/sys/moduleManage/modal/addButtonModal");
+import ButtonModal from "../../../../app/pages/set/moduleManage/modal/buttonModal";
+jest.mock("../../../../app/pages/set/moduleManage/modal/addButtonModal");
 
 let form;
 let moduleManage = Enzyme.mount(<ModuleManage />);

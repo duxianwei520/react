@@ -2,38 +2,26 @@
 module.exports = {
   data: {
     list: [
+
       {
-        id: 10060,
-        resName: '工作台',
-        children: [
-          {
-            id: 10063,
-            resName: '概览',
-            resKey: 'desk$/index',
-            resIcon: '',
-          },
-          {
-            id: 600110233,
-            resName: '图表',
-            resKey: 'echarts',
-            resIcon: '',
-          },
-          {
-            id: 100631,
-            resName: '编辑器',
-            resKey: 'editor',
-            resIcon: '',
-          },
-          {
-            id: 100632,
-            resName: '聊天室',
-            resKey: 'chat',
-            resIcon: '',
-          },
-        ],
-        resKey: 'desk$',
-        resIcon: 'home',
+        id: 10063,
+        resName: '概览',
+        resKey: 'desk$/index',
+        resIcon: 'pgmb',
       },
+      {
+        id: 600110233,
+        resName: '图表',
+        resKey: 'echarts',
+        resIcon: 'statistics',
+      },
+      {
+        id: 100631,
+        resName: '编辑器',
+        resKey: 'editor',
+        resIcon: 'duty',
+      },
+
       {
         id: 10062,
         resName: '设置中心',
@@ -58,7 +46,7 @@ module.exports = {
           },
         ],
         resKey: 'set$',
-        resIcon: 'set',
+        resIcon: 'xtxg',
       },
     ],
   },

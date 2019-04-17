@@ -5,7 +5,6 @@ import { hashHistory/* , Link  */ } from 'react-router'
 import { Menu, Icon, Spin } from 'antd'
 // import { updateTabList } from '@actions/tabList'
 import { clearGformCache2 } from '@actions/common'
-import { workBench } from '@config'
 
 const { SubMenu } = Menu
 
@@ -19,17 +18,30 @@ export default class LeftNav extends Component {
     // const { pathname } = props.location
     this.state = {
       // current: pathname,
-      openKeys: ['sub1'],
+      openKeys: [],
       isLeftNavMini: false,
       collapsed: false,
+      rootSubmenuKeys: [],
+      menu: JSON.parse(sessionStorage.getItem('leftNav')) || [],
     }
-
-    this._handleToggle = this._handleToggle.bind(this)
-    this.navMini = this.navMini.bind(this)
-    this.renderLeftNav = this.renderLeftNav.bind(this)
   }
 
-  componentWillMount() {
+  componentDidMount() {
+    this.init()
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.topMenuReskey !== nextProps.topMenuReskey) {
+      // this.openKeys()
+    }
+    // console.log(this.props.location.pathname)
+    // console.log(nextProps.location.pathname)
+    if (this.props.location.pathname !== nextProps.location.pathname) {
+      this.openKeys(nextProps.location.pathname)
+    }
+  }
+
+  init = () => {
     // 初始化左侧菜单是mini模式还是正常模式
     if (sessionStorage.getItem('isLeftNavMini') === 'false') {
       this.setState({
@@ -44,46 +56,52 @@ export default class LeftNav extends Component {
       })
     }
     this.openKeys(this.props.location.pathname)
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (this.props.topMenuReskey !== nextProps.topMenuReskey) {
-      // this.openKeys()
-    }
-    // console.log(this.props.location.pathname)
-    // console.log(nextProps.location.pathname)
-    if (this.props.location.pathname !== nextProps.location.pathname) {
-      this.openKeys(nextProps.location.pathname)
-    }
+    const { menu } = this.state
+    const arr = []
+    menu.map((item, index) => {
+      arr.push(`sub${index + 1}`)
+    })
+    this.setState({ rootSubmenuKeys: arr })
   }
 
   // 确认当前要打开的菜单
   openKeys = (pathname) => {
-    // /*
-    // **下面这一整段代码，是为了获取当前菜单是哪个，要默认打开这个一级菜单, 只遍历两层结构
-    // */
-    const navList = JSON.parse(sessionStorage.getItem('leftNav')) || []
-    // console.log(navList)
+    /*
+    **计算要打开的以及菜单
+    */
+    const { menu } = this.state
     const curPath = `${pathname.split('$')[0]}`.replace('/', '')
-    let len = 0
-    let curSub
-    navList.map((item, index) => {
-      // console.log(item.resKey)
-      if (item.children && item.children.length > 0) {
-        len += 1
-      }
+    if (curPath === '') { // 如果是默认首页，那么就不用往下计算了
+      this.setState({
+        openKeys: ['sub1'],
+      })
+      return
+    }
+    let count = 0
+
+    // 定义一个标签语句
+    // eslint-disable-next-line
+      jumpOut1: 
+    for (let i = 0; i < menu.length; i += 1) {
+      const item = menu[i]
+      count += 1
       if (item.resKey && curPath === item.resKey.split('$')[0].replace('/', '')) {
-        curSub = len
+        // eslint-disable-next-line
+          break jumpOut1
       } else if (item.children && item.children.length > 0) {
-        item.children.map((record) => {
+        // eslint-disable-next-line
+          jumpOut2: 
+        for (let j = 0; j < item.children.length; j += 1) {
+          const record = item.children[j]
           if (item.resKey && curPath === record.resKey.split('$')[0].replace('/', '')) {
-            curSub = len
+            // eslint-disable-next-line
+              break jumpOut1
           }
-        })
+        }
       }
-    })
+    }
     this.setState({
-      openKeys: [`sub${curSub - 1}`],
+      openKeys: [`sub${count - 1}`],
     })
   }
 
@@ -93,26 +111,15 @@ export default class LeftNav extends Component {
     hashHistory.push(`/${e.key}`)
   }
 
-  _handleToggle = (openKeys) => {
-    const { state } = this;
-    const latestOpenKey = openKeys.find(key => !(state.openKeys.indexOf(key) > -1));
-    const latestCloseKey = state.openKeys.find(key => !(openKeys.indexOf(key) > -1));
-
-    let nextOpenKeys = [];
-    if (latestOpenKey) {
-      nextOpenKeys = this.getAncestorKeys(latestOpenKey).concat(latestOpenKey);
+  onOpenChange = (openKeys) => {
+    const latestOpenKey = openKeys.find(key => this.state.openKeys.indexOf(key) === -1);
+    if (this.state.rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+      this.setState({ openKeys });
+    } else {
+      this.setState({
+        openKeys: latestOpenKey ? [latestOpenKey] : [],
+      })
     }
-    if (latestCloseKey) {
-      nextOpenKeys = this.getAncestorKeys(latestCloseKey);
-    }
-    this.setState({ openKeys: nextOpenKeys });
-  }
-
-  getAncestorKeys = (key) => {
-    const map = {
-      // sub3: ['sub2'],
-    };
-    return map[key] || [];
   }
 
   // 左侧菜单切换显示模式
@@ -127,10 +134,10 @@ export default class LeftNav extends Component {
   }
 
   // 二级菜单的生成
-  renderLeftNav(options) {
+  renderLeftNav = (options) => {
     // const self = this
-    const children = JSON.parse(sessionStorage.getItem('leftNav')) || []
-    return children.map((item, index) => {
+    const { menu } = this.state
+    return menu.map((item, index) => {
       if (!item.children || item.children.length === 0) {
         return (
           <Menu.Item key={item.resKey ? item.resKey : item.id} name={item.resName} style={{ paddingLeft: 0 }}>
@@ -144,7 +151,7 @@ export default class LeftNav extends Component {
         <SubMenu key={key}
           title={
             <span>
-              <Icon type="caret-down" title={item.resName} />
+              <i className={`qqbicon qqbicon-${item.resIcon}`} title={item.resName} />
               <span className="menu-name">{item.resName}</span>
             </span>
           }
@@ -166,15 +173,16 @@ export default class LeftNav extends Component {
   // 左侧菜单高亮的控制
   leftMenuHighLight = () => {
     const { pathname } = this.props.location
+    // console.log(pathname)
     let selectedKeys = [pathname.replace('/', '')]
-    // let selectedKeys = [`${this.props.location.pathname.split('$')[0]}$`.replace('/', '')]
-    if (pathname.indexOf(`${workBench}/labelCloud`) > -1) { // 标签云台
-      selectedKeys = [`${workBench}/labelCloud`]
+    if (pathname === '/' || pathname.indexOf('desk$/index') > -1) {
+      selectedKeys = ['desk$/index']
     }
     return selectedKeys
   }
 
   render() {
+    const { openKeys, collapsed } = this.state
     return (
       <div className={this.state.isLeftNavMini ? 'LeftNavMini' : ''}>
         <nav id="mainnav-container" className="mainnav-container">
@@ -184,12 +192,12 @@ export default class LeftNav extends Component {
           <Spin spinning={false}>
             <Menu onClick={this._handleClick}
               theme="dark"
-              openKeys={this.state.openKeys}
-              onOpenChange={this._handleToggle}
+              openKeys={openKeys}
+              onOpenChange={this.onOpenChange}
               selectedKeys={this.leftMenuHighLight()}
               mode="inline"
               inlineIndent="16"
-              inlineCollapsed={this.state.collapsed}
+              inlineCollapsed={collapsed}
             >
               {this.renderLeftNav()}
             </Menu>

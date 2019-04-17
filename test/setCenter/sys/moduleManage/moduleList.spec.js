@@ -1,10 +1,10 @@
 import React from "react";
 import Enzyme from "../../../Enzyme.js";
-import RoleManage from "../../../../app/pages/setCenter/sys/roleManage/index";
-import ModuleManage from "../../../../app/pages/setCenter/sys/moduleManage/index";
-import AddModal from "../../../../app/pages/setCenter/sys/moduleManage/modal/moduleAdd";
+import RoleManage from "../../../../app/pages/set/roleManage/index";
+import ModuleManage from "../../../../app/pages/set/moduleManage/index";
+import AddModal from "../../../../app/pages/set/moduleManage/modal/moduleAdd";
 import fetchModuleList from "../../../../app/mocks/apis/sys/moduleManage/fetchModuleList";
-import ModuleList from "../../../../app/pages/setCenter/sys/moduleManage/moduleList";
+import ModuleList from "../../../../app/pages/set/moduleManage/moduleList";
 let form;
 let moduleManage = Enzyme.mount(<ModuleManage />);
 moduleManage.setState({ tableDataSource: fetchModuleList.data.list });

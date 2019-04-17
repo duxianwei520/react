@@ -1,10 +1,10 @@
 import React from "react";
 import Enzyme from "../../../Enzyme.js";
-import RoleManage from "../../../../app/pages/setCenter/sys/roleManage/index";
+import RoleManage from "../../../../app/pages/set/roleManage/index";
 import fetchRoleList from "../../../../app/mocks/apis/sys/userManage/fetchRoleList";
 import UserList from "../../../../app/mocks/apis/sys/userManage/fetchUserList";
 import fetchTreeList from "../../../../app/mocks/apis/sys/roleManage/fetchTreeList";
-import RoleModuleList from "../../../../app/pages/setCenter/sys/roleManage/roleModuleList";
+import RoleModuleList from "../../../../app/pages/set/roleManage/roleModuleList";
 
 let form;
 Enzyme.mount(<RoleManage wrappedComponentRef={node => (form = node)} />);
