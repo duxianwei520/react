@@ -7,6 +7,17 @@ import { parseQueryString } from './common'
 
 const { CancelToken } = axios
 
+// 防止连续出现多个用户登录超时的提示
+let flag = true
+function logOut(text) {
+  if (flag) {
+    message.warning(text || '用户登录过期或从其他浏览器登录')
+    hashHistory.replace('/login')
+    flag = false
+    setTimeout(() => flag = true, 0)
+  }
+}
+
 let baseConfig = {
   // `url` is the server URL that will be used for the request
   url: '/',
@@ -176,15 +187,14 @@ export const oftenFetchByPost = (api, options) => {
             if (typeof failure === 'function') {
               failure(response)
             }
-            message.warning(response.msg)
-            hashHistory.replace('/login')
+            logOut(response.msg)
             break
           }
           default: {
             if (typeof failure === 'function') {
               failure(response)
             } else {
-              message.warning('服务器返回参数无法识别')
+              logOut()
             }
           }
         }

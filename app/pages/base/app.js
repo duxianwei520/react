@@ -20,7 +20,7 @@ export default class App extends Component {
   constructor(props, context) {
     super(props)
     this.state = {
-      isLeftNavMini: false, // 左侧导航菜单是否mini模式
+      menuStyle: false, // 左侧导航菜单是否mini模式
       leftNav: [], // 左侧菜单列表
       topMenuReskey: 'platformManage', // 默认管理平台
       gMenuList: [], // 当前用户菜单列表
@@ -28,28 +28,10 @@ export default class App extends Component {
       // isHideNav: false, // 是否隐藏左侧菜单
       isIframe: false, // 是否隐藏头部
     }
-    // this.isLeftNavMini = this.isLeftNavMini.bind(this)
   }
 
   // 组件已经加载到dom中
   componentDidMount() {
-    // antd的message组件 的全局配置
-    message.config({
-      duration: 3,
-    })
-  }
-
-  componentWillMount() {
-    // 初始化左侧菜单是mini模式还是正常模式
-    if (sessionStorage.getItem('isLeftNavMini') === 'false') {
-      this.setState({
-        isLeftNavMini: false,
-      })
-    } else {
-      this.setState({
-        isLeftNavMini: true,
-      })
-    }
     this.init()
   }
 
@@ -58,6 +40,23 @@ export default class App extends Component {
   }
 
   init() {
+    // antd的message组件 的全局配置
+    message.config({
+      duration: 3,
+    })
+    // 初始化左侧菜单是mini模式还是正常模式
+    if (sessionStorage.getItem('menuStyle') === 'false') {
+      this.setState({
+        menuStyle: false,
+      })
+    }
+    console.log(sessionStorage.getItem('menuStyle'))
+    console.log(sessionStorage.getItem('menuStyle') === 'true')
+    if (sessionStorage.getItem('menuStyle') === 'true') {
+      this.setState({
+        menuStyle: true,
+      })
+    }
     const { query } = this.props.location
     if (query.ticket) { // 如果是url路径带ticket的话，那么在当前页面做登录的初始化
       validateTickit(this.props.location, (res) => {
@@ -83,7 +82,7 @@ export default class App extends Component {
       }
       this.setState({
         idRenderChild: true,
-        // isLeftNavMini: false,
+        // menuStyle: false,
       })
     }
 
@@ -137,11 +136,11 @@ export default class App extends Component {
   }
 
   // 左侧是否mini
-  isLeftNavMini = (val) => {
+  changeMenuStyle = (val) => {
     this.setState({
-      isLeftNavMini: val,
+      menuStyle: val,
     }, () => {
-      sessionStorage.setItem('isLeftNavMini', val)
+      sessionStorage.setItem('menuStyle', val)
     })
   }
 
@@ -184,9 +183,8 @@ export default class App extends Component {
   render() {
     const { location, children } = this.props
     const {
-      gMenuList, idRenderChild, /* isHideNav, */ isIframe, topMenuReskey, leftNav, isLeftNavMini,
+      gMenuList, idRenderChild, isIframe, topMenuReskey, leftNav, menuStyle,
     } = this.state
-    // console.log(isIframe)
     return (
       <LocaleProvider locale={zhCN}>
         <div id="container">
@@ -199,7 +197,7 @@ export default class App extends Component {
           }
 
           <div className={isIframe ? 'boxed isIframe' : 'boxed'}>
-            <div className={isLeftNavMini ? 'boxed boxed-mini' : 'boxed'}>
+            <div className={menuStyle ? 'boxed boxed-mini' : 'boxed'}>
               <div id="content-container" className="content-container">
                 <div id="page-content">
                   {idRenderChild ? children : null}
@@ -210,7 +208,8 @@ export default class App extends Component {
               idRenderChild ?
                 <LeftNav
                   location={location}
-                  leftNavMode={this.isLeftNavMini}
+                  leftNavMode={this.changeMenuStyle}
+                  menuStyle={menuStyle}
                   leftNav={leftNav}
                   topMenuReskey={topMenuReskey}
                 /> : null

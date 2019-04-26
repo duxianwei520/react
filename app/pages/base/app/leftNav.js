@@ -19,8 +19,7 @@ export default class LeftNav extends Component {
     this.state = {
       // current: pathname,
       openKeys: [],
-      isLeftNavMini: false,
-      collapsed: false,
+      menuStyle: false,
       rootSubmenuKeys: [],
       menu: JSON.parse(sessionStorage.getItem('leftNav')) || [],
     }
@@ -31,30 +30,12 @@ export default class LeftNav extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.topMenuReskey !== nextProps.topMenuReskey) {
-      // this.openKeys()
-    }
-    // console.log(this.props.location.pathname)
-    // console.log(nextProps.location.pathname)
     if (this.props.location.pathname !== nextProps.location.pathname) {
       this.openKeys(nextProps.location.pathname)
     }
   }
 
   init = () => {
-    // 初始化左侧菜单是mini模式还是正常模式
-    if (sessionStorage.getItem('isLeftNavMini') === 'false') {
-      this.setState({
-        isLeftNavMini: false,
-        collapsed: false,
-      })
-    }
-    if (sessionStorage.getItem('isLeftNavMini') === 'true') {
-      this.setState({
-        isLeftNavMini: true,
-        collapsed: true,
-      })
-    }
     this.openKeys(this.props.location.pathname)
     const { menu } = this.state
     const arr = []
@@ -125,17 +106,14 @@ export default class LeftNav extends Component {
   // 左侧菜单切换显示模式
   navMini = () => {
     this.setState({
-      isLeftNavMini: !this.state.isLeftNavMini,
-      collapsed: !this.state.collapsed,
+      menuStyle: !this.state.menuStyle,
     }, () => {
-      // console.log(this.state.isLeftNavMini)
-      this.props.leftNavMode(this.state.isLeftNavMini)
+      this.props.leftNavMode(this.state.menuStyle)
     })
   }
 
   // 二级菜单的生成
   renderLeftNav = (options) => {
-    // const self = this
     const { menu } = this.state
     return menu.map((item, index) => {
       if (!item.children || item.children.length === 0) {
@@ -182,9 +160,9 @@ export default class LeftNav extends Component {
   }
 
   render() {
-    const { openKeys, collapsed } = this.state
+    const { openKeys, menuStyle } = this.state
     return (
-      <div className={this.state.isLeftNavMini ? 'LeftNavMini' : ''}>
+      <div className={menuStyle ? 'LeftNavMini' : ''}>
         <nav id="mainnav-container" className="mainnav-container">
           <div className="LeftNav-control" onClick={() => this.navMini()}>
             <i className="qqbicon qqbicon-navcontrol" />
@@ -197,7 +175,7 @@ export default class LeftNav extends Component {
               selectedKeys={this.leftMenuHighLight()}
               mode="inline"
               inlineIndent="16"
-              inlineCollapsed={collapsed}
+              inlineCollapsed={menuStyle}
             >
               {this.renderLeftNav()}
             </Menu>
