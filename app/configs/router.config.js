@@ -12,6 +12,7 @@ export default () => (
     <Route path="/" component={base.app} onEnter={isLogin}>
       <IndexRoute component={base.example} />
       <Route path="/desk$/index" component={base.example} />
+      <Route path="/socketReceive" component={base.socketReceive} />
       {/** *菜单 开始 */}
       <Route path="/echarts" component={menu.echarts} />
       <Route path="/editor" component={menu.editor} />

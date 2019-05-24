@@ -12,3 +12,6 @@ export const login = createAjaxAction(common.login, requestLogin, recevieLogin)
 // gFormCache gfor2.0m的缓存
 export const setGformCache2 = createAction('set gform cache2')
 export const clearGformCache2 = createAction('clear gform cache2')
+
+// socket receive
+export const socketReceive = createAction('socketReceive')
