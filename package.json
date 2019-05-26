@@ -173,6 +173,7 @@
     "redux-mock-store": "^1.5.3",
     "redux-thunk": "~2.2.0",
     "require": "^2.4.20",
+    "socket.io-client": "^2.2.0",
     "webpack": "~3.10.0"
   }
 }
