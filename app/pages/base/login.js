@@ -35,8 +35,9 @@ export default class Login extends Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.dispatch(clearGformCache2({}))
+    this.props.form.setFieldsValue({ username: 'username', password: '123456' })
   }
 
   // #region 收缩业务代码功能
