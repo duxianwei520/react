@@ -8,6 +8,7 @@
 /app/components/draw/__mocks__/draw.js
 
 /app/configs/__mocks__/ajax.js
+/app/resource
 
 # app/configs
 # app/components

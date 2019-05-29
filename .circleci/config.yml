@@ -36,6 +36,7 @@ jobs:
       - run: node -v
       - run: npm -v
       - run: npm install
+      - run: npm run dll
       - run:
           command: |
             set +eo
