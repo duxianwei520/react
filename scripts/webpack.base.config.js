@@ -2,9 +2,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-// 多核压缩代码插件
 const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin')
-
 const HappyPack = require('happypack')
 const os = require('os')
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length })
@@ -125,6 +123,16 @@ const webpackConfigBase = {
     new webpack.optimize.CommonsChunkPlugin({
       async: 'async-common',
       minChunks: 3,
+    }),
+    // 关联dll拆分出去的依赖
+    new webpack.DllReferencePlugin({
+      manifest: require('../app/resource/dll/vendor.manifest.json'), 
+      context: __dirname, 
+    }),
+    // 关联dll拆分出去的依赖
+    new webpack.DllReferencePlugin({
+      manifest: require('../app/resource/dll/redux.manifest.json'), 
+      context: __dirname, 
     }),
   ]
 }

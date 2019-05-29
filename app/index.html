@@ -6,6 +6,9 @@
 </head>
 <body>
   <div class="root" id="root"></div>
+  <% for(var i = 0; i < htmlWebpackPlugin.options.dlls.length;i++){%>
+    <script src="<%=htmlWebpackPlugin.options.dlls[i] %>"></script>
+  <%}%>
   <!-- <%= '<script src="'+ htmlWebpackPlugin.options.mapConfig +'"></script>' %> -->
 </body>
 </html>
