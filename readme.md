@@ -7,9 +7,10 @@
 
 ## 项目技术栈
 
-react@16.5.2 + redux@3.7.2 + react-router@3.2.0 + webpack@3.10.0 + axios@0.18.0 + less@2.7.1 + antd@3.18.2
+node8.7.0 + react@16.5.2 + redux@3.7.2 + react-router@3.2.0 + webpack@3.10.0 + axios@0.18.0 + less@2.7.1 + antd@3.18.2
 
-
+## 交流
+QQ群：159697743
 
 ## 项目运行
 
@@ -118,6 +119,8 @@ npm install -g cnpm --registry=https://registry.npm.taobao.org
 
 >  如有问题请直接在 Issues 中提，或者您发现问题并有非常好的解决方案，欢迎 PR 👍
 
+### 大部分人项目启动不起来的原因，要么是node版本太高后者太低，要么就是npm安装的时候有些依赖包没有下载完全，当前的demo肯定是可以跑起来的
+
 ### 取消http请求示例：
 ```
 import axios from 'axios'
@@ -155,5 +158,4 @@ login(){
 
 
 ## 交流
-想跟其他的使用react的小伙伴们交流的话，
-可以加入我创建的reactQQ群：159697743
+想跟其他的使用react的小伙伴们交流的话，可以加入我创建的reactQQ群：159697743
