@@ -5,6 +5,6 @@ import example from './example'
 import login from './login'
 import notfound from './notfound'
 import app from './app'
-import socketReceive from './socketReceive'
+// import socketReceive from './socketReceive'
 
-export { developing, example, socketReceive, login, notfound, app }
+export { developing, example, /*  socketReceive, */ login, notfound, app }

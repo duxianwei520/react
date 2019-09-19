@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { Button } from 'antd'
 // import {connect} from 'react-redux'
 // import {} from '@actions/xxx'
-import Socket from '@configs/socket'
+// import Socket from '@configs/socket'
 
 // @connect((storeState)=>({}))
 
@@ -28,7 +28,7 @@ export default class app extends Component {
 
   // 发送socket数据
   onClickSend = () => {
-    Socket.send({ type: 'receive/hello3', data: { name: 'dupi' } })
+    // Socket.send({ type: 'receive/hello3', data: { name: 'dupi' } })
   }
 
   render() {

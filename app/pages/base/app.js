@@ -12,7 +12,7 @@ import '@styles/base.less'
 import Header from './app/header'
 import LeftNav from './app/leftNav'
 // import TabList from './app/tabList'
-import SocketComponent from './socket'
+// import SocketComponent from './socket'
 
 @connect((state, props) => ({}))
 export default class App extends Component {
@@ -188,7 +188,11 @@ export default class App extends Component {
     return (
       <LocaleProvider locale={zhCN}>
         <div id="container">
-          <SocketComponent />
+          {
+            /* 注释socket
+            <SocketComponent />
+            */
+          }
           {
             idRenderChild && !isIframe ? <Header
               gMenuList={gMenuList}

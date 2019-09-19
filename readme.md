@@ -18,22 +18,24 @@ QQ群：159697743
 ```
 git clone --depth 1 https://github.com/duxianwei520/react.git  
 
-cd react 
+cd react (进入项目)
 
-npm install 
+npm install (安装依赖包)
 
-npm run dll
+npm run dll (生成持久化存储的公用js文件)
 
-注意，由于对公用的npm库做了dll化，所以要先运行npm run dll生成相应的代码
+npm start (启动服务)
 
-npm start 
 ```
-### 对了，如果有小伙伴因为网络原因npm包下载不下来，那么可以试用我已经下载好的安装包，地址在
+>  由于对公用的npm库做了dll化，所以要先运行npm run dll生成相应的代码,这么做的目的只是为了让静态资源缓存，目前默认是把'babel-polyfill','react', 'react-dom', 'react-router', 'axios','redux', 'redux-thunk', 'react-redux', 'react-router-redux',这几个公共库dll化了，关于这个dll命令大家可以根据需求自行去scripts/webpack.dll.config.js里自己做配置,生成自己想要的dll文件
+>  现在start命令默认运行npm run dev命令和npm run mock两个命令，目的是可以直接用模拟的数据让整个项目的逻辑可以运行
+
+### 如果有小伙伴因为网络原因npm包下载不下来，那么可以试用我已经下载好的安装包，地址在
+
 ```
 https://github.com/duxianwei520/resource/blob/master/react/node_modules.rar
 
 ```
-欢迎下载
 
 ## screenshots
 
@@ -64,11 +66,12 @@ https://github.com/duxianwei520/resource/blob/master/react/node_modules.rar
 
 最后的构建命令
 ```
-npm run build (打包，部署)
+npm run build (正式环境的打包部署)
+npm run testing (测试环境的打包部署命令，可以根据需求配置)
 
 ```
 
-对了，服务端返回的格式我们是这样子一个数据结构
+服务端返回的数据格式也是标准的json，如下所示
 
 ```
 {
@@ -109,7 +112,7 @@ https://github.com/duxianwei520/node
 
 >  开发环境 win10  Chrome 63.0.3239.132（正式版本） （32 位） nodejs 8.7.0
 
->  如果npm install太慢导致有些npm依赖包下载失败 你可以看控制台的报错信息，再手动npm install 具体的开发包，推荐使用淘宝的注册源，直接运行，
+>  如果npm install太慢导致有些npm依赖包下载失败 你可以看控制台的报错信息，再手动npm install 具体的开发包，可以使用淘宝的注册源，命令如下
 
 ```
 npm install -g cnpm --registry=https://registry.npm.taobao.org 
@@ -138,15 +141,11 @@ login(){
 
 
 ## 功能一览
-- [√] 项目按路由模块加载
 - [√] 登录，以及登录权限控制
 - [√] 项目公用npm模块dll化
-- [√] 欢迎主页
-- [√] 左侧菜单，正常mini切换
 - [√] redux完整示范
 - [√] mockjs模拟后端返回接口
-- [√] 页面高度flex自适应
-- [√] axios数据跨域的设置
+- [√] axios异步请求跨域的设置
 - [√] 实时的webpack包大小预览,方便优化
 - [√] draftjs编辑器
 

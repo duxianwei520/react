@@ -41,9 +41,9 @@ const webpackConfigProd = {
         output: {
           comments: false
         },
-        compress: {
-          warnings: false
-        }
+        // compress: {
+        //   warnings: false
+        // }
       }
     }),
     // 分析代码
