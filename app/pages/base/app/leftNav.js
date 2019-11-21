@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { hashHistory/* , Link  */ } from 'react-router'
 // import { routerActions } from 'react-router-redux'
-import { Menu, Icon, Spin } from 'antd'
+import { Menu, Spin } from 'antd'
 // import { updateTabList } from '@actions/tabList'
 import { clearGformCache2 } from '@actions/common'
 
