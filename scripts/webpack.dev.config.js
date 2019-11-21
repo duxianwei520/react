@@ -3,17 +3,16 @@ const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const webpackConfigBase = require('./webpack.base.config')
-const OpenBrowserPlugin = require('open-browser-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const Copy = require('copy-webpack-plugin')
-// const AutoDllPlugin = require('autodll-webpack-plugin');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const { CleanWebpackPlugin }  = require('clean-webpack-plugin')
+const  AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin')
 
 const PORT = 8888
 function resolve(relatedPath) {
   return path.join(__dirname, relatedPath)
 }
 const webpackConfigDev = {
+  mode: 'development',
   plugins: [
     // 定义环境变量为开发环境
     new webpack.DefinePlugin({
@@ -31,17 +30,27 @@ const webpackConfigDev = {
         './resource/dll/redux.dll.js',
       ],
     }),
-    new OpenBrowserPlugin({
-      url: `http://localhost:${PORT}/`,
-    }),
-    // 分析代码
-    // new BundleAnalyzerPlugin({ analyzerPort: 3015 }),
+        // 关联dll拆分出去的依赖
+        new webpack.DllReferencePlugin({
+          manifest: require('../app/resource/dll/vendor.manifest.json'),
+          context: __dirname,
+        }),
+        // 关联dll拆分出去的依赖
+        new webpack.DllReferencePlugin({
+          manifest: require('../app/resource/dll/redux.manifest.json'),
+          context: __dirname,
+        }),
+    
+    new CleanWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin()
   ],
-  devtool: 'source-map',
+  devtool: 'source-mapcheap-module-eval-souce-map',
   devServer: {
     contentBase: resolve('../app'),
     historyApiFallback: false,
-    hot: false,
+    open:true,
+    hot: true, 
+    // hotOnly:true,
     host: '0.0.0.0',
     port: PORT,
   },

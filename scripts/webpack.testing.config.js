@@ -6,14 +6,14 @@ const webpackConfigBase = require('./webpack.base.config')
 const Copy = require('copy-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
-const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 function resolve(relatedPath) {
   return path.join(__dirname, relatedPath)
 }
 
 const webpackConfigProd = {
+  mode: 'development',
   output: {
     publicPath: './',
   },
@@ -34,28 +34,13 @@ const webpackConfigProd = {
         './resource/dll/redux.dll.js',
       ],
     }),
-    /* 多核压缩代码 */
-    new ParallelUglifyPlugin({
-      cacheDir: '.cache/',
-      uglifyJS:{
-        output: {
-          comments: false
-        },
-        compress: {
-          warnings: false
-        }
-      }
-    }),
+
     // 分析代码
     new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
     new Copy([
       { from: './app/resource/dll', to: '../dist/resource/dll' },
     ]),
-    new CleanWebpackPlugin(['dist'],{
-      root: path.join(__dirname, '../'),
-      verbose:false,
-      // exclude:['img']//不删除img静态资源
-    }),
+    new CleanWebpackPlugin(),
   ],
 }
 

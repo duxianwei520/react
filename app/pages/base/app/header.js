@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Link, hashHistory } from 'react-router'
-import { Menu, Dropdown, Button, Modal, message, Icon, Row, Col } from 'antd'
+import { hashHistory } from 'react-router'
+import { Menu, Button, Modal, message, Icon, Row, Col } from 'antd'
 import { brandName } from '@config'
 import { logout } from '@apis/common'
 // import User from '@images/user.png'

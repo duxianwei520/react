@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Form, Select, Button, Input, Modal, message, Upload, Icon } from 'antd'
+import { Form, Button, Input, message } from 'antd'
 import { regExpConfig } from '@configs/regular.config'
 import Drawer from '@components/draw/draw'
 import md5 from 'md5'
