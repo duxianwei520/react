@@ -5,7 +5,13 @@ const merge = require('webpack-merge')
 const webpackConfigBase = require('./webpack.base.config')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin }  = require('clean-webpack-plugin')
-const  AddAssetHtmlWebpackPlugin = require('add-asset-html-webpack-plugin')
+const os = require('os');
+let selfIp;
+try {
+  selfIp = os.networkInterfaces()['WLAN'][1].address;
+} catch (e) {
+  selfIp = 'localhost'
+}
 
 const PORT = 8888
 function resolve(relatedPath) {
@@ -21,37 +27,19 @@ const webpackConfigDev = {
     }),
     // 将打包后的资源注入到html文件内    
     new HtmlWebpackPlugin({
-      // inject: true, // will inject the main bundle to index.html
       template: resolve('../app/index.html'),
-      // mapConfig:'http://192.168.0.1/map_config.js',
-      // 这里列出要加入html中的js文件
-      dlls: [
-        './resource/dll/vendor.dll.js', 
-        './resource/dll/redux.dll.js',
-      ],
+      dlls: [],
     }),
-        // 关联dll拆分出去的依赖
-        new webpack.DllReferencePlugin({
-          manifest: require('../app/resource/dll/vendor.manifest.json'),
-          context: __dirname,
-        }),
-        // 关联dll拆分出去的依赖
-        new webpack.DllReferencePlugin({
-          manifest: require('../app/resource/dll/redux.manifest.json'),
-          context: __dirname,
-        }),
-    
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ],
-  devtool: 'source-mapcheap-module-eval-souce-map',
+  devtool: 'source-map',
   devServer: {
     contentBase: resolve('../app'),
     historyApiFallback: false,
-    open:true,
+    open: true,
     hot: true, 
-    // hotOnly:true,
-    host: '0.0.0.0',
+    host: selfIp,
     port: PORT,
   },
 }
