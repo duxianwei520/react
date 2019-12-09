@@ -11,14 +11,13 @@
     "@babel/preset-react"
   ],
   "plugins": [
-    // "transform-runtime",
-    // ["@babel/plugin-transform-runtime",{
-    //   "absoluteRuntime": false,
-    //   "corejs": 2,
-    //   "helpers": true,
-    //   "regenerator": true,
-    //   "useESModules": false
-    // }],
+    ["@babel/plugin-transform-runtime",{
+      "absoluteRuntime": false,
+      "corejs": 2,
+      "helpers": true,
+      "regenerator": true,
+      "useESModules": false
+    }],
     [
       "@babel/plugin-proposal-decorators",
       {

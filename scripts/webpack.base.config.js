@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HappyPack = require('happypack')
 const os = require('os')
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length })
-
+const devMode = process.env.NODE_ENV !== 'production'
 function resolve(relatedPath) {
   return path.join(__dirname, relatedPath)
 }
@@ -16,8 +16,8 @@ const webpackConfigBase = {
   },
   output: {
     path: resolve('../dist'),
-    filename: '[name].[hash:4].js',
-    chunkFilename: 'chunks/[name].[hash:4].js',
+    filename: devMode ?'js/[name].[hash].js' : 'js/[name].[contenthash].js',
+    chunkFilename: devMode ? 'chunks/[name].[hash:4].js':'chunks/[name].[contenthash].js',
     // publicPath: './'
   },
   resolve: {// 减少后缀
@@ -41,6 +41,7 @@ const webpackConfigBase = {
       '@pages': path.join(__dirname, '../app/pages'),
       '@styles': path.join(__dirname, '../app/styles'),
       '@tableList': path.join(__dirname, '../app/components/tableList/tableList.js'),
+      'react-dom': devMode ? '@hot-loader/react-dom' : 'react-dom', // react-hot-loader需要
     },
   },
   optimization: {
@@ -62,21 +63,24 @@ const webpackConfigBase = {
         },
         vendor: {
           // 过滤需要打入的模块
-          test: module => {
-            if (module.resource) {
-              const include = [/[\\/]node_modules[\\/]/].every(reg => {
-                return reg.test(module.resource);
-              });
-              const exclude = [/[\\/]node_modules[\\/](react|redux|antd|react-dom|react-router)/].some(reg => {
-                return reg.test(module.resource);
-              });
-              return include && !exclude;
-            }
-            return false;
-          },
+          // test: module => {
+          //   if (module.resource) {
+          //     const include = [/[\\/]node_modules[\\/]/].every(reg => {
+          //       return reg.test(module.resource);
+          //     });
+          //     const exclude = [/[\\/]node_modules[\\/](react|redux|antd|react-dom|react-router)/].some(reg => {
+          //       return reg.test(module.resource);
+          //     });
+          //     return include && !exclude;
+          //   }
+          //   return false;
+          // },
+          test: /[\\/]node_modules[\\/]/,
           name: 'vendor',
+          // minChunks: 1,
           priority: -10,// 确定模块打入的优先级
           reuseExistingChunk: true,// 使用复用已经存在的模块
+          enforce: true,
         },
         //  antd: {
         //    test: /[\\/]node_modules[\\/]antd/,
@@ -113,7 +117,13 @@ const webpackConfigBase = {
       {
         test: /\.(css|less)$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: devMode,
+              reloadAll: devMode,
+            },
+          },
           'happypack/loader?id=happyStyle',
         ]
       },
@@ -144,8 +154,8 @@ const webpackConfigBase = {
     // new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /de|fr|hu/),
 
     new MiniCssExtractPlugin({
-      filename: 'style.[hash:8].css',
-      chunkFilename: 'style.[hash:8].[id].css'
+      filename: devMode ? 'css/style.css':'css/style.[contenthash].css',
+      chunkFilename: devMode ? 'css/style.[id].css':'css/style.[contenthash].[id].css'
     }),
 
     new HappyPack({
@@ -174,17 +184,20 @@ const webpackConfigBase = {
           options: {
             importLoaders: 2, // 之前有2个loaders
             // modules: true, // 启用cssModules
-            // sourceMap: true,
+            sourceMap: true,
           }
         },
         {
           loader: 'postcss-loader',
           options: {
-            // sourceMap: true,//为true,在样式追溯时，显示的是编写时的样式，为false，则为编译后的样式
+            sourceMap: true,//为true,在样式追溯时，显示的是编写时的样式，为false，则为编译后的样式
           }
         },
         {
           loader: 'less-loader',
+          options: {
+            sourceMap: true,
+          }
         }
       ],
       //代表共享进程池，即多个 HappyPack 实例都使用同一个共享进程池中的子进程去处理任务，以防止资源占用过多。
