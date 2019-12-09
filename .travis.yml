@@ -8,5 +8,5 @@ cache:
 install:
 - npm install
 
-script:
+# script:
   # - 'npm run test:report' // TODO：jest update
