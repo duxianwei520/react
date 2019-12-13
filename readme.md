@@ -7,7 +7,7 @@
 
 ## 项目技术栈
 
-node8.7.0 + react@16.5.2 + redux@3.7.2 + react-router@3.2.0 + webpack@3.10.0 + axios@0.18.0 + less@2.7.1 + antd@3.18.2
+node10.15.3 + react@16.12.0 + redux@3.7.2 + react-router@3.2.0 + webpack@4.41.2 + axios@0.19.0 + less@2.7.1 + antd@3.25.2
 
 ## 交流
 QQ群：159697743
@@ -22,12 +22,9 @@ cd react (进入项目)
 
 npm install (安装依赖包)
 
-npm run dll (生成持久化存储的公用js文件)
-
 npm start (启动服务)
 
 ```
->  由于对公用的npm库做了dll化，所以要先运行npm run dll生成相应的代码,这么做的目的只是为了让静态资源缓存，目前默认是把'babel-polyfill','react', 'react-dom', 'react-router', 'axios','redux', 'redux-thunk', 'react-redux', 'react-router-redux',这几个公共库dll化了，关于这个dll命令大家可以根据需求自行去scripts/webpack.dll.config.js里自己做配置,生成自己想要的dll文件
 >  现在start命令默认运行npm run dev命令和npm run mock两个命令，目的是可以直接用模拟的数据让整个项目的逻辑可以运行
 
 ### 如果有小伙伴因为网络原因npm包下载不下来，那么可以试用我已经下载好的安装包，地址在
@@ -110,7 +107,7 @@ https://github.com/duxianwei520/node
 
 ## 说明
 
->  开发环境 win10  Chrome 63.0.3239.132（正式版本） （32 位） nodejs 8.7.0
+>  开发环境 win10  Chrome 61 nodejs 10.15.3
 
 >  如果npm install太慢导致有些npm依赖包下载失败 你可以看控制台的报错信息，再手动npm install 具体的开发包，可以使用淘宝的注册源，命令如下
 
