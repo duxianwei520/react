@@ -25,17 +25,11 @@ npm install (安装依赖包)
 npm start (启动服务)
 
 ```
->  现在start命令默认运行npm run dev命令和npm run mock两个命令，目的是可以直接用模拟的数据让整个项目的逻辑可以运行
 
-### 如果有小伙伴因为网络原因npm包下载不下来，那么可以试用我已经下载好的安装包，地址在
+### 如果有小伙伴因为网络原因npm包下载不下来，那么可以最好挂在一个vpn之类的去下载，cnpm不靠谱，不推荐使用
 
-```
-https://github.com/duxianwei520/resource/blob/master/react/node_modules.rar
-
-```
 
 ## screenshots
-
 
 
 ### login
@@ -64,7 +58,7 @@ https://github.com/duxianwei520/resource/blob/master/react/node_modules.rar
 最后的构建命令
 ```
 npm run build (正式环境的打包部署)
-npm run testing (测试环境的打包部署命令，可以根据需求配置)
+npm run testing (测试环境的打包部署命令，可以根据具体需求自行配置修改)
 
 ```
 
@@ -107,19 +101,9 @@ https://github.com/duxianwei520/node
 
 ## 说明
 
->  开发环境 win10  Chrome 61 nodejs 10.15.3
-
->  如果npm install太慢导致有些npm依赖包下载失败 你可以看控制台的报错信息，再手动npm install 具体的开发包，可以使用淘宝的注册源，命令如下
-
-```
-npm install -g cnpm --registry=https://registry.npm.taobao.org 
-
-```
-
-
 >  如有问题请直接在 Issues 中提，或者您发现问题并有非常好的解决方案，欢迎 PR 👍
 
-### 大部分人项目启动不起来的原因，要么是node版本太高后者太低，要么就是npm安装的时候有些依赖包没有下载完全，当前的demo肯定是可以跑起来的
+### 大部分人项目启动不起来的原因，绝大部分的情况都是npm依赖包安装的时候有些依赖包没有下载完全，当前的demo肯定是可以跑起来的
 
 ### 取消http请求示例：
 ```
