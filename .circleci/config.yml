@@ -20,9 +20,9 @@ references:
           filters:
             branches:
               ignore: gh-pages
-      - testing:
-          requires:
-            - setup
+      # - testing:
+      #     requires:
+      #       - setup
       - lint:
           requires:
             - setup
