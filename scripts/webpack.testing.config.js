@@ -27,18 +27,18 @@ const webpackConfigProd = {
     new HtmlWebpackPlugin({
       // inject: true, // will inject the main bundle to index.html
       template: resolve('../app/index.html'),
-      // mapConfig:'http://192.168.0.1/map_config.js',
+      // mapConfig:'http://192.168.0.1/map_config.js', 注释不用dll
       // 这里列出要加入html中的js文件
       dlls: [
-        './resource/dll/vendor.dll.js', 
-        './resource/dll/redux.dll.js',
+        // './resource/dll/vendor.dll.js', 
+        // './resource/dll/redux.dll.js',
       ],
     }),
 
     // 分析代码
     new BundleAnalyzerPlugin({ analyzerMode: 'static' }),
     new Copy([
-      { from: './app/resource/dll', to: '../dist/resource/dll' },
+      // { from: './app/resource/dll', to: '../dist/resource/dll' },
     ]),
     new CleanWebpackPlugin(),
   ],
