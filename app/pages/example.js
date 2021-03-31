@@ -28,7 +28,7 @@ export default class app extends Component {
   render() {
     return (
       <div className="page">
-        示范页面
+        示范页面excample
       </div>
     )
   }
