@@ -1,12 +1,11 @@
 
 const path = require('path')
 const webpack = require('webpack')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const ParallelUglifyPlugin = require('webpack-parallel-uglify-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HappyPack = require('happypack')
 const os = require('os')
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length })
-
+const devMode = process.env.NODE_ENV !== 'production'
 function resolve(relatedPath) {
   return path.join(__dirname, relatedPath)
 }
@@ -17,13 +16,17 @@ const webpackConfigBase = {
   },
   output: {
     path: resolve('../dist'),
-    filename: '[name].[hash:4].js',
-    chunkFilename: 'chunks/[name].[hash:4].js',
+    filename: devMode ?'js/[name].[hash].js' : 'js/[name].[contenthash].js',
+    chunkFilename: devMode ? 'chunks/[name].[hash:4].js':'chunks/[name].[contenthash].js',
     // publicPath: './'
   },
-  resolve: {
-    extensions: ['.js', '.json'],
-    alias: {
+  resolve: {// 减少后缀
+    extensions: ['.js', '.jsx', '.json'],
+    // modules: [ // 指定以下目录寻找第三方模块，避免webpack往父级目录递归搜索
+    //   resolve('app'),
+    //   resolve('node_modules'),
+    // ],
+    alias: { // 减少使用别名提高编译速速
       '@app': path.join(__dirname, '../app'),
       '@actions': path.join(__dirname, '../app/redux/actions'),
       '@reducers': path.join(__dirname, '../app/redux/reducers'),
@@ -38,12 +41,70 @@ const webpackConfigBase = {
       '@pages': path.join(__dirname, '../app/pages'),
       '@styles': path.join(__dirname, '../app/styles'),
       '@tableList': path.join(__dirname, '../app/components/tableList/tableList.js'),
+      'react-dom': devMode ? '@hot-loader/react-dom' : 'react-dom', // react-hot-loader需要
     },
   },
-  resolveLoader: {
-    moduleExtensions: ['-loader']
+  optimization: {
+    usedExports: true,
+    runtimeChunk: {
+      name: 'runtime'
+    },
+    splitChunks: {
+      chunks: "all", // 共有三个值可选：initial(初始模块)、async(按需加载模块)和all(全部模块)
+      minSize: 30000, // 模块超过30k自动被抽离成公共模块
+      minChunks: 1, // 模块被引用>=1次，便分割
+      name: true, // 默认由模块名+hash命名，名称相同时多个模块将合并为1个，可以设置为function
+      automaticNameDelimiter: '~', // 命名分隔符
+      cacheGroups: {
+        default: { // 模块缓存规则，设置为false，默认缓存组将禁用
+          minChunks: 2, // 模块被引用>=2次，拆分至vendors公共模块
+          priority: -20, // 优先级
+          reuseExistingChunk: true, // 默认使用已有的模块
+        },
+        vendor: {
+          // 过滤需要打入的模块
+          // test: module => {
+          //   if (module.resource) {
+          //     const include = [/[\\/]node_modules[\\/]/].every(reg => {
+          //       return reg.test(module.resource);
+          //     });
+          //     const exclude = [/[\\/]node_modules[\\/](react|redux|antd|react-dom|react-router)/].some(reg => {
+          //       return reg.test(module.resource);
+          //     });
+          //     return include && !exclude;
+          //   }
+          //   return false;
+          // },
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          // minChunks: 1,
+          priority: -10,// 确定模块打入的优先级
+          reuseExistingChunk: true,// 使用复用已经存在的模块
+          enforce: true,
+        },
+        //  antd: {
+        //    test: /[\\/]node_modules[\\/]antd/,
+        //    name: 'antd',
+        //    priority: 15,
+        //    reuseExistingChunk: true,
+        //  },
+        echarts: {
+          test: /[\\/]node_modules[\\/]echarts/,
+          name: 'echarts',
+          priority: 16,
+          reuseExistingChunk: true,
+        },
+        "draft-js": {
+          test: /[\\/]node_modules[\\/]draft-js/,
+          name: 'draft-js',
+          priority: 18,
+          reuseExistingChunk: true,
+        }
+      },
+    },
   },
   module: {
+    // noParse: /lodash/,
     rules: [
       {
         test: /\.js[x]?$/,
@@ -55,28 +116,31 @@ const webpackConfigBase = {
       },
       {
         test: /\.(css|less)$/,
-        // exclude: /node_modules/,
-        include: [
-          resolve('../app/styles'),
-          resolve('../app/components'),
-          resolve('../node_modules/antd'),
-          resolve('../node_modules/draft-js'),
-        ],
-        loader: ExtractTextPlugin.extract({fallback: 'style', use: 'happypack/loader?id=happyStyle'}),
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: devMode,
+              reloadAll: devMode,
+            },
+          },
+          'happypack/loader?id=happyStyle',
+        ]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         exclude: /node_modules/,
         include: [resolve('../app/images')],
-        loader: 'url',
+        loader: 'url-loader',
         options: {
           limit: 8192,
-          name: 'img/[name].[hash:4].[ext]'
+          name: '[name].[hash:4].[ext]',
+          outputPath: '/img'
         }
       },
       {
         test: /\.(woff|eot|ttf|svg|gif)$/,
-        loader: 'url',
+        loader: 'url-loader',
         options: {
           limit: 8192,
           name: 'font/[name].[hash:4].[ext]'
@@ -84,56 +148,64 @@ const webpackConfigBase = {
       },
     ],
   },
+  performance: false,
   plugins: [
     // 去除moment的语言包
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /de|fr|hu/),
+    // new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /de|fr|hu/),
+
+    new MiniCssExtractPlugin({
+      filename: devMode ? 'css/style.css':'css/style.[contenthash].css',
+      chunkFilename: devMode ? 'css/style.[id].css':'css/style.[contenthash].[id].css'
+    }),
+
     new HappyPack({
       //用id来标识 happypack处理那里类文件
       id: 'happyBabel',
       //如何处理  用法和loader 的配置一样
       loaders: [{
-        loader: 'babel?cacheDirectory=true',
+        loader: 'babel-loader',
+        options: {
+          // babelrc: true,
+          cacheDirectory: true // 启用缓存
+        }
       }],
       //代表共享进程池，即多个 HappyPack 实例都使用同一个共享进程池中的子进程去处理任务，以防止资源占用过多。
       threadPool: happyThreadPool,
       //允许 HappyPack 输出日志
-      verbose: true,
+      verbose: false,
     }),
     new HappyPack({
       //用id来标识 happypack处理那里类文件
       id: 'happyStyle',
       //如何处理  用法和loader 的配置一样
-      loaders: [ 'css-loader?sourceMap=true', 'less-loader?sourceMap=true' ], 
+      loaders: [
+        {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 2, // 之前有2个loaders
+            // modules: true, // 启用cssModules
+            sourceMap: true,
+          }
+        },
+        {
+          loader: 'postcss-loader',
+          options: {
+            sourceMap: true,//为true,在样式追溯时，显示的是编写时的样式，为false，则为编译后的样式
+          }
+        },
+        {
+          loader: 'less-loader',
+          options: {
+            sourceMap: true,
+          }
+        }
+      ],
       //代表共享进程池，即多个 HappyPack 实例都使用同一个共享进程池中的子进程去处理任务，以防止资源占用过多。
       threadPool: happyThreadPool,
       //允许 HappyPack 输出日志
-      verbose: true,
+      verbose: false,
     }),
-    // 提取css
-    new ExtractTextPlugin('style.[hash:4].css'),
-    /* new webpack.optimize.CommonsChunkPlugin({
-      name: 'common', // 入口文件名
-      filename: 'common.[hash:4].js', // 打包后的文件名
-      minChunks: function (module, count) {
-        return module.resource &&
-          /\.js$/.test(module.resource) &&
-          module.resource.indexOf(resolve('../node_modules')) === 0
-      }
-    }), */
-    new webpack.optimize.CommonsChunkPlugin({
-      async: 'async-common',
-      minChunks: 3,
-    }),
-    // 关联dll拆分出去的依赖
-    new webpack.DllReferencePlugin({
-      manifest: require('../app/resource/dll/vendor.manifest.json'), 
-      context: __dirname, 
-    }),
-    // 关联dll拆分出去的依赖
-    new webpack.DllReferencePlugin({
-      manifest: require('../app/resource/dll/redux.manifest.json'), 
-      context: __dirname, 
-    }),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
   ]
 }
 

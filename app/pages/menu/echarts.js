@@ -2,7 +2,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 // import { Link } from 'react-router'
-import echarts from 'echarts'
+// 引入 ECharts 主模块
+// import echarts from 'echarts'
+const echarts = require('echarts/lib/echarts');
+// // 引入柱状图
+require('echarts/lib/chart/bar');
+// require('echarts/lib/chart/pie');
+// 引入提示框和标题组件
+require('echarts/lib/component/tooltip');
+require('echarts/lib/component/title');
+require('echarts/lib/chart/pictorialBar');
 
 // 颜色
 const lightBlue = {

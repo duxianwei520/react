@@ -48,4 +48,4 @@ class RoleCheckbox extends React.Component {
     );
   }
 }
-module.exports = RoleCheckbox;
+export default RoleCheckbox;

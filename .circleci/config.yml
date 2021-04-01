@@ -20,9 +20,9 @@ references:
           filters:
             branches:
               ignore: gh-pages
-      - testing:
-          requires:
-            - setup
+      # - testing:
+      #     requires:
+      #       - setup
       - lint:
           requires:
             - setup
@@ -47,17 +47,17 @@ jobs:
           paths:
             - node_modules
 
-  testing:
-    <<: *container_config
-    steps:
-      - checkout
-      - *attach_workspace
-      - run: npm run testing
-      - run: node ./scripts/webpack.testing.config.js
-      - persist_to_workspace:
-          root: ~/react
-          paths:
-            - dist
+  # testing:
+  #   <<: *container_config
+  #   steps:
+  #     - checkout
+  #     - *attach_workspace
+  #     - run: npm run testing
+  #     - run: node ./scripts/webpack.testing.config.js
+  #     - persist_to_workspace:
+  #         root: ~/react
+  #         paths:
+  #           - dist
 
 
   lint:

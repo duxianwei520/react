@@ -1,26 +1,36 @@
 {
   "presets": [
-    [
-      "env"
-    ],
-    "stage-0",
-    "react"
+    ["@babel/preset-env",{
+      "useBuiltIns": "usage",
+      "targets": {
+        "chrome": "49",
+        "ie": "11"
+      },
+      "corejs": 2
+    }],
+    "@babel/preset-react"
   ],
   "plugins": [
-    "transform-runtime",
-    "transform-decorators-legacy",
+    ["@babel/plugin-transform-runtime",{
+      "absoluteRuntime": false,
+      "corejs": 2,
+      "helpers": true,
+      "regenerator": true,
+      "useESModules": false
+    }],
     [
-      "import",
+      "@babel/plugin-proposal-decorators",
       {
-        "libraryName": "antd",
-        "style": true
+        "legacy": true
       }
-    ]
-  ],
-    "env": {
-    "test": {
-      "presets": [["env"], "react", "stage-0"],
-      "plugins": ["transform-runtime", "transform-decorators-legacy"]      
-    }
-  }
+    ],
+    "@babel/plugin-proposal-class-properties",
+    // "transform-decorators-legacy",
+    // "@babel/plugin-syntax-dynamic-import",
+    ["import", {
+      "libraryName": "antd",
+      "libraryDirectory": "es",
+      "style": true // `style: true` 会加载 less 文件
+    }]
+  ]
 }
