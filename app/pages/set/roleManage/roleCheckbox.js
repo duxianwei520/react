@@ -1,7 +1,7 @@
 import { Checkbox } from 'antd';
-import React from 'react';
+import React,{Component} from 'react';
 
-class RoleCheckbox extends React.Component {
+class RoleCheckbox extends Component {
   constructor(props) {
     super(props);
     this.state = {
