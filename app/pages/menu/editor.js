@@ -110,7 +110,7 @@ export default class app extends Component {
 }
 
 
-class StyleButton extends React.Component {
+class StyleButton extends Component {
   constructor() {
     super();
     this.onToggle = (e) => {
