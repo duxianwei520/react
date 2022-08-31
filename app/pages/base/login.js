@@ -10,9 +10,13 @@ import { /* login,  */staff, menu } from '@apis/common'
 import Logo from '@components/logo/logo'
 import md5 from 'md5'
 import QueuiAnim from 'rc-queue-anim'
+import axios from 'axios'
 
 // import '@styles/base.less'
 import '@styles/login.less'
+
+const CancelToken = axios.CancelToken;
+const source = CancelToken.source();
 
 const FormItem = Form.Item
 
@@ -38,6 +42,23 @@ export default class Login extends Component {
   componentDidMount() {
     this.props.dispatch(clearGformCache2({}))
     this.props.form.setFieldsValue({ username: 'username', password: '123456' })
+
+    // 测试取消axios请求 demo1
+    axios.post('http://localhost:1111/mock/usercenter/login', {
+      username: 'dupi',
+      password: '123',
+    }, {
+      cancelToken: source.token,
+    }).catch((error) => {
+      console.log(error)
+    })
+    // 已经封装好的取消 demo2
+    const res = menu({}, (response) => {}, (r) => {}, { cancelToken: source.token })
+
+    setTimeout(() => {
+      source.cancel('取消登录请求');
+      res.abort('取消获取菜单请求')
+    }, 500);
   }
 
   // #region 收缩业务代码功能

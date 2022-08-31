@@ -48,7 +48,7 @@ const webpackConfigDev = {
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ],
-  devtool: 'source-map',
+  devtool: 'cheap-module-eval-source-map',
   devServer: {
     contentBase: resolve('../app'),
     historyApiFallback: false,
