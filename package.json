@@ -135,7 +135,7 @@
     "postcss-loader": "^3.0.0",
     "react-addons-test-utils": "~15.6.2",
     "sinon": "~4.1.6",
-    "socket.io": "2.0.4",
+    "socket.io": "2.5.0",
     "style-loader": "^0.19.1",
     "terser-webpack-plugin": "^2.2.1",
     "url-loader": "^2.2.0",
