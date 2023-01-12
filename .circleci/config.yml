@@ -57,7 +57,7 @@ jobs:
   #     - persist_to_workspace:
   #         root: ~/react
   #         paths:
-  #           - dist
+  #     - dist
 
 
   lint:
