@@ -130,7 +130,7 @@
     "less-loader": "^4.0.6",
     "mini-css-extract-plugin": "^0.8.0",
     "mockjs": "^1.0.1-beta3",
-    "nodemon": "^2.0.7",
+    "nodemon": "^2.0.20",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
     "react-addons-test-utils": "~15.6.2",
