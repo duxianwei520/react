@@ -1,78 +1,65 @@
-version: 2
+version: 2.1
 
-references:
-  container_config: &container_config
+orbs:
+  node: circleci/node@4.1.0
+
+executors:
+  node_executor:
     docker:
-      - image: circleci/node:8
+      - image: cimg/node:14.17.0  # Updated to use CircleCI's next-gen convenience images
     working_directory: ~/react
-
-  attach_workspace: &attach_workspace
-    attach_workspace:
-      at: ~/react
-
-  react_16: &react_16
-    environment:
-      REACT: 16
-
-  workflow: &workflow
-    jobs:
-      - setup:
-          filters:
-            branches:
-              ignore: gh-pages
-      # - testing:
-      #     requires:
-      #       - setup
-      - lint:
-          requires:
-            - setup
-
 
 jobs:
   setup:
-    <<: *container_config
+    executor: node_executor
     steps:
       - checkout
-      - run: node -v
-      - run: npm -v
+      - node/install:
+          node-version: "14.17.0"  # Specify Node version here if needed, or use the image's default
       - run: npm install
       - run: npm run dll
       - run:
-          command: |
-            set +eo
-            npm ls
-            true
+          name: List installed packages
+          command: npm ls || true  # Simplified command
       - persist_to_workspace:
           root: ~/react
           paths:
             - node_modules
 
+  # Uncomment and update the testing job as needed
   # testing:
-  #   <<: *container_config
+  #   executor: node_executor
   #   steps:
   #     - checkout
-  #     - *attach_workspace
-  #     - run: npm run testing
+  #     - attach_workspace:
+  #         at: ~/react
+  #     - run: npm run test  # Assuming "testing" is a custom script; replace with actual command
   #     - run: node ./scripts/webpack.testing.config.js
   #     - persist_to_workspace:
   #         root: ~/react
   #         paths:
   #           - dist
 
-
   lint:
-    <<: *container_config
+    executor: node_executor
     steps:
       - checkout
-      - *attach_workspace
+      - attach_workspace:
+          at: ~/react
       - run: npm run lint
 
 workflows:
   version: 2
-  build_test:
-    <<: *workflow
-  nightly:
-    <<: *workflow
+  build_and_lint:
+    jobs:
+      - setup
+      # - testing:  # Uncomment if testing job is to be included
+      #     requires:
+      #       - setup
+      - lint:
+          requires:
+            - setup
+  nightly_build:
     triggers:
       - schedule:
           cron: "0 0 * * *"
@@ -80,3 +67,11 @@ workflows:
             branches:
               only:
                 - master
+    jobs:
+      - setup
+      # - testing:  # Uncomment if testing job is to be included
+      #     requires:
+      #       - setup
+      - lint:
+          requires:
+            - setup
