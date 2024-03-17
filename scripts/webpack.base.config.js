@@ -77,7 +77,7 @@ const webpackConfigBase = {
           // },
           test: /[\\/]node_modules[\\/]/,
           name: 'vendor',
-          // minChunks: 1,
+          // minChunks: 2,
           priority: -10,// 确定模块打入的优先级
           reuseExistingChunk: true,// 使用复用已经存在的模块
           enforce: true,

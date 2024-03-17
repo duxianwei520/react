@@ -129,6 +129,7 @@ login(){
 - [√] axios异步请求跨域的设置
 - [√] 实时的webpack包大小预览,方便优化
 - [√] draftjs编辑器
+- [√] cypress自动化测试
 
 
 

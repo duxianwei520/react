@@ -9,6 +9,7 @@
 
 /app/configs/__mocks__/ajax.js
 /app/resource
+app/images
 
 # app/configs
 # app/components

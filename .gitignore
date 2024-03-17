@@ -54,8 +54,6 @@ jspm_packages
 #cashe
 .cache
 
-#app/components/condition1.0
-
 #don't upload node_modules.rar
 node_modules.rar
 
