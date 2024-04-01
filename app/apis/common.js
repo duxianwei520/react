@@ -4,7 +4,7 @@ import { mockURL, /* baseURL, */ path } from '@config'
 
 const prefix = 'usercenter'
 const option = { baseURL: mockURL }
-
+// Exporting all files
 export const login = createApi(`${path}/${prefix}/login`, option) // 登陆
 export const logout = createApi(`${path}/${prefix}/logout`, option) // 登出
 export const loginByTicket = createApi(`${path}/${prefix}/loginByTicket`, option) // 通过ticket登陆
