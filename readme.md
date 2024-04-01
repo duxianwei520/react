@@ -13,7 +13,7 @@ node10.15.3 + react@16.12.0 + redux@3.7.2 + react-router@3.2.0 + webpack@4.41.2 
 QQ群：159697743
 
 ## 项目运行
-
+Your Code is Just Amazing bro
 
 ```
 git clone --depth 1 https://github.com/duxianwei520/react.git  
