@@ -17,7 +17,7 @@ module.exports = {
       'redux',
       'redux-thunk',
       'react-redux',
-      'react-router-redux',
+      // 'react-router-redux',
     ],
   },
   devtool: 'source-mapcheap-module-eval-souce-map',

@@ -7,7 +7,7 @@
 
 ## 项目技术栈
 
-node10.15.3 + react@16.12.0 + redux@3.7.2 + react-router@3.2.0 + webpack@4.41.2 + axios@0.19.0 + less@2.7.1 + antd@3.25.2
+node10.15.3 + react@16.12.0 + redux@3.7.2 + react-router@5.3.4 + webpack@4.41.2 + axios@0.19.0 + less@2.7.1 + antd@3.25.2
 
 ## 交流
 QQ群：159697743

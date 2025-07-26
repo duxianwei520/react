@@ -1,5 +1,5 @@
 
-import { hashHistory } from 'react-router'
+import history from '@middleware/history'
 import { message } from 'antd'
 import { loginByTicket, staff, login as loginApi, getBtns } from '@apis/common'
 
@@ -27,7 +27,7 @@ const _fetchLoginByTicket = async ticket => new Promise((resolve) => {
     if (obj.ticket || obj.mode) {
       message.info('登录过期或服务不可用')
     } else {
-      hashHistory.replace('/login')
+      history.replace('/login')
     }
   })
 })
@@ -56,7 +56,7 @@ const _fetchNav = pathname => new Promise((resolve) => {
     const { list } = response.data
     if (list.length === 0) {
       message.info('该账户没有任何菜单权限，请联系管理员')
-      hashHistory.replace('/login')
+      history.replace('/login')
       // this.setState({ loading: false })
       return
     }
@@ -64,7 +64,7 @@ const _fetchNav = pathname => new Promise((resolve) => {
     // TODO:添加完菜单权限后，需要增加以下代码
     // if (pathname !== '/' && !isHasCurrentMenu(list, pathname)) {
     //   if (process.env.NODE_ENV === 'production') {
-    //     hashHistory.replace('/')
+    //     history.replace('/')
     //   }
     // }
     resolve()
@@ -72,7 +72,9 @@ const _fetchNav = pathname => new Promise((resolve) => {
 })
 
 /* 不管是否含有ticket参数都会在顶层组件中调用 */
-export const validateTickit = async function validateTickit({ query, pathname }, callback) {
+export const validateTickit = async function validateTickit(location, callback) {
+  const { search, pathname } = location
+  const query = new URLSearchParams(search)
   const { ticket } = query
   if (ticket) {
     const loginInfo = await _fetchLoginByTicket(ticket)
@@ -152,17 +154,15 @@ export const fetchBtns = (component, cb) => {
 }
 
 // 进入路由的判断
-export const isLogin = (nextState, replaceState) => {
-  if (nextState.location.query && nextState.location.query.ticket) { // 如果url自带ticket
+export const isLogin = ({search}) => {
+  const query = new URLSearchParams(search)
+  if (query.get('ticket')) { // 如果url自带ticket
     sessionStorage.setItem('token', 'ticket')
   }
-  if (nextState.location.query && nextState.location.query.key) { // 如果url自带key
+  if (query.get('key')) { // 如果url自带key
     sessionStorage.setItem('token', 'key')
   }
-  const token = sessionStorage.getItem('token')
-  if (!token) { // 没有token，那就返回首页
-    replaceState('/login')
-  }
+  return !!sessionStorage.getItem('token');
 }
 
 

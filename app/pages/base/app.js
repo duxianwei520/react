@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 // import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { hashHistory } from 'react-router'
+import history from '@middleware/history'
 import { message, LocaleProvider } from 'antd'
 import { validateTickit/* , parseQueryString */ } from '@configs/common'
 import { loginByKey } from '@apis/common'
@@ -57,17 +57,18 @@ export default class App extends Component {
         menuStyle: true,
       })
     }
-    const { query } = this.props.location
-    if (query.ticket) { // 如果是url路径带ticket的话，那么在当前页面做登录的初始化
+
+    const query = new URLSearchParams(this.props.location.search)
+    if (query.get('ticket')) { // 如果是url路径带ticket的话，那么在当前页面做登录的初始化
       validateTickit(this.props.location, (res) => {
         this.setState({
           idRenderChild: true,
         })
       })
-    } else if (query.key) {
+    } else if (query.get('key')) {
       // const params = parseQueryString(window.location.href)
       loginByKey({ }, (res) => {
-        sessionStorage.setItem('key', query.key)
+        sessionStorage.setItem('key', query.get('key'))
         this.setState({
           idRenderChild: true,
         })
@@ -86,7 +87,7 @@ export default class App extends Component {
       })
     }
 
-    if (query.mode === 'iframe' || query.key) {
+    if (query.get('mode') === 'iframe' || query.get('key')) {
       this.setState({
         isIframe: true,
       })
@@ -169,14 +170,14 @@ export default class App extends Component {
         }
       })
       if (hasIndex) {
-        hashHistory.push(item.children[0].resKey)
+        history.push(item.children[0].resKey)
       } else {
-        hashHistory.push('mission$/my$')
+        history.push('mission$/my$')
       }
     } else if (item.children[0] && item.children[0] && item.children[0].children && item.children[0].children[0]) {
-      hashHistory.push(item.children[0].children[0].resKey)
+      history.push(item.children[0].children[0].resKey)
     } else {
-      hashHistory.push(item.children[0].resKey)
+      history.push(item.children[0].resKey)
     }
   }
 

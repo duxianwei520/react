@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { hashHistory } from 'react-router'
+import history from '@middleware/history'
 import { Menu, Button, Modal, message, Icon, Row, Col } from 'antd'
 import { brandName } from '@config'
 import { logout } from '@apis/common'
@@ -47,7 +47,7 @@ export default class Header extends Component {
           if (result.status === 1) {
             sessionStorage.clear()
             config.staff = {}
-            hashHistory.push('/login')
+            history.push('/login')
           } else {
             message.warning(result.msg)
           }
@@ -84,16 +84,16 @@ export default class Header extends Component {
   logoClick = () => {
     // const nav = JSON.parse(sessionStorage.getItem('gMenuList'))
     // if (nav[0] && nav[0].children && nav[0].children[0].children && nav[0].children[0].children[0] && nav[0].children[0].children[0].resKey) {
-    //   hashHistory.push(nav[0].children[0].children[0].resKey)
+    //   history.push(nav[0].children[0].children[0].resKey)
     //   sessionStorage.setItem('topMenuReskey', nav[0].resKey)
     // }
     // if (nav[0] && nav[0].children && nav[0].children[0].resKey) {
-    //   hashHistory.push(nav[0].children[0].resKey)
+    //   history.push(nav[0].children[0].resKey)
     // } else {
-    //   hashHistory.push('/')
+    //   history.push('/')
     // }
     // console.log(nav)
-    // hashHistory.push()
+    // history.push()
   }
 
   render() {

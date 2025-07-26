@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { hashHistory/* , Link */ } from 'react-router'
+import history from '@middleware/history'
 import { Spin, Form, Icon, Input, Button, Row, Col, message } from 'antd'
 import { regExpConfig } from '@reg'
 import { brandName } from '@config'
@@ -91,7 +91,7 @@ export default class Login extends Component {
 
               staff({ usercode: query.username }, (resp) => {
                 sessionStorage.setItem('userinfo', JSON.stringify(resp.data))
-                hashHistory.push('/')
+                history.push('/')
               }, (r) => {
                 message.warning(r.msg)
                 this.setState({

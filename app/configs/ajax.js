@@ -1,6 +1,6 @@
 
 import axios from 'axios'
-import { hashHistory } from 'react-router'
+import history from '@middleware/history'
 import { timeout, baseURL } from '@config'
 import { message } from 'antd'
 import { parseQueryString } from './common'
@@ -12,7 +12,7 @@ let flag = true
 function logOut(text) {
   if (flag) {
     message.warning(text || '用户登录过期或从其他浏览器登录')
-    hashHistory.replace('/login')
+    history.replace('/login')
     flag = false
     setTimeout(() => flag = true, 0)
   }

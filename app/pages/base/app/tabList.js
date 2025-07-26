@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { routerActions } from 'react-router-redux'
+import { push } from 'connected-react-router'
 import { is } from 'immutable'
 import { Tabs } from 'antd'
 import { updateTabChecked, deleteTabFromList } from '@actions/tabList'
@@ -11,7 +11,7 @@ const { TabPane } = Tabs
 @connect(
   (state, props) => ({ tabList: state.tabListResult }),
   dispatch => ({
-    actions: bindActionCreators(routerActions, dispatch),
+    actions: bindActionCreators({ push }, dispatch),
     dispatch: dispatch,
   }),
 )

@@ -1,5 +1,5 @@
 
-import { routerMiddleware } from 'react-router-redux'
+import { routerMiddleware } from 'connected-react-router'
 import logger from './logger'
 import history from './history'
 // import router from './router'

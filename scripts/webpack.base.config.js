@@ -41,7 +41,6 @@ const webpackConfigBase = {
       '@pages': path.join(__dirname, '../app/pages'),
       '@styles': path.join(__dirname, '../app/styles'),
       '@tableList': path.join(__dirname, '../app/components/tableList/tableList.js'),
-      'react-dom': devMode ? '@hot-loader/react-dom' : 'react-dom', // react-hot-loader需要
     },
   },
   optimization: {
