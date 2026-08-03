@@ -69,7 +69,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.0",
     "antd": "^6.3.2",
-    "axios": "^1.7.9",
+    "axios": "^1.19.0",
     "benz-amr-recorder": "^1.0.9",
     "clipboard": "^2.0.11",
     "core-js": "^3.40.0",
